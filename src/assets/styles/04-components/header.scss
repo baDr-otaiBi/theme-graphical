@@ -213,3 +213,37 @@ salla-user-menu{
     @apply z-10;
   }
 }
+/* ===== Fashion Theme Overrides ===== */
+.store-header {
+  .top-navbar {
+    @apply bg-black text-gray-300 border-b border-gray-800;
+
+    .s-search-input {
+      @apply bg-white/10 text-white border-white/20;
+    }
+
+    .btn--rounded-gray {
+      @apply bg-white/10 text-gray-300 hover:bg-white/20;
+    }
+  }
+
+  .main-nav-container {
+    @apply bg-black border-b border-[#C9A84C]/30;
+
+    .navbar-brand img {
+      @apply max-h-14;
+    }
+  }
+
+  .header-btn__icon {
+    @apply text-white border-gray-700 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors duration-300;
+  }
+
+  .s-cart-summary-total {
+    @apply text-white;
+  }
+
+  .s-cart-summary-count {
+    @apply bg-[#C9A84C];
+  }
+}
