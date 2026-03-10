@@ -215,3 +215,28 @@ salla-button {
     }
   }
 }
+/* ===== Luxury Fashion Buttons ===== */
+.btn--primary {
+  background: linear-gradient(135deg, #C9A84C 0%, #B8962E 100%) !important;
+  @apply text-white border-0 font-light tracking-widest uppercase text-xs rounded-none;
+  letter-spacing: 0.15em;
+
+  &:hover {
+    background: linear-gradient(135deg, #B8962E 0%, #9A7A20 100%) !important;
+    @apply opacity-100;
+  }
+}
+
+.btn--outline-primary {
+  @apply border border-[#C9A84C] text-[#C9A84C] bg-transparent rounded-none font-light tracking-widest uppercase text-xs;
+  letter-spacing: 0.15em;
+
+  &:hover {
+    @apply bg-[#C9A84C] text-white opacity-100;
+  }
+}
+
+salla-add-product-button {
+  --s-button-radius: 0;
+  --s-button-font-weight: 300;
+}

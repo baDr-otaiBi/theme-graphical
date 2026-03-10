@@ -210,40 +210,51 @@ salla-user-menu{
 // Search
 .header-search{
   .s-search-results{
-    @apply z-10;
-  }
-}
-/* ===== Fashion Theme Overrides ===== */
+
+/* ===== Luxury Fashion Header ===== */
 .store-header {
+  // Top bar — رفيع وأسود
   .top-navbar {
-    @apply bg-black text-gray-300 border-b border-gray-800;
+    @apply bg-[#0D0D0D] text-gray-400 border-b border-white/5 py-1.5;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
 
     .s-search-input {
-      @apply bg-white/10 text-white border-white/20;
+      @apply bg-white/5 text-gray-300 border-white/10 rounded-none;
     }
-
     .btn--rounded-gray {
-      @apply bg-white/10 text-gray-300 hover:bg-white/20;
+      @apply bg-transparent text-gray-400 border border-white/10 rounded-none hover:border-[#C9A84C] hover:text-[#C9A84C];
+    }
+    salla-contacts {
+      @apply text-gray-500;
     }
   }
 
+  // Main nav — أسود مع خط ذهبي سفلي رفيع
   .main-nav-container {
-    @apply bg-black border-b border-[#C9A84C]/30;
+    @apply bg-[#0D0D0D] shadow-none;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
 
     .navbar-brand img {
-      @apply max-h-14;
+      @apply max-h-16 brightness-0 invert; // يحوّل الشعار لأبيض على الأسود
     }
   }
 
+  // أيقونات الهيدر
   .header-btn__icon {
-    @apply text-white border-gray-700 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors duration-300;
+    @apply text-gray-300 border-white/10 bg-transparent;
+    transition: color 0.3s, border-color 0.3s;
+
+    &:hover {
+      @apply text-[#C9A84C] border-[#C9A84C];
+    }
   }
 
+  // السلة
   .s-cart-summary-total {
-    @apply text-white;
+    @apply text-gray-200 font-light;
   }
-
   .s-cart-summary-count {
-    @apply bg-[#C9A84C];
+    @apply bg-[#C9A84C] text-black;
   }
 }
