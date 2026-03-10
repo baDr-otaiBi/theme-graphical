@@ -1,7 +1,7 @@
 {
     "name": {
-        "ar": "theme-Graphical-",
-        "en": "theme-Graphical-"
+        "ar": "جرافيكال",
+        "en": "Graphical"
     },
     "repository": "https://github.com/baDr-otaiBi/theme-graphical",
     "author_email": "b.alotaibi2005@gmail.com",
@@ -1076,7 +1076,7 @@
     ],
     "support_url": "https://example.com",
     "description": {
-        "ar": "",
-        "en": ""
+        "ar": "ثيم أنيق ومتميز للمتاجر الفاشن والأزياء",
+        "en": "Elegant theme for fashion and clothing stores"
     }
 }
