@@ -1472,6 +1472,19 @@ body.theme-graphical {
     box-shadow: none !important;
   }
 
+  // ===================== PRODUCTS GRID — 2 columns editorial =====================
+  .s-products-grid,
+  .products-grid,
+  [class*="products-grid"] {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2px !important;
+    padding: 0 !important;
+    @media (max-width: 768px) {
+      gap: 1px !important;
+    }
+  }
+
   // ===================== SECTIONS SPACING =====================
   .s-block {
     padding: 80px 0 !important;
@@ -1480,6 +1493,84 @@ body.theme-graphical {
     border-bottom: none !important;
     @media (max-width: 768px) {
       padding: 48px 0 !important;
+    }
+  }
+
+  // Container max-width
+  .container, .s-container {
+    max-width: 1240px;
+    padding-inline: 24px;
+  }
+
+  // ===================== SECTION TITLES (moved from critical CSS) =====================
+  .s-block__title h2,
+  .s-block-title,
+  [class*="block-title"],
+  .section-title {
+    font-family: var(--font-heading) !important;
+    font-weight: 900 !important;
+    font-size: clamp(1.8rem, 4vw, 3rem) !important;
+    color: #FFFFFF !important;
+    letter-spacing: -0.02em;
+    padding: 48px 0 32px !important;
+    &::after { display: none !important; }
+  }
+
+  // Product page title
+  .s-product-title, .product-title {
+    font-family: var(--font-heading) !important;
+    font-weight: 700;
+    font-size: 28px;
+    color: #FFFFFF;
+  }
+
+  // ===================== LOGO — fashion prominent =====================
+  .navbar-brand img {
+    max-height: 56px !important;
+    filter: brightness(0) invert(1) !important;
+  }
+  .store-footer img:first-child {
+    filter: brightness(0) invert(1) !important;
+  }
+  .brand-item img {
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.6;
+  }
+  .brand-item:hover img {
+    opacity: 1;
+  }
+  .brand-logo img {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  // ===================== DIVIDE COLORS =====================
+  .divide-gray-100 > :not([hidden]) ~ :not([hidden]),
+  .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+    border-color: rgba(255,255,255,0.06) !important;
+  }
+  .text-gray-700, .text-gray-600 { color: rgba(255,255,255,0.5) !important; }
+  .text-gray-500 { color: rgba(255,255,255,0.4) !important; }
+
+  // ===================== SALLA BUTTON CLASSES (moved from critical CSS) =====================
+  .s-button-primary, .s-btn-primary, .btn-primary {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    &:hover {
+      opacity: 0.7;
+      background: #FFFFFF !important;
+      color: #000000 !important;
+    }
+  }
+  .s-btn-outline, .btn-outline {
+    background: transparent !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 0 !important;
+    &:hover {
+      border-color: #FFFFFF !important;
     }
   }
 
