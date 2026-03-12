@@ -1,43 +1,72 @@
+// ========================================
+// Graphical — Luxury Brands Page
+// ========================================
+
+.brands-nav-wrap {
+  @apply mb-8 sticky top-20 z-10 py-3;
+  background: var(--graphical-dark);
+  border-bottom: 1px solid var(--graphical-gold-border);
+}
+
 .brands-nav {
-  @apply flex flex-wrap justify-center rtl:space-x-reverse space-x-2 space-y-2;
+  @apply flex flex-wrap gap-2 justify-center;
+}
 
-  &__item {
-    @apply flex items-center justify-center rounded-md hover:shadow-sm focus:border-primary text-sm w-10 h-10 bg-white text-gray-500 p-1 transition;
+.brands-nav__item {
+  @apply w-10 h-10 flex items-center justify-center text-sm font-bold;
+  background: var(--graphical-dark-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--graphical-radius);
+  color: var(--graphical-text-secondary);
+  transition: all 0.3s ease;
 
-    &.is-selected{
-      @apply bg-primary text-primary-reverse #{!important};
-    }
-
-    span{
-      @apply pointer-events-none;
-    }
-  }
-
-  &.is-sticky{
-    @apply flex-col flex-wrap h-full fixed z-0 top-9 rtl:right-2 ltr:left-2 space-y-0.5 pt-16 pb-10;
-
-    .brands-nav__item{
-      @apply bg-white;
-
-      @media (max-width: 1280px) {
-        @apply w-6 h-6;
-      }
-    }
+  &:hover,
+  &.is-active {
+    border-color: var(--graphical-gold);
+    color: var(--graphical-gold);
+    background: var(--graphical-gold-muted);
   }
 }
 
 .brand-char {
-  @apply rtl:ml-5 ltr:mr-5 rtl:md:ml-12 ltr:md:mr-12 bg-white rounded-md w-10 h-10 flex items-center transition justify-center hover:shadow-sm border border-transparent focus:border-primary text-sm;
+  @apply flex items-center justify-center w-14 h-14 font-bold text-2xl;
+  background: var(--graphical-gold);
+  color: var(--graphical-black);
+  border-radius: var(--graphical-radius);
+  margin-inline-end: 1rem;
 }
 
 .brand-item {
-  @apply flex justify-center items-center bg-white transition hover:opacity-95 bg-cover h-20 sm:h-24 md:h-32 text-white text-center p-3 sm:p-4 md:p-8 rounded-md overflow-hidden relative;
+  @apply flex items-center justify-center p-4 h-24 transition-all duration-300;
+  background: var(--graphical-dark-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--graphical-radius);
 
-  .index & {
-    @apply p-4;
-
-    img{
-      @apply xs:max-w-[150px] w-auto;
-    }
+  &:hover {
+    border-color: var(--graphical-gold-border);
+    box-shadow: var(--graphical-shadow-gold);
   }
+
+  img {
+    filter: brightness(0) invert(0.8);
+    transition: filter 0.3s ease;
+  }
+
+  &:hover img {
+    filter: none;
+  }
+}
+
+.brand-page__banner {
+  img {
+    border-radius: 0;
+    border-bottom: 1px solid var(--graphical-gold-border);
+  }
+}
+
+.brand-logo {
+  @apply p-3 inline-block;
+  background: var(--graphical-dark-card);
+  border: 1px solid var(--graphical-gold-border);
+  border-radius: var(--graphical-radius);
 }

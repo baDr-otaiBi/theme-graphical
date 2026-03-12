@@ -1,50 +1,54 @@
+// ========================================
+// Graphical — Luxury Fashion Header
+// ========================================
 
 /* Top Nav */
 .top-navbar {
-  @apply flex py-2 min-h-[48px];
+  @apply flex py-1.5 min-h-[40px];
+  background: var(--graphical-black);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--graphical-text-muted);
 
   @screen lg {
-    @apply py-1.5;
+    @apply py-1;
   }
 
-  .topnav-has-bg & {
-    @apply bg-[color:var(--topnav-bg)];
-  }
+  .s-search-input {
+    @apply border-none;
+    background: rgba(255,255,255,0.05) !important;
+    color: var(--graphical-text-secondary) !important;
+    border-radius: var(--graphical-radius) !important;
 
-  .topnav-has-gradient & {
-    @apply bg-gradient-to-r from-[color:var(--topnav-gradient-from)] to-[color:var(--topnav-gradient-to)];
-  }
-
-  .topnav-has-text-color & {
-    @apply text-[color:var(--topnav-text-color)];
-  }
-
-  .s-search-input{
-    @apply bg-gray-200/50 hover:bg-gray-200/70 border-none;
+    &:focus {
+      background: rgba(255,255,255,0.08) !important;
+      box-shadow: 0 0 0 1px var(--graphical-gold-border) !important;
+    }
   }
 
   @media (max-width: 640px) {
     .s-search-results{
-      @apply w-screen max-w-[100vw] rtl:-left-2.5 ltr:-right-2.5; 
+      @apply w-screen max-w-[100vw] rtl:-left-2.5 ltr:-right-2.5;
     }
-  } 
+  }
 
-  .topnav-is-dark & {
-    @apply bg-dark text-gray-300;
+  .btn--circle-gray,
+  .btn--rounded-gray {
+    @apply bg-transparent border rounded-none;
+    border-color: rgba(255,255,255,0.1);
+    color: var(--graphical-text-muted);
+    transition: all 0.3s ease;
 
-    .btn--circle-gray,
-    .btn--rounded-gray,
-    .s-search-input{
-      @apply bg-gray-100/10 hover:bg-gray-100/[0.15]
+    &:hover {
+      border-color: var(--graphical-gold);
+      color: var(--graphical-gold);
     }
+  }
 
-    .topnav-link-item{
-      @apply border-gray-300/10;
-    }
-
-    .s-search-input{
-      @apply text-white;
-    }
+  salla-contacts {
+    color: var(--graphical-text-muted);
   }
 
   .search-btn{
@@ -52,40 +56,44 @@
   }
 }
 
-// contacs menu items - pages menu items
 .topnav-link-item{
-  @apply inline-block transition duration-300 px-4 rtl:last:pl-0 ltr:last:pr-0 py-px text-sm leading-none ltr:border-r rtl:border-l border-gray-200 ltr:last:border-0 rtl:last:border-0 hover:opacity-80;
+  @apply inline-block transition duration-300 px-4 rtl:last:pl-0 ltr:last:pr-0 py-px text-sm leading-none;
+  border-color: rgba(255,255,255,0.08);
+  @apply ltr:border-r rtl:border-l ltr:last:border-0 rtl:last:border-0;
+
+  &:hover {
+    color: var(--graphical-gold);
+  }
 
   &.right-side{
-    @apply rtl:first:pr-0 ltr:first:pl-0
+    @apply rtl:first:pr-0 ltr:first:pl-0;
   }
 }
 
 /* Main Nav */
 .main-nav-container {
   @apply min-h-[68px] lg:min-h-[84px];
-  
-  // Custom background Color
-  .has-bg &,
-  .has-bg & .sub-menu{
-    @apply bg-[color:var(--mainnav-bg)];
-  }
-
-  // Custom text color
-  .has-text-color & {
-    @apply text-[color:var(--mainnav-text-color)];
-  }
+  background: var(--graphical-dark) !important;
+  border-bottom: 1px solid var(--graphical-gold-border);
+  box-shadow: none !important;
 }
 
 .menu-item {
-  @apply flex items-center px-6 py-2.5 sm:text-sm text-gray-500 transition-colors duration-300 hover:bg-gray-200/30;
+  @apply flex items-center px-6 py-2.5 sm:text-sm transition-colors duration-300;
+  color: var(--graphical-text-secondary);
+
+  &:hover {
+    color: var(--graphical-gold);
+    background: rgba(201,168,76,0.05);
+  }
 
   &.logout{
     @apply text-red-400;
   }
 
   &.is-active{
-    @apply text-primary bg-gray-200/20;
+    color: var(--graphical-gold);
+    background: rgba(201,168,76,0.08);
   }
 }
 
@@ -105,7 +113,9 @@
       left: 0;
       width: 100%;
       z-index: 29;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      background: var(--graphical-dark);
+      border-bottom: 1px solid var(--graphical-gold-border);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
       transform: translate3d(0, -100%, 0);
 
       @media (max-width: 1024px){
@@ -118,7 +128,6 @@
       img {
         max-height: 40px;
       }
-
       h4 {
         line-height: 1;
       }
@@ -133,7 +142,6 @@
   &.fixed-header {
     .inner {
       transform: translate3d(0, 0, 0);
-
       @media (max-width: 1024px){
         transform: none;
         top: 0;
@@ -146,16 +154,32 @@
   @apply items-center flex my-2 lg:my-0;
 
   img {
-    @apply w-auto max-h-12 max-w-[100px] xs:max-w-[170px];
+    @apply w-auto max-h-14 max-w-[100px] xs:max-w-[170px];
+    filter: brightness(0) invert(1);
   }
 }
 
-// Mainnav cart icon
 .header-btn{
-  @apply border-none outline-none transition-opacity hover:opacity-80;
+  @apply border-none outline-none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
 
   &__icon{
-    @apply text-xl w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-700;
+    @apply text-xl w-10 h-10 flex items-center justify-center;
+    color: var(--graphical-text-secondary);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--graphical-radius);
+    background: transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--graphical-gold);
+      border-color: var(--graphical-gold);
+    }
+
     &.icon{
       @apply mr-[9px] rtl:ml-[9px] rtl:mr-[unset];
     }
@@ -165,33 +189,38 @@
 .header-buttons .sicon-sar {
   width: 0.65rem;
   display: inline-block;
-min-height: 1.4rem;
+  min-height: 1.4rem;
 }
 
 #mainnav .sicon-menu {
   width: 1rem;
-  display: inline-block
+  display: inline-block;
+  color: var(--graphical-gold);
 }
 
 custom-main-menu {
-  min-height: 84px
+  min-height: 84px;
 }
 
 salla-cart-summary {
   min-width: 73px;
-  min-height: 40px
+  min-height: 40px;
 }
+
 salla-user-menu{
   @apply shrink-0;
 }
 
-// cart summary
 .s-cart-summary-total{
-  @apply text-black font-[600];
+  color: var(--graphical-text-primary) !important;
+  font-weight: 300;
 }
 
 .s-cart-summary-count{
-  @apply -top-0.5 ltr:-left-1.5 rtl:-right-1.5 bg-red-800;
+  @apply -top-0.5 ltr:-left-1.5 rtl:-right-1.5;
+  background: var(--graphical-gold) !important;
+  color: var(--graphical-black) !important;
+  font-weight: 700;
 }
 
 #nav-cart{
@@ -206,55 +235,9 @@ salla-user-menu{
   }
 }
 
-
-// Search
-.header-search{
-  .s-search-results{
-
-/* ===== Luxury Fashion Header ===== */
-.store-header {
-  // Top bar — رفيع وأسود
-  .top-navbar {
-    @apply bg-[#0D0D0D] text-gray-400 border-b border-white/5 py-1.5;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-
-    .s-search-input {
-      @apply bg-white/5 text-gray-300 border-white/10 rounded-none;
-    }
-    .btn--rounded-gray {
-      @apply bg-transparent text-gray-400 border border-white/10 rounded-none hover:border-[#C9A84C] hover:text-[#C9A84C];
-    }
-    salla-contacts {
-      @apply text-gray-500;
-    }
-  }
-
-  // Main nav — أسود مع خط ذهبي سفلي رفيع
-  .main-nav-container {
-    @apply bg-[#0D0D0D] shadow-none;
-    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-
-    .navbar-brand img {
-      @apply max-h-16 brightness-0 invert; // يحوّل الشعار لأبيض على الأسود
-    }
-  }
-
-  // أيقونات الهيدر
-  .header-btn__icon {
-    @apply text-gray-300 border-white/10 bg-transparent;
-    transition: color 0.3s, border-color 0.3s;
-
-    &:hover {
-      @apply text-[#C9A84C] border-[#C9A84C];
-    }
-  }
-
-  // السلة
-  .s-cart-summary-total {
-    @apply text-gray-200 font-light;
-  }
-  .s-cart-summary-count {
-    @apply bg-[#C9A84C] text-black;
+.header-search {
+  .s-search-results {
+    background: var(--graphical-dark-card);
+    border: 1px solid var(--graphical-gold-border);
   }
 }

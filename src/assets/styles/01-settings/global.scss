@@ -1,23 +1,64 @@
-// Colors
+// ========================================
+// Graphical Theme — Luxury Fashion Design System
+// Black & Gold Color Palette
+// ========================================
+
 $main-color: var(--color-primary);
 $infinte-color: var(--infinte-color);
 $main-text-color: var(--main-text-color);
+
 :root {
+  /* Core brand colors */
+  --graphical-gold: #C9A84C;
+  --graphical-gold-light: #E2C670;
+  --graphical-gold-dark: #A8863A;
+  --graphical-gold-muted: rgba(201, 168, 76, 0.15);
+  --graphical-gold-border: rgba(201, 168, 76, 0.25);
+
+  /* Dark backgrounds */
+  --graphical-black: #0A0A0A;
+  --graphical-dark: #0D0D0D;
+  --graphical-dark-surface: #141414;
+  --graphical-dark-card: #1A1A1A;
+  --graphical-dark-elevated: #222222;
+  --graphical-dark-hover: #2A2A2A;
+
+  /* Text colors */
+  --graphical-text-primary: #F5F5F5;
+  --graphical-text-secondary: #B0B0B0;
+  --graphical-text-muted: #707070;
+  --graphical-text-gold: #C9A84C;
+
+  /* System colors (Salla integration) */
   --infinte-color: #c9c9c9;
-  --main-text-color: #1a1a1a;
-  --main-text-color-dark: #0d0d0d;
-  /* Fashion: Black & Gold */
+  --main-text-color: #F5F5F5;
+  --main-text-color-dark: #E0E0E0;
   --color-primary: #C9A84C;
-  --color-primary-d: #a8863a;
-  --color-primary-l: #e2c070;
-  --color-primary-reverse: #ffffff;
-  --color-text: #555555;
-  --bg-gray: #f7f5f0;
-  --color-grey: #f5f3ee;
-  --color-light-grey: #e8e4dc;
-  /* font-size */
+  --color-primary-d: #A8863A;
+  --color-primary-l: #E2C670;
+  --color-primary-reverse: #0A0A0A;
+  --color-text: #B0B0B0;
+  --bg-gray: #141414;
+  --color-grey: #1A1A1A;
+  --color-light-grey: #222222;
+
+  /* Typography */
   --font-sm: 0.8685714286rem;
   --font-main: "DINNextLTArabic";
+
+  /* Radius */
+  --graphical-radius: 2px;
+  --graphical-radius-lg: 4px;
+
+  /* Transitions */
+  --graphical-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --graphical-transition-slow: 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Shadows */
+  --graphical-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --graphical-shadow-gold: 0 4px 24px rgba(201, 168, 76, 0.15);
+  --graphical-shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.6);
+
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
 }

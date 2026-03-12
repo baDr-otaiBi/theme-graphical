@@ -107,3 +107,54 @@
   animation-fill-mode: both;
   animation-iteration-count: 1;
 }
+
+// Luxury Gold shimmer effect
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--graphical-gold-dark) 0%,
+    var(--graphical-gold-light) 50%,
+    var(--graphical-gold-dark) 100%
+  );
+  background-size: 200% 100%;
+  animation: goldShimmer 3s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Elegant fade-in-up
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+// Stagger children animation
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.08}s;
+    }
+  }
+}

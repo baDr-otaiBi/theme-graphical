@@ -1,11 +1,40 @@
 {#
-| Variable           | Type                      | Description                         |
-|--------------------|---------------------------|-------------------------------------|
-| limit              | string                    | Maximum number of the testimonials  |
-| type               | string                    | `default:store` all, product, store |
-| sort               | string                    |                                     |
-| hide_customer_info | bool                      | show/hide info customers            |
+| Variable                         | Type     | Description |
+|----------------------------------|----------|-------------|
+| component                        | object   |             |
+| component.testimonials           | array    |             |
+| component.testimonials[].name    | string   |             |
+| component.testimonials[].comment | string   |             |
+| component.testimonials[].image   | ?string  |             |
+| position                         | int      |             |
 #}
-<section class="s-block s-block--testimonials container overflow-hidden">
-    <salla-reviews {{ display_all_url ? "display-all-link" : "" }} limit="{{ limit }}" sort="{{ sort }}" {{ hide_customer_info ? 'hide-customer-info' : '' }} type="{{type}}"></salla-reviews>
-</section> 
+{% if testimonials|length %}
+<section class="s-block container">
+    <salla-slider
+        id="testimonials-{{ position }}"
+        type="carousel"
+        block-title="{{ trans('blocks.home.testimonials') }}"
+        loop="true">
+        <div slot="items">
+            {% for testimonial in testimonials %}
+                <div class="slide--one-third">
+                    <div class="p-6 h-full" style="background: var(--graphical-dark-card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--graphical-radius);">
+                        <div class="flex items-center gap-3 mb-4">
+                            {% if testimonial.image %}
+                            <img src="{{ testimonial.image }}" alt="{{ testimonial.name }}" class="w-12 h-12 rounded-full object-cover" style="border: 2px solid var(--graphical-gold-border);">
+                            {% endif %}
+                            <div>
+                                <h3 class="text-sm font-bold" style="color: var(--graphical-text-primary)">{{ testimonial.name }}</h3>
+                                {% if testimonial.stars %}
+                                <salla-rating-stars value="{{ testimonial.stars }}" size="small"></salla-rating-stars>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="text-sm leading-7" style="color: var(--graphical-text-muted)">{{ testimonial.comment }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </salla-slider>
+</section>
+{% endif %}

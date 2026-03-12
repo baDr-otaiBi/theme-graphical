@@ -3,8 +3,19 @@
     "header": {
       "cart": "Cart"
     },
+    "footer": {
+      "pages_links": "Important Links"
+    },
+    "home": {
+      "testimonials": "Client Reviews",
+      "featured_products": "Featured Products",
+      "new_arrivals": "New Arrivals",
+      "best_sellers": "Best Sellers",
+      "our_brands": "Our Brands",
+      "shop_by_category": "Shop by Category"
+    },
     "appBanner": {
-      "download_now": "download now"
+      "download_now": "Download App"
     }
   },
   "pages": {
@@ -21,6 +32,11 @@
     }
   },
   "common": {
+    "elements": {
+      "shop_now": "Shop Now",
+      "view_all": "View All",
+      "explore": "Explore"
+    },
     "bank_offer_sub_title_multiple": "Pay for your purchases via one of the following bank cards and get the specified discount",
     "bank_offer_sub_title_single": "Pay for your purchases via :bank_name bank card and get discount"
   }
