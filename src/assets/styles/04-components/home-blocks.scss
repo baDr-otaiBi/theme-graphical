@@ -1,8 +1,9 @@
 // ========================================
-// Graphical — Luxury Home Blocks
+// Graphical — Jacquemus Home Blocks
+// Generous spacing, no gradients, no blur
 // ========================================
 
-/* Block Title */
+/* Block Title — Jacquemus Bold */
 .s-block{
   &__title{
     @apply center-between mb-6 md:mb-10;
@@ -12,50 +13,47 @@
     }
 
     h2{
-      @apply text-xl font-bold relative leading-[1.2];
-      color: var(--graphical-text-primary);
-      letter-spacing: 0.04em;
+      @apply font-bold relative leading-[1.1];
+      font-family: var(--font-heading) !important;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
 
-      &::after {
-        content: '';
-        display: block;
-        width: 40px;
-        height: 2px;
-        background: var(--graphical-gold);
-        margin-top: 10px;
-      }
+      // No gold underline — Jacquemus doesn't do that
+      &::after { display: none; }
     }
 
     p{
       @apply text-sm mt-2 line-clamp-1 sm:line-clamp-2 rtl:md:pl-16 ltr:md:pr-16;
-      color: var(--graphical-text-muted);
+      color: rgba(255,255,255,0.4);
     }
 
     &-nav{
       @apply hidden sm:flex ltr:flex-row-reverse rtl:space-x-reverse space-x-2.5 rtl:mr-6 ltr:ml-6;
 
       button {
-        border: 1px solid var(--graphical-gold-border);
-        border-radius: var(--graphical-radius);
-        color: var(--graphical-gold);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 0;
+        color: #FFFFFF;
         background: transparent;
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease;
 
         &:hover {
-          background: var(--graphical-gold);
-          color: var(--graphical-black);
+          opacity: 0.6;
         }
       }
     }
   }
 
   &__display-all{
-    @apply inline-flex items-center gap-2 text-sm font-bold;
-    color: var(--graphical-gold);
-    transition: all 0.3s ease;
+    @apply inline-flex items-center gap-2 text-sm;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+    transition: color 0.3s ease;
 
     &:hover {
-      color: var(--graphical-gold-light);
+      color: #FFFFFF;
     }
 
     i{
@@ -64,44 +62,41 @@
   }
 }
 
-/* Main slider — Cinematic */
+/* Main slider — Jacquemus: large, quiet */
 .s-block--hero-slider{
   .swiper-slide{
     @apply h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[700px] relative;
-    background: var(--graphical-black);
+    background: #0A0A0A;
 
     .swiper-lazy{
       &:after{
         @apply content-[''] absolute transition top-0 w-full h-full;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
       }
     }
 
     .overlay-bg{
       &:after{
         @apply content-[''] absolute top-0 w-full h-full;
-        background: linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.85) 100%);
-
-        @supports (backdrop-filter: blur(1px)) {
-          backdrop-filter: blur(1px);
-        }
+        background: linear-gradient(180deg, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.3) 40%, rgba(10,10,10,0.7) 100%);
+        // No backdrop-filter
       }
     }
   }
 
   .home-slider__content {
     .description {
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.6);
     }
     h2 {
-      font-weight: 300 !important;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-family: var(--font-heading) !important;
+      font-weight: 900 !important;
+      letter-spacing: -0.02em;
     }
   }
 }
 
-/* Graphical Slider — luxury classes (no inline styles) */
+/* Graphical Slider */
 .graphical-slide {
   @apply w-full relative;
   min-height: 450px;
@@ -117,11 +112,8 @@
 
   &__overlay {
     @apply absolute inset-0;
-    background: linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.85) 100%);
-
-    @supports (backdrop-filter: blur(1px)) {
-      backdrop-filter: blur(1px);
-    }
+    background: linear-gradient(180deg, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.3) 40%, rgba(10,10,10,0.7) 100%);
+    // No backdrop-filter
   }
 
   &__content {
@@ -131,44 +123,38 @@
   }
 
   &__title {
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 200;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    font-family: var(--font-heading);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    text-transform: none;
   }
 
   &__accent {
     width: 60px;
-    height: 2px;
-    background: var(--graphical-gold);
+    height: 1px;
+    background: rgba(255,255,255,0.3);
     margin: 0 auto 1.5rem;
   }
 
   &__description {
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.02em;
     font-weight: 300;
   }
 
   &__cta {
-    padding: 0.875rem 2.5rem;
-    font-size: 0.875rem;
+    padding: 16px 48px;
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-weight: 500;
-    border: 1px solid var(--graphical-gold);
-    color: var(--graphical-gold);
-    background: rgba(201,168,76,0.08);
-    transition: all 0.4s ease;
-
-    @supports (backdrop-filter: blur(10px)) {
-      backdrop-filter: blur(10px);
-    }
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    border: none;
+    color: #000000;
+    background: #FFFFFF;
+    transition: opacity 0.3s ease;
 
     &:hover {
-      background: var(--graphical-gold);
-      color: #0A0A0A;
-      border-color: var(--graphical-gold);
+      opacity: 0.7;
     }
   }
 }
@@ -189,24 +175,23 @@
   &--fixed{
     img{
       @apply w-full object-cover block;
-      border: 1px solid var(--graphical-gold-border);
-      border-radius: var(--graphical-radius);
-      background: var(--graphical-dark-card);
+      border: none;
+      border-radius: 0;
+      background: #111;
     }
   }
 }
 
-/* Square Banner Block — Elegant hover */
+/* Square Banner Block */
 .banner-entry{
   @apply h-[220px] text-white text-center p-4 xs:p-5 overflow-hidden relative bg-cover bg-no-repeat bg-center;
-  background-color: var(--graphical-dark-card);
-  border: 1px solid var(--graphical-gold-border);
-  border-radius: var(--graphical-radius);
-  transition: all 0.5s ease;
+  background-color: #111;
+  border: none;
+  border-radius: 0;
+  transition: opacity 0.3s ease;
 
   &:hover {
-    border-color: var(--graphical-gold);
-    box-shadow: var(--graphical-shadow-gold);
+    opacity: 0.9;
   }
 
   article{
@@ -219,11 +204,11 @@
 
   h3{
     @apply flex flex-col justify-center xs:px-1;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.01em;
 
     &.text-with-border{
       @apply xs:border border-dashed rounded-none;
-      border-color: rgba(255,255,255,0.3);
+      border-color: rgba(255,255,255,0.2);
 
       span{
         @apply line-clamp-2;
@@ -265,7 +250,7 @@
 .has-overlay{
   &:after{
     @apply content-[''] h-full w-full absolute top-0 left-0 transition-colors duration-300;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
   }
 
   &.with-hover{
@@ -281,46 +266,21 @@
   }
 
   &:hover:after{
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%);
   }
 }
 
 
-/* Full banner block — Cinematic parallax */
+/* Full banner block */
 .full-banner-entry {
   @apply row-span-2 h-80 md:h-96 lg:h-116 xl:h-132 transition-opacity bg-center bg-cover text-white text-center p-5 overflow-hidden relative;
-  background-color: var(--graphical-dark-surface);
+  background-color: #111;
   background-attachment: initial;
 
+  // Remove decorative pseudo-elements
   &::after,
   &::before {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: -93%;
-    content: "";
-    background: var(--graphical-gold);
-    position: absolute;
-    transition: all 0.3s ease-in-out;
-    transform: rotate(220deg) translateY(-50%) translateX(33%);
-    opacity: 0.15;
-  }
-
-  &::before {
-    background: rgba(255,255,255,0.05);
-    right: auto;
-    transform: rotate(220deg) translateY(-40%) translateX(0);
-    [dir="ltr"] & {
-      left: -52%;
-    }
-  }
-
-  @media (max-width: 1330px) {
-    &::after { top: -50%; }
-  }
-  @media (max-width: 480px) {
-    &::before { top: 20%; }
-    &::after { top: -80%; }
+    display: none;
   }
 }
 
@@ -340,12 +300,12 @@
   }
 
   .tab-trigger{
-    color: var(--graphical-text-secondary);
+    color: rgba(255,255,255,0.4);
 
     &.is-active button{
-      background: var(--graphical-gold) !important;
-      color: var(--graphical-black) !important;
-      border-color: var(--graphical-gold) !important;
+      background: #FFFFFF !important;
+      color: #000000 !important;
+      border-color: #FFFFFF !important;
     }
   }
 }
@@ -363,13 +323,13 @@
   }
 
   .tab-trigger{
-    color: var(--graphical-text-secondary);
-    font-weight: 700;
-    letter-spacing: 0.03em;
+    color: rgba(255,255,255,0.4);
+    font-weight: 400;
+    letter-spacing: 0.05em;
 
     &.is-active button{
-      color: var(--graphical-gold) !important;
-      border-color: var(--graphical-gold) !important;
+      color: #FFFFFF !important;
+      border-color: #FFFFFF !important;
     }
   }
 }
@@ -396,7 +356,7 @@
 /* Slider with bg block */
 .s-block--slider-with-bg{
   @apply pb-8 sm:pb-16 mt-8 sm:mt-16 first-of-type:mt-0;
-  background: var(--graphical-dark-surface);
+  background: transparent;
 
   .slider-bg{
     @apply h-96 sm:h-116 transition-opacity bg-center bg-cover text-white relative;
@@ -404,7 +364,7 @@
     &:before{
       content: '';
       @apply h-full w-full absolute top-0 left-0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
     }
   }
 
@@ -416,10 +376,10 @@
       @apply w-full flex justify-between;
     }
     &__display-all{
-      @apply block btn btn--outline light btn--rounded-full;
+      @apply block btn btn--outline btn--rounded-full;
       @apply grow-0 bg-transparent text-white #{!important};
-      border-color: var(--graphical-gold) !important;
-      color: var(--graphical-gold) !important;
+      border-color: rgba(255,255,255,0.2) !important;
+      color: #FFFFFF !important;
     }
   }
 }
@@ -427,36 +387,35 @@
 /* Main Links Block */
 .slide--cat-entry {
   @apply h-36 p-3 text-center flex flex-col items-center justify-center transition duration-500;
-  background: var(--graphical-dark-card);
-  border: 1px solid var(--graphical-gold-border);
-  border-radius: var(--graphical-radius);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 0;
 
   &:hover {
-    border-color: var(--graphical-gold);
-    box-shadow: var(--graphical-shadow-gold);
+    border-color: rgba(255,255,255,0.15);
   }
 
   i {
     @apply inline-block text-icon-lg mb-4;
-    color: var(--graphical-gold);
+    color: #FFFFFF;
   }
 
   h2 {
     @apply font-bold text-sm;
-    color: var(--graphical-text-primary);
+    color: #FFFFFF;
   }
 }
 
 /* Offers slider */
 .slide--offer-entry {
   @apply h-36 text-center flex flex-col items-center justify-between transition duration-500;
-  background: var(--graphical-dark-card);
-  border: 1px solid var(--graphical-gold-border);
-  border-radius: var(--graphical-radius);
-  color: var(--graphical-text-secondary);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 0;
+  color: rgba(255,255,255,0.5);
 
   &:hover {
-    border-color: var(--graphical-gold);
+    border-color: rgba(255,255,255,0.15);
   }
 }
 
@@ -475,7 +434,7 @@
       @apply -mt-28 md:-mt-32 z-1;
 
       .s-slider-block__title {
-        color: var(--graphical-text-primary) !important;
+        color: #FFFFFF !important;
         @apply text-center sm:text-start sm:mb-4;
       }
     }
@@ -493,20 +452,19 @@
 
     &__title{
       @apply font-bold text-base sm:text-lg sm:mb-4 relative z-1 min-h-[28px];
-      color: var(--graphical-text-primary);
+      color: #FFFFFF;
     }
   }
 
   &--features{
     &__item{
       @apply cursor-pointer transition-all duration-500 flex-grow flex flex-col items-center px-4 py-8 md:px-8 text-center;
-      background: var(--graphical-dark-card);
-      border: 1px solid var(--graphical-gold-border);
-      border-radius: var(--graphical-radius);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 0;
 
       &:hover {
-        border-color: var(--graphical-gold);
-        box-shadow: var(--graphical-shadow-gold);
+        border-color: rgba(255,255,255,0.15);
       }
 
       &:first-child{
@@ -515,24 +473,24 @@
 
       .feature-icon{
         @apply mb-4 w-16 h-16 flex items-center justify-center overflow-hidden;
-        background: var(--graphical-gold-muted);
-        border: 1px solid var(--graphical-gold-border);
+        background: transparent;
+        border: 1px solid rgba(255,255,255,0.1);
         border-radius: 50%;
 
         i{
           @apply text-3xl;
-          color: var(--graphical-gold);
+          color: #FFFFFF;
         }
       }
 
       h2{
         @apply font-bold text-sm mb-1;
-        color: var(--graphical-text-primary);
+        color: #FFFFFF;
       }
 
       p{
         @apply text-sm;
-        color: var(--graphical-text-muted);
+        color: rgba(255,255,255,0.4);
       }
 
       &:hover {

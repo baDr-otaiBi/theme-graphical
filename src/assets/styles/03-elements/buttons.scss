@@ -1,34 +1,34 @@
 // ========================================
-// Graphical — Luxury Button Styles
+// Graphical — Jacquemus Button Styles
+// Primary: white on black. Outline: white border.
+// No gold buttons. No rounded corners.
 // ========================================
 
 .btn {
   @apply inline-flex items-center justify-center px-6 py-3 text-sm font-bold transition-all duration-300;
-  border-radius: var(--graphical-radius);
-  letter-spacing: 0.05em;
+  border-radius: 0;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 
   &--primary,
   &--default {
-    background: var(--graphical-gold);
-    color: var(--graphical-black);
-    border: 1px solid var(--graphical-gold);
+    background: #FFFFFF;
+    color: #000000;
+    border: none;
 
     &:hover {
-      background: var(--graphical-gold-dark);
-      border-color: var(--graphical-gold-dark);
+      opacity: 0.7;
     }
   }
 
   &--outline,
   &--outline-primary {
     background: transparent;
-    border: 1px solid var(--graphical-gold);
-    color: var(--graphical-gold);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #FFFFFF;
 
     &:hover {
-      background: var(--graphical-gold);
-      color: var(--graphical-black);
+      border-color: #FFFFFF;
     }
   }
 
@@ -44,13 +44,12 @@
 
   &--rounded-full {
     border-radius: 0 !important;
-    border-radius: var(--graphical-radius) !important;
   }
 
   &--delete {
     background: transparent !important;
     border: none !important;
-    color: var(--graphical-text-muted) !important;
+    color: rgba(255,255,255,0.4) !important;
 
     &:hover {
       color: #ef4444 !important;
@@ -59,10 +58,10 @@
 
   &--close-sm {
     @apply absolute top-4 right-4 w-8 h-8 flex items-center justify-center;
-    background: var(--graphical-dark-card);
+    background: #111;
     border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--graphical-radius);
-    color: var(--graphical-text-muted);
+    border-radius: 0;
+    color: rgba(255,255,255,0.4);
 
     &:hover {
       color: #ef4444;
@@ -73,11 +72,11 @@
 // Coupon button
 .btn--coupon {
   @apply absolute top-1 ltr:right-1 rtl:left-1 h-8 px-3 text-xs font-bold;
-  border-radius: var(--graphical-radius);
+  border-radius: 0;
 
   &.has-not-coupon {
-    background: var(--graphical-gold);
-    color: var(--graphical-black);
+    background: #FFFFFF;
+    color: #000000;
   }
 
   &.has-coupon {
@@ -99,29 +98,29 @@
   }
 }
 
-// Salla button overrides
+// Salla button overrides — Jacquemus white
 salla-button {
-  --button-bg: var(--graphical-gold);
-  --button-color: var(--graphical-black);
-  --button-border-color: var(--graphical-gold);
-  --button-hover-bg: var(--graphical-gold-dark);
-  --button-border-radius: var(--graphical-radius);
+  --button-bg: #FFFFFF;
+  --button-color: #000000;
+  --button-border-color: #FFFFFF;
+  --button-hover-bg: rgba(255,255,255,0.8);
+  --button-border-radius: 0;
 }
 
 // Filters trigger
 .filters-trigger {
   @apply flex items-center px-3 py-1.5;
-  background: var(--graphical-dark-card);
-  border: 1px solid var(--graphical-gold-border);
-  border-radius: var(--graphical-radius);
-  color: var(--graphical-gold);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 0;
+  color: #FFFFFF;
 }
 
 // Close filters
 .close-filters {
   @apply fixed top-4 right-4 w-10 h-10 flex items-center justify-center z-50;
-  background: var(--graphical-dark-card);
-  border: 1px solid var(--graphical-gold-border);
-  border-radius: var(--graphical-radius);
-  color: var(--graphical-text-primary);
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 0;
+  color: #FFFFFF;
 }

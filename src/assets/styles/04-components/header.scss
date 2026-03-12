@@ -1,17 +1,17 @@
 // ========================================
-// Graphical — Luxury Fashion Header
+// Graphical — Jacquemus Clean Header
+// Bare icons, uppercase nav, generous spacing
 // ========================================
 
 /* Top Nav */
 .top-navbar {
   @apply flex py-1.5 min-h-[40px];
   background: #0A0A0A !important;
-  background-color: #0A0A0A !important;
-  border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #707070;
+  color: rgba(255,255,255,0.4);
 
   @screen lg {
     @apply py-1;
@@ -20,12 +20,12 @@
   .s-search-input {
     @apply border-none;
     background: rgba(255,255,255,0.05) !important;
-    color: var(--graphical-text-secondary) !important;
-    border-radius: var(--graphical-radius) !important;
+    color: rgba(255,255,255,0.6) !important;
+    border-radius: 0 !important;
 
     &:focus {
       background: rgba(255,255,255,0.08) !important;
-      box-shadow: 0 0 0 1px var(--graphical-gold-border) !important;
+      box-shadow: none !important;
     }
   }
 
@@ -37,19 +37,17 @@
 
   .btn--circle-gray,
   .btn--rounded-gray {
-    @apply bg-transparent border rounded-none;
-    border-color: rgba(255,255,255,0.1);
-    color: var(--graphical-text-muted);
-    transition: all 0.3s ease;
+    @apply bg-transparent border-none rounded-none;
+    color: rgba(255,255,255,0.4);
+    transition: color 0.3s ease;
 
     &:hover {
-      border-color: var(--graphical-gold);
-      color: var(--graphical-gold);
+      color: #FFFFFF;
     }
   }
 
   salla-contacts {
-    color: var(--graphical-text-muted);
+    color: rgba(255,255,255,0.4);
   }
 
   .search-btn{
@@ -59,11 +57,11 @@
 
 .topnav-link-item{
   @apply inline-block transition duration-300 px-4 rtl:last:pl-0 ltr:last:pr-0 py-px text-sm leading-none;
-  border-color: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.06);
   @apply ltr:border-r rtl:border-l ltr:last:border-0 rtl:last:border-0;
 
   &:hover {
-    color: var(--graphical-gold);
+    color: #FFFFFF;
   }
 
   &.right-side{
@@ -74,24 +72,22 @@
 /* Main Nav */
 .main-nav-container {
   @apply min-h-[68px] lg:min-h-[84px];
-  background: #0D0D0D !important;
-  background-color: #0D0D0D !important;
-  border-bottom: 1px solid rgba(201,168,76,0.25) !important;
+  background: #0A0A0A !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
   box-shadow: none !important;
 
   .inner {
-    background: #0D0D0D !important;
-    background-color: #0D0D0D !important;
+    background: #0A0A0A !important;
   }
 }
 
 .menu-item {
   @apply flex items-center px-6 py-2.5 sm:text-sm transition-colors duration-300;
-  color: var(--graphical-text-secondary);
+  color: rgba(255,255,255,0.6);
 
   &:hover {
-    color: var(--graphical-gold);
-    background: rgba(201,168,76,0.05);
+    color: #FFFFFF;
+    background: rgba(255,255,255,0.05);
   }
 
   &.logout{
@@ -99,8 +95,8 @@
   }
 
   &.is-active{
-    color: var(--graphical-gold);
-    background: rgba(201,168,76,0.08);
+    color: #FFFFFF;
+    background: rgba(255,255,255,0.05);
   }
 }
 
@@ -120,10 +116,9 @@
       left: 0;
       width: 100%;
       z-index: 29;
-      background: #0D0D0D !important;
-      background-color: #0D0D0D !important;
-      border-bottom: 1px solid rgba(201,168,76,0.25) !important;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.5) !important;
+      background: #0A0A0A !important;
+      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+      box-shadow: none !important;
       transform: translate3d(0, -100%, 0);
 
       @media (max-width: 1024px){
@@ -162,33 +157,33 @@
   @apply items-center flex my-2 lg:my-0;
 
   img {
-    @apply w-auto max-h-14 max-w-[100px] xs:max-w-[170px];
+    @apply w-auto max-w-[100px] xs:max-w-[170px];
+    max-height: 48px !important;
     filter: brightness(0) invert(1);
   }
 }
 
 .header-btn{
   @apply border-none outline-none;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
 
   &:hover {
-    opacity: 1;
+    opacity: 0.6;
   }
 
   &__icon{
-    @apply text-lg w-10 h-10 flex items-center justify-center;
-    color: var(--graphical-gold);
-    border: 1px solid var(--graphical-gold-border);
-    border-radius: 50%;
-    background: rgba(201,168,76,0.08);
-    backdrop-filter: blur(4px);
-    transition: all 0.35s ease;
+    @apply text-xl flex items-center justify-center;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 8px;
+    width: auto;
+    height: auto;
+    transition: opacity 0.3s ease;
 
     &:hover {
-      color: var(--graphical-black);
-      background: var(--graphical-gold);
-      border-color: var(--graphical-gold);
-      transform: scale(1.08);
+      opacity: 0.6;
     }
 
     &.icon{
@@ -206,7 +201,7 @@
 #mainnav .sicon-menu {
   width: 1rem;
   display: inline-block;
-  color: var(--graphical-gold);
+  color: #FFFFFF;
 }
 
 custom-main-menu {
@@ -235,6 +230,16 @@ custom-main-menu {
         cursor: pointer !important;
         position: relative;
         z-index: 31;
+        font-family: var(--font-body) !important;
+        font-size: 13px !important;
+        font-weight: 400 !important;
+        color: rgba(255,255,255,0.6) !important;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+
+        &:hover {
+          color: #FFFFFF !important;
+        }
       }
 
       .sub-menu {
@@ -254,14 +259,14 @@ salla-user-menu{
 }
 
 .s-cart-summary-total{
-  color: var(--graphical-text-primary) !important;
+  color: #FFFFFF !important;
   font-weight: 300;
 }
 
 .s-cart-summary-count{
   @apply -top-0.5 ltr:-left-1.5 rtl:-right-1.5;
-  background: var(--graphical-gold) !important;
-  color: var(--graphical-black) !important;
+  background: #FFFFFF !important;
+  color: #000000 !important;
   font-weight: 700;
 }
 
@@ -279,7 +284,7 @@ salla-user-menu{
 
 .header-search {
   .s-search-results {
-    background: var(--graphical-dark-card);
-    border: 1px solid var(--graphical-gold-border);
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.1);
   }
 }

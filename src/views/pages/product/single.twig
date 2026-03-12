@@ -140,9 +140,8 @@
                     </div>
                 {% endif %}
 
-                {# Product Name — elegant uppercase fashion style #}
-                <h1 class="text-xl md:text-2xl leading-10 mb-2" style="color: var(--graphical-text-primary); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 300;">{{ product.name }}</h1>
-                <div style="width: 40px; height: 2px; background: var(--graphical-gold); margin-bottom: 1rem;"></div>
+                {# Product Name — Jacquemus Serif Bold #}
+                <h1 class="text-xl md:text-2xl leading-10 mb-4" style="font-family: var(--font-heading); font-weight: 700; color: #FFFFFF; letter-spacing: -0.01em; line-height: 1.2;">{{ product.name }}</h1>
 
                 {% if product.subtitle %}
                     <h2 class="product-entry__sub-title text-sm leading-6 mb-2.5" style="color: var(--graphical-text-muted); letter-spacing: 0.03em;">
@@ -159,33 +158,33 @@
                     <small style="color: var(--graphical-text-muted)">{{ trans('pages.products.tax_included') }}</small>
                 {% endif %}
 
-                {# Price — prominent gold display #}
-                <div class="flex whitespace-nowrap gap-4 items-center mt-5 mb-5 py-4 px-5" style="background: rgba(201,168,76,0.06); border: 1px solid var(--graphical-gold-border); border-radius: var(--graphical-radius);">
+                {# Price — quiet and minimal #}
+                <div class="flex whitespace-nowrap gap-4 items-center mt-2 mb-8 py-4" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
                   <div class="{{ product.is_on_sale ? '' : 'hidden' }} space-x-2 rtl:space-x-reverse whitespace-nowrap">
-                      <p class="font-bold text-3xl inline-block" style="color: var(--graphical-gold); letter-spacing: 0.03em;">{{product.sale_price|money}}</p>
-                      <span class="line-through text-base" style="color: var(--graphical-text-muted)">{{product.regular_price|money}}</span>
+                      <p class="font-light text-lg inline-block" style="color: rgba(255,255,255,0.6);">{{product.sale_price|money}}</p>
+                      <span class="line-through text-base" style="color: rgba(255,255,255,0.25)">{{product.regular_price|money}}</span>
                   </div>
                   <div class="gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }} items-baseline">
                       {% if product.starting_price %}
-                          <span class="text-sm" style="color: var(--graphical-text-muted)">{{ trans('pages.products.starting_price') }}</span>
+                          <span class="text-sm" style="color: rgba(255,255,255,0.4)">{{ trans('pages.products.starting_price') }}</span>
                       {% endif %}
-                          <p class="font-bold text-3xl inline-block" style="color: var(--graphical-gold); letter-spacing: 0.03em;"> {{product.starting_price ? product.starting_price|money : product.price|money }}</p>
+                          <p class="font-light text-lg inline-block" style="color: rgba(255,255,255,0.6);"> {{product.starting_price ? product.starting_price|money : product.price|money }}</p>
                   </div>
                 </div>
 
                 {# Description — with proper formatting #}
-                <div class="product__description graphical-product-description py-4 leading-7 mb-4" style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <div class="product__description graphical-rich-content py-4 leading-7 mb-4">
                     {% set product_desc = product.description %}
                     {% if product.has_read_more %}
                         <article class="article article--main relative leading-8 overflow-hidden transition-all max-h-0 duration-300"
-                            id="more-content" style="max-height:5.25rem; color: var(--graphical-text-secondary); font-size: 0.9rem; line-height: 1.8; word-spacing: 0.05em;">
+                            id="more-content" style="max-height:5.25rem;">
                             {{ product_desc|raw }}
                         </article>
-                        <a id="btn-show-more" class="link--primary inline-block mt-2 cursor-pointer" style="color: var(--graphical-gold); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;">
+                        <a id="btn-show-more" class="link--primary inline-block mt-2 cursor-pointer">
                             {{ trans('pages.products.read_more') }}
                         </a>
                     {% else %}
-                        <article class="article--main pb-1" style="color: var(--graphical-text-secondary); font-size: 0.9rem; line-height: 1.8; word-spacing: 0.05em;">
+                        <article class="article--main pb-1">
                             {{ product_desc|raw }}
                         </article>
                     {% endif %}

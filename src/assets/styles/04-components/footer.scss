@@ -1,70 +1,60 @@
 // ========================================
-// Graphical — Luxury Fashion Footer
+// Graphical — Jacquemus Simple Footer
 // ========================================
 
 .store-footer {
   @apply relative mt-0;
-  background: #0A0A0A !important;
-  background-color: #0A0A0A !important;
-  color: #B0B0B0;
+  background: #000 !important;
+  color: rgba(255,255,255,0.6);
 
   a {
+    font-size: 13px;
     transition: color 0.3s ease;
     &:hover {
-      color: #C9A84C !important;
+      color: #FFFFFF !important;
       opacity: 1;
     }
   }
 
   &__inner {
     @apply py-12 lg:py-20;
-    background: #0D0D0D !important;
-    background-color: #0D0D0D !important;
-    border-top: 1px solid rgba(201,168,76,0.25) !important;
-    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+    background: #000 !important;
+    border-top: 1px solid rgba(255,255,255,0.06) !important;
+    border-bottom: none !important;
   }
 
   h3 {
-    @apply text-base font-bold mb-4 lg:mb-6;
-    color: var(--graphical-text-primary);
-    letter-spacing: 0.05em;
+    @apply text-base mb-4 lg:mb-6;
+    font-size: 11px !important;
+    font-weight: 600 !important;
     text-transform: uppercase;
-    position: relative;
-    padding-bottom: 12px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.4) !important;
+    padding-bottom: 0;
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 30px;
-      height: 2px;
-      background: var(--graphical-gold);
-    }
+    // No gold underline
+    &::after { display: none; }
 
-    [dir="ltr"] &::after {
-      right: auto;
-      left: 0;
-    }
+    [dir="ltr"] &::after { display: none; }
   }
 
   .social-link {
     @apply w-9 h-9 justify-center flex items-center text-sm;
     border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--graphical-radius);
-    color: var(--graphical-text-muted);
+    border-radius: 0;
+    color: rgba(255,255,255,0.4);
     transition: all 0.3s ease;
 
     &:hover {
-      border-color: var(--graphical-gold);
-      color: var(--graphical-gold) !important;
-      background: rgba(201,168,76,0.08);
+      border-color: #FFFFFF;
+      color: #FFFFFF !important;
+      background: transparent;
     }
   }
 
   .contact-social {
     @apply mt-5 pt-5;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255,255,255,0.06);
 
     ul {
       @apply mb-0;
@@ -73,8 +63,8 @@
 }
 
 .copyright-text {
-  color: var(--graphical-text-muted);
+  color: rgba(255,255,255,0.3);
   p {
-    color: var(--graphical-text-muted);
+    color: rgba(255,255,255,0.3);
   }
 }

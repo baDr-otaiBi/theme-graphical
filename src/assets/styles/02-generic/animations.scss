@@ -1,3 +1,9 @@
+// ========================================
+// Graphical — Minimal Animations
+// Only: transform scale (slow) + opacity transitions
+// Removed: pulse, glow, shimmer, rubberBand, goldShimmer, stagger
+// ========================================
+
 @keyframes fadeInDown {
   from {
     transform: translate3d(0, -15px, 0)
@@ -49,7 +55,7 @@
   }
 }
 
-// toRightFromLeft
+// toTopFromBottom
 @keyframes toTopFromBottom {
   0% {
     opacity: 0;
@@ -70,68 +76,7 @@
   }
 }
 
-
-@keyframes rubberBand {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  30% {
-    transform: scale3d(1.25, 0.75, 1);
-  }
-
-  40% {
-    transform: scale3d(0.75, 1.25, 1);
-  }
-
-  50% {
-    transform: scale3d(1.15, 0.85, 1);
-  }
-
-  65% {
-    transform: scale3d(0.95, 1.05, 1);
-  }
-
-  75% {
-    transform: scale3d(1.05, 0.95, 1);
-  }
-
-  to {
-    transform: scale3d(1, 1, 1);
-  }
-}
-
-.rubberBand {
-  animation-name: rubberBand;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-iteration-count: 1;
-}
-
-// Luxury Gold shimmer effect
-@keyframes goldShimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.gold-shimmer {
-  background: linear-gradient(
-    90deg,
-    var(--graphical-gold-dark) 0%,
-    var(--graphical-gold-light) 50%,
-    var(--graphical-gold-dark) 100%
-  );
-  background-size: 200% 100%;
-  animation: goldShimmer 3s ease infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-// Elegant fade-in-up
+// Simple fade-in-up — the only custom animation we keep
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -145,16 +90,4 @@
 
 .fade-in-up {
   animation: fadeInUp 0.6s ease forwards;
-}
-
-// Stagger children animation
-.stagger-children > * {
-  opacity: 0;
-  animation: fadeInUp 0.5s ease forwards;
-
-  @for $i from 1 through 10 {
-    &:nth-child(#{$i}) {
-      animation-delay: #{$i * 0.08}s;
-    }
-  }
 }

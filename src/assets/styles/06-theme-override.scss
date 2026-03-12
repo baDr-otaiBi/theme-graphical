@@ -1,67 +1,67 @@
 // ================================================================
-// GRAPHICAL THEME — MASTER DARK LUXURY OVERRIDE
-// This file is loaded LAST and uses body.theme-graphical as parent
-// to guarantee highest CSS specificity over Tailwind & Salla plugins
+// GRAPHICAL THEME — JACQUEMUS DARK LUXURY OVERRIDE
+// Philosophy: Luxury = White Space. Delete more than you add.
+// Only: black, white/cream, gold (prices only). No gradients, no shadows, no glow.
 // ================================================================
 
 // ===================== ROOT VARIABLES =====================
 :root {
-  --graphical-gold: #C9A84C;
-  --graphical-gold-light: #E2C670;
-  --graphical-gold-dark: #A8863A;
-  --graphical-gold-muted: rgba(201, 168, 76, 0.15);
-  --graphical-gold-border: rgba(201, 168, 76, 0.25);
+  --graphical-gold: #D4AF37;
+  --graphical-gold-light: #E5C84D;
+  --graphical-gold-dark: #B8941F;
+  --graphical-gold-muted: rgba(212, 175, 55, 0.10);
+  --graphical-gold-border: rgba(212, 175, 55, 0.15);
   --graphical-black: #0A0A0A;
   --graphical-dark: #0D0D0D;
-  --graphical-dark-surface: #141414;
-  --graphical-dark-card: #1A1A1A;
-  --graphical-dark-elevated: #222222;
-  --graphical-text-primary: #F5F5F5;
-  --graphical-text-secondary: #B0B0B0;
-  --graphical-text-muted: #707070;
+  --graphical-dark-surface: #111;
+  --graphical-dark-card: #111;
+  --graphical-dark-elevated: #1A1A1A;
+  --graphical-text-primary: #FFFFFF;
+  --graphical-text-secondary: rgba(255,255,255,0.7);
+  --graphical-text-muted: rgba(255,255,255,0.4);
+  --graphical-radius: 0px;
+  --font-heading: 'Playfair Display', 'Cairo', serif;
+  --font-body: 'Cairo', sans-serif;
+  --font-main: var(--font-body);
 }
 
 // ===================== GLOBAL BODY =====================
 html, body {
   background-color: #0A0A0A !important;
-  color: #F5F5F5 !important;
+  color: rgba(255,255,255,0.7) !important;
+  font-family: var(--font-body) !important;
+  font-weight: 300;
 }
 
 body.theme-graphical {
   background-color: #0A0A0A !important;
-  color: #F5F5F5 !important;
+  color: rgba(255,255,255,0.7) !important;
 
-  // Tailwind color overrides are handled in tailwind.config.js
-  // Only non-Tailwind overrides remain here
-
-  .bg-border-color {
-    background-color: #222222 !important;
+  // ===================== TYPOGRAPHY — Jacquemus =====================
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading) !important;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: #FFFFFF;
   }
 
-  .hover\:opacity-80:hover {
-    color: #C9A84C !important;
+  h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+  h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+  h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+
+  // Body text
+  &, * {
+    font-family: var(--font-body);
   }
 
-  // ===================== LINKS & TEXT =====================
+  // ===================== LINKS =====================
   a {
-    color: #B0B0B0;
+    color: rgba(255,255,255,0.6);
     transition: color 0.3s ease;
     &:hover {
-      color: #C9A84C !important;
+      color: #FFFFFF !important;
     }
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: #F5F5F5;
-  }
-
-  .text-base,
-  .text-sm,
-  .text-lg,
-  .text-xl,
-  .text-2xl,
-  .text-3xl {
-    // Don't override color - let parent classes handle it
   }
 
   // ===================== FORM INPUTS =====================
@@ -76,696 +76,700 @@ body.theme-graphical {
   input[type="date"],
   textarea,
   select {
-    background-color: #141414 !important;
+    background-color: #111 !important;
     color: #F5F5F5 !important;
-    border-color: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 0 !important;
     &:focus {
-      border-color: #C9A84C !important;
-      box-shadow: 0 0 0 2px rgba(201,168,76,0.15) !important;
+      border-color: rgba(255,255,255,0.3) !important;
+      box-shadow: none !important;
     }
     &::placeholder {
-      color: #707070 !important;
+      color: rgba(255,255,255,0.3) !important;
     }
   }
 
-  // ===================== BUTTONS =====================
+  // ===================== BUTTONS — Jacquemus white on black =====================
   .btn--primary,
   .btn--default {
-    background-color: #C9A84C !important;
-    color: #0A0A0A !important;
-    border-color: #C9A84C !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    box-shadow: none !important;
     &:hover {
-      background-color: #A8863A !important;
+      opacity: 0.7;
+      background: #FFFFFF !important;
+      color: #000000 !important;
     }
   }
 
   .btn--outline,
   .btn--outline-primary {
-    background-color: transparent !important;
-    border-color: #C9A84C !important;
-    color: #C9A84C !important;
+    background: transparent !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    color: #FFFFFF !important;
+    border-radius: 0 !important;
     &:hover {
-      background-color: #C9A84C !important;
-      color: #0A0A0A !important;
+      border-color: #FFFFFF !important;
+      background: transparent !important;
+      color: #FFFFFF !important;
     }
   }
 
   // ===================== CARDS / CONTAINERS =====================
   .rounded-md,
   .rounded-lg {
-    border-radius: 2px !important;
+    border-radius: 0 !important;
   }
 
+  // Kill all shadows
   .shadow-default,
+  .shadow-md,
+  .shadow-lg,
+  .shadow-sm,
   [class*="shadow-default"] {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+    box-shadow: none !important;
   }
 
   // ===================== CART PAGE =====================
   .cart-item {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-
+    background-color: #111 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 0 !important;
     img {
-      background-color: #141414 !important;
-      border-color: rgba(255,255,255,0.08) !important;
+      background-color: #111 !important;
+      border-color: rgba(255,255,255,0.06) !important;
     }
   }
 
-  // ===================== PRODUCT CARDS =====================
-  .product-entry {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-    &:hover {
-      border-color: rgba(201,168,76,0.25) !important;
-    }
-  }
-
-  // ===================== HEADER =====================
-  .store-header {
-    .top-navbar {
-      background-color: #0A0A0A !important;
-      border-bottom: 1px solid rgba(255,255,255,0.05) !important;
-      color: #707070 !important;
-    }
-
-    .main-nav-container,
-    .main-nav-container .inner {
-      background-color: #0D0D0D !important;
-      border-bottom: 1px solid rgba(201,168,76,0.25) !important;
-    }
-
-    .navbar-brand img {
-      filter: brightness(0) invert(1);
-    }
-
-    .header-btn__icon {
-      color: #B0B0B0 !important;
-      border-color: rgba(255,255,255,0.1) !important;
-      background: transparent !important;
-      border-radius: 2px !important;
-      &:hover {
-        color: #C9A84C !important;
-        border-color: #C9A84C !important;
-      }
-    }
-
-    .btn--rounded-gray,
-    .btn--circle-gray {
-      background: transparent !important;
-      border: 1px solid rgba(255,255,255,0.1) !important;
-      color: #707070 !important;
-      border-radius: 2px !important;
-      &:hover {
-        border-color: #C9A84C !important;
-        color: #C9A84C !important;
-      }
-    }
-  }
-
-  // ===================== FOOTER =====================
-  .store-footer {
-    background-color: #0A0A0A !important;
-
-    &__inner {
-      background-color: #0D0D0D !important;
-      border-top: 1px solid rgba(201,168,76,0.25) !important;
-    }
-
-    h3 {
-      color: #F5F5F5 !important;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      position: relative;
-      padding-bottom: 12px;
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 30px;
-        height: 2px;
-        background: #C9A84C;
-      }
-    }
-  }
-
-  // ===================== HOME BLOCKS =====================
-  .s-block__title h2 {
-    color: #F5F5F5 !important;
-    &::after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 2px;
-      background: #C9A84C;
-      margin-top: 10px;
-    }
-  }
-
-  .s-block__display-all {
-    color: #C9A84C !important;
-  }
-
-  .s-block--features__item {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-    &:hover {
-      border-color: rgba(201,168,76,0.25) !important;
-    }
-
-    .feature-icon {
-      background: rgba(201,168,76,0.15) !important;
-      border: 1px solid rgba(201,168,76,0.25) !important;
-      i {
-        color: #C9A84C !important;
-      }
-    }
-
-    h2 {
-      color: #F5F5F5 !important;
-    }
-
-    p {
-      color: #707070 !important;
-    }
-  }
-
-  // Banner entries
-  .banner-entry,
-  .full-banner-entry {
-    border: 1px solid rgba(255,255,255,0.05) !important;
-    border-radius: 2px !important;
-    &:hover {
-      border-color: rgba(201,168,76,0.25) !important;
-    }
-  }
-
-  .banner--fixed img {
-    border: 1px solid rgba(255,255,255,0.05) !important;
-    border-radius: 2px !important;
-  }
-
-  // Slide entries
-  .slide--cat-entry {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-    border-radius: 2px !important;
-    &:hover {
-      border-color: rgba(201,168,76,0.25) !important;
-    }
-    i {
-      color: #C9A84C !important;
-    }
-    h2 {
-      color: #F5F5F5 !important;
-    }
-  }
-
-  .slide--offer-entry {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-    border-radius: 2px !important;
-  }
-
-  // Tab triggers
-  .tab-trigger {
-    color: #707070 !important;
-    &.is-active button {
-      background: #C9A84C !important;
-      color: #0A0A0A !important;
-      border-color: #C9A84C !important;
-    }
-  }
-
-  // ===================== PRODUCT PAGE =====================
-  .product-form section {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-  }
-
-  .total-price,
-  .price {
-    color: #C9A84C !important;
-  }
-
-  .before-price {
-    color: #707070 !important;
-  }
-
-  .promotion-title {
-    background: #C9A84C !important;
-    color: #0A0A0A !important;
-  }
-
-  .btn--wishlist {
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    background: rgba(0,0,0,0.5) !important;
-    color: #B0B0B0 !important;
-    &:hover, &.is-wished {
-      border-color: #C9A84C !important;
-      color: #C9A84C !important;
-    }
-  }
-
-  .sticky-product-bar {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-  }
-
-  .details-slider {
-    background-color: #141414 !important;
-  }
-
-  .slide--one-fourth img {
-    border: 1px solid rgba(255,255,255,0.05) !important;
-    border-radius: 2px !important;
-  }
-
-  .swiper-slide-thumb-active img {
-    border-color: #C9A84C !important;
-  }
-
-  // ===================== BLOG =====================
-  .post-entry,
-  .list-block {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-  }
-
-  .post-entry__image {
-    background-color: #141414 !important;
-  }
-
-  .blog-slider__slide {
-    background-color: #141414 !important;
-  }
-
-  // ===================== BRANDS =====================
-  .brand-item {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-    img {
-      filter: brightness(0) invert(0.8);
-    }
-    &:hover img {
-      filter: none;
-    }
-  }
-
-  .brand-char {
-    background-color: #C9A84C !important;
-    color: #0A0A0A !important;
-  }
-
-  // ===================== CUSTOMER / PROFILE =====================
-  .profile-header,
-  .gradient-bg {
-    background: linear-gradient(135deg, #0D0D0D 0%, #141414 100%) !important;
-    border-bottom: 1px solid rgba(201,168,76,0.25) !important;
-  }
-
-  .sidebar nav {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-  }
-
-  .avatar-wrap {
-    background-color: #141414 !important;
-    border: 2px solid rgba(201,168,76,0.25) !important;
-  }
-
-  // ===================== ORDERS =====================
-  .order-item,
-  .order-table {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-  }
-
-  // ===================== LOYALTY =====================
-  .loyalty__banner {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(201,168,76,0.25) !important;
-  }
-
-  .way-item {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
-  }
-
-  // ===================== MENUS =====================
-  .sub-menu,
-  .dropdown__menu {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(201,168,76,0.25) !important;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.4) !important;
-
-    a {
-      color: #B0B0B0 !important;
-      &:hover, &.is-active {
-        color: #C9A84C !important;
-        background-color: rgba(201,168,76,0.05) !important;
-      }
-    }
-  }
-
-  .main-menu > li > a {
-    color: #B0B0B0 !important;
-    letter-spacing: 0.04em;
-    &:hover {
-      color: #C9A84C !important;
-    }
-  }
-
-  .main-menu > li.is-active > a,
-  .main-menu > li:hover > a {
-    color: #C9A84C !important;
-  }
-
-  .menu-item {
-    color: #B0B0B0 !important;
-    &:hover {
-      color: #C9A84C !important;
-      background-color: rgba(201,168,76,0.05) !important;
-    }
-    &.is-active {
-      color: #C9A84C !important;
-    }
-  }
-
-  // ===================== MOBILE MENU =====================
-  .mm-ocd {
-    background: #0D0D0D !important;
-  }
-
-  .mm-spn {
-    background: #0D0D0D !important;
-    color: #F5F5F5 !important;
-    li {
-      border-color: rgba(255,255,255,0.05) !important;
-    }
-    a {
-      color: #B0B0B0 !important;
-      &:hover {
-        color: #C9A84C !important;
-      }
-    }
-  }
-
-  // ===================== SLIDER CONTROLS =====================
-  .swiper-button-prev,
-  .swiper-button-next {
-    background: #1A1A1A !important;
-    border: 1px solid rgba(201,168,76,0.25) !important;
-    color: #C9A84C !important;
-    border-radius: 2px !important;
-    &:hover {
-      background: #C9A84C !important;
-      color: #0A0A0A !important;
-    }
-    &::after {
-      font-size: 14px !important;
-    }
-  }
-
-  .swiper-pagination-bullet {
-    background: #707070 !important;
-    opacity: 0.5 !important;
-    &-active {
-      background: #C9A84C !important;
-      opacity: 1 !important;
-    }
-  }
-
-  // ===================== SWEET ALERT =====================
-  .swal2-popup {
-    background: #1A1A1A !important;
-    color: #F5F5F5 !important;
-    border: 1px solid rgba(201,168,76,0.25) !important;
-  }
-  .swal2-title { color: #F5F5F5 !important; }
-  .swal2-html-container { color: #B0B0B0 !important; }
-  .swal2-confirm {
-    background: #C9A84C !important;
-    color: #0A0A0A !important;
-  }
-
-  // ===================== BREADCRUMBS =====================
-  salla-breadcrumb {
-    --breadcrumb-color: #707070;
-    --breadcrumb-active-color: #C9A84C;
-    --breadcrumb-bg: transparent;
-    --breadcrumb-separator-color: #404040;
-    --breadcrumb-font-size: 0.8125rem;
-    color: #707070;
-
-    a {
-      color: #707070 !important;
-      &:hover {
-        color: #C9A84C !important;
-      }
-    }
-
-    .breadcrumb-item, li {
-      &.is-active, &:last-child {
-        color: #C9A84C !important;
-        a { color: #C9A84C !important; }
-      }
-    }
-  }
-
-  .breadcrumbs {
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    margin-bottom: 0.5rem;
-  }
-
-  // ===================== SCROLLBAR =====================
-  &::-webkit-scrollbar { width: 6px; }
-  &::-webkit-scrollbar-track { background: #0D0D0D; }
-  &::-webkit-scrollbar-thumb {
-    background: #222222;
-    border-radius: 3px;
-    &:hover { background: #A8863A; }
-  }
-
-  // ===================== SELECTION =====================
-  ::selection {
-    background: #C9A84C;
-    color: #0A0A0A;
-  }
-
-  // ===================== GENERAL UTILITIES =====================
-  .content-entry {
-    color: #B0B0B0;
-    h1, h2, h3, h4, h5, h6 { color: #F5F5F5 !important; }
-    a { color: #C9A84C !important; }
-    img { border: 1px solid rgba(255,255,255,0.05); border-radius: 2px; }
-  }
-
-  .article--main { color: #B0B0B0; }
-
-  .link--primary {
-    color: #C9A84C !important;
-    &:hover { color: #E2C670 !important; }
-  }
-
-  .rounded-icon {
-    background: rgba(201,168,76,0.15) !important;
-    color: #C9A84C !important;
-  }
-
-  // ===================== FONT OVERRIDE =====================
-  &, * {
-    font-family: var(--font-main);
-  }
-
-  // ===================== PRODUCT CARDS (Editorial Fashion Style) =====================
+  // ===================== PRODUCT CARDS — Jacquemus Minimal =====================
+  .product-entry,
   custom-salla-product-card,
   .s-product-card-entry {
-    background: #0A0A0A !important;
-    border: 1px solid rgba(201,168,76,0.08) !important;
-    border-radius: 0 !important; // Sharp corners = luxury
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-
-    // Gold border reveal on hover
+    transition: none;
     &:hover {
-      border-color: rgba(201,168,76,0.3) !important;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4) !important;
+      border-color: transparent !important;
+      box-shadow: none !important;
     }
   }
 
   .s-product-card-image {
     background: #111 !important;
-    position: relative;
     overflow: hidden;
+    position: relative;
+    aspect-ratio: 3 / 4;
     img {
-      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  filter 0.5s ease;
-      filter: saturate(0.85);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
+    // Kill all overlays and gradients on images
+    &::after { display: none !important; }
   }
-  .s-product-card-entry:hover .s-product-card-image img {
-    transform: scale(1.04);
-    filter: saturate(1);
+  .s-product-card-entry:hover .s-product-card-image img,
+  custom-salla-product-card:hover .s-product-card-image img {
+    transform: scale(1.03);
   }
 
   .s-product-card-content {
-    background: #0A0A0A !important;
-    padding: 1rem !important;
+    background: transparent !important;
+    padding: 16px 4px 24px !important;
   }
 
+  // Product name — Serif
   .s-product-card-content-title a {
-    color: #F5F5F5 !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.03em;
-    font-size: 0.95rem !important;
+    font-family: var(--font-heading) !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    color: #FFFFFF !important;
     text-decoration: none !important;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
     transition: color 0.3s ease;
   }
-  .s-product-card-entry:hover .s-product-card-content-title a {
-    color: #C9A84C !important;
+  .s-product-card-entry:hover .s-product-card-content-title a,
+  custom-salla-product-card:hover .s-product-card-content-title a {
+    color: rgba(255,255,255,0.6) !important;
   }
 
-  .s-product-card-content-subtitle {
-    color: #707070 !important;
-    font-size: 0.8rem !important;
-  }
-
+  // Price — small and quiet
   .s-product-card-price,
   .s-product-card-sale-price h4,
   .s-product-card-starting-price h4 {
-    color: #C9A84C !important;
-    font-weight: 700 !important;
-    font-size: 1.05rem !important;
+    font-family: var(--font-body) !important;
+    font-size: 13px !important;
+    font-weight: 300 !important;
+    color: rgba(255,255,255,0.5) !important;
   }
-  .s-product-card-sale-price span {
-    color: #555 !important;
+  .s-product-card-sale-price span,
+  .s-product-card-price del {
+    color: rgba(255,255,255,0.25) !important;
     text-decoration: line-through;
   }
-  .s-product-card-starting-price p { color: #707070 !important; }
+  .s-product-card-starting-price p { color: rgba(255,255,255,0.4) !important; }
 
-  .s-product-card-rating { color: #B0B0B0 !important; }
-  .s-product-card-rating .sicon-star2 { color: #C9A84C !important; }
+  // Hide decorative card elements
+  .s-product-card-promotion-title { display: none !important; }
+  .s-product-card-rating { display: none !important; }
+  .s-product-card-content-subtitle { display: none !important; }
 
-  .s-product-card-promotion-title {
-    background: #C9A84C !important;
-    color: #0A0A0A !important;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-size: 0.7rem;
+  // Hide add-to-cart from cards (Jacquemus: click card → product page)
+  .s-product-card-content-footer,
+  .s-product-card-content-footer salla-add-product-button {
+    display: none !important;
+  }
+
+  // Wishlist — hidden, appears on hover only
+  .s-product-card-wishlist-btn {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: #FFFFFF !important;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+  }
+  custom-salla-product-card:hover .s-product-card-wishlist-btn,
+  .s-product-card-entry:hover .s-product-card-wishlist-btn {
+    opacity: 0.6;
+  }
+  .s-product-card-wishlist-btn:hover,
+  .s-product-card-wishlist-added {
+    opacity: 1 !important;
+    background: transparent !important;
+    color: #FFFFFF !important;
   }
 
   .s-product-card-quantity,
   .s-product-card-out-badge {
     background: rgba(0,0,0,0.7) !important;
     color: #F5F5F5 !important;
-    backdrop-filter: blur(8px);
-  }
-
-  .s-product-card-wishlist-btn {
-    background: rgba(10,10,10,0.6) !important;
-    border: 1px solid rgba(201,168,76,0.3) !important;
-    border-radius: 50% !important;
-    backdrop-filter: blur(8px);
-    color: #C9A84C !important;
-    transition: all 0.3s ease !important;
-  }
-  .s-product-card-wishlist-btn:hover,
-  .s-product-card-wishlist-added {
-    background: #C9A84C !important;
-    color: #0A0A0A !important;
-    border-color: #C9A84C !important;
-  }
-
-  .s-product-card-content-footer {
-    border-top: 1px solid rgba(255,255,255,0.04) !important;
-    padding-top: 0.75rem !important;
-    salla-add-product-button {
-      --btn-bg: transparent;
-      --btn-color: #C9A84C;
-      --btn-border: rgba(201,168,76,0.3);
-    }
   }
 
   .s-product-card-full-image .s-product-card-overlay {
-    background: linear-gradient(transparent 40%, rgba(10,10,10,0.9) 100%) !important;
+    background: transparent !important;
   }
 
   .s-product-card-content-pie { color: #F5F5F5 !important; }
   .s-product-card-content-pie-svg-base { stroke: #222 !important; }
-  .s-product-card-content-pie-svg-bar { stroke: #C9A84C !important; }
+  .s-product-card-content-pie-svg-bar { stroke: #FFFFFF !important; }
 
-  // Legacy element selectors (fallback)
+  // Legacy element selectors
   salla-product-card {
-    --product-card-bg: #0A0A0A;
-    --card-bg: #0A0A0A;
+    --product-card-bg: transparent;
+    --card-bg: transparent;
   }
 
   salla-products-slider {
-    --product-card-bg: #0A0A0A;
+    --product-card-bg: transparent;
+  }
+
+  // ===================== HEADER — Jacquemus Clean =====================
+  .store-header {
+    .top-navbar {
+      background-color: #0A0A0A !important;
+      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+      color: rgba(255,255,255,0.4) !important;
+    }
+
+    .main-nav-container,
+    .main-nav-container .inner {
+      background-color: #0A0A0A !important;
+      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+      box-shadow: none !important;
+    }
+
+    .navbar-brand img {
+      filter: brightness(0) invert(1);
+      max-height: 48px !important;
+    }
+
+    // Header icons — bare, no circles
+    .header-btn__icon {
+      color: #FFFFFF !important;
+      border: none !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      width: auto !important;
+      height: auto !important;
+      font-size: 20px !important;
+      padding: 8px;
+      &:hover {
+        opacity: 0.6;
+        transform: none !important;
+      }
+    }
+
+    .btn--rounded-gray,
+    .btn--circle-gray {
+      background: transparent !important;
+      border: none !important;
+      color: rgba(255,255,255,0.5) !important;
+      border-radius: 0 !important;
+      &:hover {
+        color: #FFFFFF !important;
+      }
+    }
+  }
+
+  // ===================== FOOTER — Jacquemus Simple =====================
+  .store-footer {
+    background: #000 !important;
+    &__inner {
+      background: #000 !important;
+      border-top: 1px solid rgba(255,255,255,0.06) !important;
+      border-bottom: none !important;
+      padding: 64px 0 32px;
+    }
+    h3 {
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.4) !important;
+      padding-bottom: 0;
+      &::after { display: none !important; }
+    }
+    a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6) !important;
+      &:hover { color: #FFFFFF !important; }
+    }
+    .social-link {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0 !important;
+      color: rgba(255,255,255,0.4);
+      &:hover {
+        border-color: #FFFFFF;
+        color: #FFFFFF !important;
+        background: transparent;
+      }
+    }
+  }
+
+  // ===================== HOME BLOCKS =====================
+  .s-block__title h2 {
+    font-family: var(--font-heading) !important;
+    font-weight: 900 !important;
+    font-size: clamp(1.8rem, 4vw, 3rem) !important;
+    color: #FFFFFF !important;
+    letter-spacing: -0.02em;
+    // Remove gold line under title
+    &::after { display: none !important; }
+  }
+
+  .s-block__display-all {
+    color: rgba(255,255,255,0.5) !important;
+    font-weight: 400 !important;
+    &:hover { color: #FFFFFF !important; }
+  }
+
+  .s-block--features__item {
+    background-color: transparent !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    box-shadow: none !important;
+    &:hover {
+      border-color: rgba(255,255,255,0.15) !important;
+      box-shadow: none !important;
+    }
+    .feature-icon {
+      background: transparent !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      i { color: #FFFFFF !important; }
+    }
+    h2 { color: #FFFFFF !important; }
+    p { color: rgba(255,255,255,0.4) !important; }
+  }
+
+  // Banner entries — minimal
+  .banner-entry,
+  .full-banner-entry {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    &:hover {
+      border-color: transparent !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .banner--fixed img {
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  // Category entries — clean
+  .slide--cat-entry {
+    background-color: transparent !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    &:hover {
+      border-color: rgba(255,255,255,0.15) !important;
+      box-shadow: none !important;
+    }
+    i { color: #FFFFFF !important; }
+    h2 { color: #FFFFFF !important; }
+  }
+
+  .slide--offer-entry {
+    background-color: transparent !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 0 !important;
+  }
+
+  // Tab triggers
+  .tab-trigger {
+    color: rgba(255,255,255,0.4) !important;
+    &.is-active button {
+      background: #FFFFFF !important;
+      color: #000000 !important;
+      border-color: #FFFFFF !important;
+    }
+  }
+
+  // ===================== PRODUCT PAGE =====================
+  .product-form section {
+    background-color: #111 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 0 !important;
+  }
+
+  .total-price,
+  .price {
+    color: rgba(255,255,255,0.6) !important;
+    font-weight: 300 !important;
+  }
+
+  .before-price {
+    color: rgba(255,255,255,0.3) !important;
+  }
+
+  .promotion-title {
+    display: none !important;
+  }
+
+  .btn--wishlist {
+    border: none !important;
+    background: transparent !important;
+    color: rgba(255,255,255,0.5) !important;
+    border-radius: 0 !important;
+    &:hover, &.is-wished {
+      color: #FFFFFF !important;
+    }
+  }
+
+  .sticky-product-bar {
+    background-color: #111 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 0 !important;
+  }
+
+  .details-slider {
+    background-color: #111 !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  .slide--one-fourth img {
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 0 !important;
+  }
+
+  .swiper-slide-thumb-active img {
+    border-color: #FFFFFF !important;
+  }
+
+  // ===================== BLOG =====================
+  .post-entry,
+  .list-block {
+    background-color: transparent !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 0 !important;
+  }
+
+  .post-entry__image {
+    background-color: #111 !important;
+  }
+
+  .blog-slider__slide {
+    background-color: #111 !important;
+  }
+
+  // ===================== BRANDS =====================
+  .brand-item {
+    background-color: transparent !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 0 !important;
+    img { filter: brightness(0) invert(0.7); }
+    &:hover img { filter: none; }
+  }
+
+  .brand-char {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  // ===================== CUSTOMER / PROFILE =====================
+  .profile-header,
+  .gradient-bg {
+    background: #0A0A0A !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  .sidebar nav {
+    background-color: transparent !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  .avatar-wrap {
+    background-color: #111 !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+  }
+
+  // ===================== ORDERS =====================
+  .order-item,
+  .order-table {
+    background-color: transparent !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  // ===================== LOYALTY =====================
+  .loyalty__banner {
+    background-color: transparent !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  .way-item {
+    background-color: transparent !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  // ===================== MENUS =====================
+  .sub-menu,
+  .dropdown__menu {
+    background-color: #111 !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+    a {
+      color: rgba(255,255,255,0.6) !important;
+      &:hover, &.is-active {
+        color: #FFFFFF !important;
+        background-color: rgba(255,255,255,0.05) !important;
+      }
+    }
+  }
+
+  .main-menu > li > a {
+    font-family: var(--font-body) !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: rgba(255,255,255,0.6) !important;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    &:hover { color: #FFFFFF !important; }
+  }
+
+  .main-menu > li.is-active > a,
+  .main-menu > li:hover > a {
+    color: #FFFFFF !important;
+  }
+
+  .menu-item {
+    color: rgba(255,255,255,0.6) !important;
+    &:hover {
+      color: #FFFFFF !important;
+      background-color: rgba(255,255,255,0.05) !important;
+    }
+    &.is-active { color: #FFFFFF !important; }
+  }
+
+  // ===================== MOBILE MENU =====================
+  .mm-ocd {
+    background: #0A0A0A !important;
+  }
+
+  .mm-spn {
+    background: #0A0A0A !important;
+    color: #F5F5F5 !important;
+    li { border-color: rgba(255,255,255,0.06) !important; }
+    a {
+      color: rgba(255,255,255,0.6) !important;
+      &:hover { color: #FFFFFF !important; }
+    }
+  }
+
+  // ===================== SLIDER CONTROLS =====================
+  .swiper-button-prev,
+  .swiper-button-next {
+    background: transparent !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    color: #FFFFFF !important;
+    border-radius: 0 !important;
+    &:hover {
+      border-color: #FFFFFF !important;
+      background: transparent !important;
+    }
+    &::after { font-size: 14px !important; }
+  }
+
+  .swiper-pagination-bullet {
+    background: rgba(255,255,255,0.3) !important;
+    opacity: 1 !important;
+    border-radius: 0 !important;
+    &-active {
+      background: #FFFFFF !important;
+    }
+  }
+
+  // ===================== SWEET ALERT =====================
+  .swal2-popup {
+    background: #111 !important;
+    color: #F5F5F5 !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    border-radius: 0 !important;
+  }
+  .swal2-title { color: #F5F5F5 !important; }
+  .swal2-html-container { color: rgba(255,255,255,0.6) !important; }
+  .swal2-confirm {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border-radius: 0 !important;
+  }
+
+  // ===================== BREADCRUMBS =====================
+  salla-breadcrumb {
+    --breadcrumb-color: rgba(255,255,255,0.3);
+    --breadcrumb-active-color: rgba(255,255,255,0.6);
+    --breadcrumb-bg: transparent;
+    --breadcrumb-separator-color: rgba(255,255,255,0.15);
+    --breadcrumb-font-size: 0.8125rem;
+    color: rgba(255,255,255,0.3);
+    a {
+      color: rgba(255,255,255,0.3) !important;
+      &:hover { color: rgba(255,255,255,0.6) !important; }
+    }
+    .breadcrumb-item, li {
+      &.is-active, &:last-child {
+        color: rgba(255,255,255,0.6) !important;
+        a { color: rgba(255,255,255,0.6) !important; }
+      }
+    }
+  }
+
+  .breadcrumbs {
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  // ===================== SCROLLBAR =====================
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: #0A0A0A; }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 0;
+    &:hover { background: rgba(255,255,255,0.3); }
+  }
+
+  // ===================== SELECTION =====================
+  ::selection {
+    background: #FFFFFF;
+    color: #000000;
+  }
+
+  // ===================== GENERAL UTILITIES =====================
+  .content-entry {
+    color: rgba(255,255,255,0.7);
+    h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
+    a { color: rgba(255,255,255,0.6) !important; &:hover { color: #FFFFFF !important; } }
+    img { border: none; border-radius: 0; }
+  }
+
+  .article--main { color: rgba(255,255,255,0.7); }
+
+  .link--primary {
+    color: rgba(255,255,255,0.6) !important;
+    &:hover { color: #FFFFFF !important; }
+  }
+
+  .rounded-icon {
+    background: rgba(255,255,255,0.05) !important;
+    color: #FFFFFF !important;
+  }
+
+  // ===================== PRODUCT CARDS (Salla Web Components) =====================
+  salla-products-slider {
+    --product-card-bg: transparent;
   }
 
   salla-cart-summary {
-    --cart-summary-icon-color: #B0B0B0;
-    --cart-summary-count-bg: #C9A84C;
-    --cart-summary-count-color: #0A0A0A;
+    --cart-summary-icon-color: #FFFFFF;
+    --cart-summary-count-bg: #FFFFFF;
+    --cart-summary-count-color: #000000;
   }
 
   salla-search {
-    --search-bg: #1A1A1A;
+    --search-bg: #111;
     --search-border: rgba(255,255,255,0.08);
     --search-text: #F5F5F5;
-    --search-placeholder: #707070;
-    --search-result-bg: #1A1A1A;
-    --search-result-hover: #222222;
+    --search-placeholder: rgba(255,255,255,0.3);
+    --search-result-bg: #111;
+    --search-result-hover: #1A1A1A;
   }
 
   salla-slider {
     --slider-bg: transparent;
-    --slider-nav-bg: #1A1A1A;
-    --slider-nav-color: #C9A84C;
-    --slider-nav-border: rgba(201,168,76,0.25);
-    --slider-pagination-color: #707070;
-    --slider-pagination-active: #C9A84C;
+    --slider-nav-bg: transparent;
+    --slider-nav-color: #FFFFFF;
+    --slider-nav-border: rgba(255,255,255,0.2);
+    --slider-pagination-color: rgba(255,255,255,0.3);
+    --slider-pagination-active: #FFFFFF;
   }
 
   salla-button {
-    --btn-bg: #C9A84C;
-    --btn-color: #0A0A0A;
-    --btn-border: #C9A84C;
-    --btn-hover-bg: #A8863A;
-    --btn-border-radius: 2px;
+    --btn-bg: #FFFFFF;
+    --btn-color: #000000;
+    --btn-border: #FFFFFF;
+    --btn-hover-bg: rgba(255,255,255,0.8);
+    --btn-border-radius: 0;
   }
 
   salla-rating-stars {
-    --rating-color: #C9A84C;
-    --rating-empty-color: #2A2A2A;
+    --rating-color: #D4AF37;
+    --rating-empty-color: rgba(255,255,255,0.1);
   }
 
   salla-add-product-button {
-    --btn-bg: #C9A84C;
-    --btn-color: #0A0A0A;
-    --btn-hover-bg: #A8863A;
+    --btn-bg: #FFFFFF;
+    --btn-color: #000000;
+    --btn-hover-bg: rgba(255,255,255,0.8);
   }
 
   salla-quantity-input {
-    --quantity-bg: #141414;
+    --quantity-bg: #111;
     --quantity-text: #F5F5F5;
-    --quantity-border: rgba(255,255,255,0.08);
-    --quantity-btn-bg: #222222;
-    --quantity-btn-color: #C9A84C;
+    --quantity-border: rgba(255,255,255,0.12);
+    --quantity-btn-bg: transparent;
+    --quantity-btn-color: #FFFFFF;
   }
 
   salla-product-options {
-    --option-bg: #141414;
+    --option-bg: #111;
     --option-text: #F5F5F5;
-    --option-border: rgba(255,255,255,0.08);
-    --option-selected-border: #C9A84C;
-    --option-selected-bg: rgba(201,168,76,0.1);
-    --color-bg: #141414;
+    --option-border: rgba(255,255,255,0.12);
+    --option-selected-border: #FFFFFF;
+    --option-selected-bg: rgba(255,255,255,0.05);
+    --color-bg: #111;
     --color-text: #F5F5F5;
     background: transparent !important;
     color: #F5F5F5 !important;
@@ -774,267 +778,259 @@ body.theme-graphical {
     .form-input,
     input,
     textarea {
-      background-color: #141414 !important;
+      background-color: #111 !important;
       color: #F5F5F5 !important;
-      border: 1px solid rgba(255,255,255,0.08) !important;
-      border-radius: 2px !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      border-radius: 0 !important;
       &:focus {
-        border-color: #C9A84C !important;
-        box-shadow: 0 0 0 2px rgba(201,168,76,0.15) !important;
+        border-color: rgba(255,255,255,0.3) !important;
+        box-shadow: none !important;
       }
     }
 
-    label, b, span, p {
-      color: #F5F5F5;
-    }
+    label, b, span, p { color: rgba(255,255,255,0.5); }
 
     .bg-white, .bg-gray-50, .bg-gray-100 {
-      background-color: #141414 !important;
+      background-color: transparent !important;
     }
   }
 
-  // Force dark on ANY select element in product form
+  // Force dark on any select in product form
   .product-form select,
   .product-form .form-input,
   form select,
   .s-product-options-option select {
-    background-color: #141414 !important;
+    background-color: #111 !important;
     color: #F5F5F5 !important;
-    border: 1px solid rgba(255,255,255,0.08) !important;
-    border-radius: 2px !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 0 !important;
     option {
-      background: #1A1A1A;
+      background: #111;
       color: #F5F5F5;
     }
     &:focus {
-      border-color: #C9A84C !important;
-      box-shadow: 0 0 0 2px rgba(201,168,76,0.15) !important;
+      border-color: rgba(255,255,255,0.3) !important;
+      box-shadow: none !important;
     }
   }
 
   salla-filters {
-    --filter-bg: #1A1A1A;
-    --filter-text: #B0B0B0;
+    --filter-bg: transparent;
+    --filter-text: rgba(255,255,255,0.6);
     --filter-border: rgba(255,255,255,0.06);
-    --filter-active: #C9A84C;
+    --filter-active: #FFFFFF;
   }
 
   salla-login-modal,
   salla-modal,
   salla-localization-modal {
-    --modal-bg: #1A1A1A;
+    --modal-bg: #111;
     --modal-text: #F5F5F5;
-    --modal-border: rgba(255,255,255,0.08);
+    --modal-border: rgba(255,255,255,0.1);
   }
 
   salla-user-menu {
-    --user-menu-bg: #1A1A1A;
-    --user-menu-text: #B0B0B0;
-    --user-menu-hover: #222222;
-    --user-menu-active: #C9A84C;
+    --user-menu-bg: #111;
+    --user-menu-text: rgba(255,255,255,0.6);
+    --user-menu-hover: #1A1A1A;
+    --user-menu-active: #FFFFFF;
   }
 
   salla-menu {
-    --menu-text: #B0B0B0;
-    --menu-hover: #C9A84C;
+    --menu-text: rgba(255,255,255,0.6);
+    --menu-hover: #FFFFFF;
   }
 
   custom-main-menu {
-    --menu-text: #B0B0B0;
-    --menu-hover: #C9A84C;
-    --menu-active: #C9A84C;
-    --submenu-bg: #1A1A1A;
-    --submenu-border: rgba(201,168,76,0.25);
+    --menu-text: rgba(255,255,255,0.6);
+    --menu-hover: #FFFFFF;
+    --menu-active: #FFFFFF;
+    --submenu-bg: #111;
+    --submenu-border: rgba(255,255,255,0.1);
   }
 
   salla-social-share {
-    --social-bg: #222222;
-    --social-color: #B0B0B0;
-    --social-hover-color: #C9A84C;
+    --social-bg: transparent;
+    --social-color: rgba(255,255,255,0.4);
+    --social-hover-color: #FFFFFF;
   }
 
   salla-contacts {
-    --contacts-color: #707070;
-    --contacts-hover: #C9A84C;
+    --contacts-color: rgba(255,255,255,0.4);
+    --contacts-hover: #FFFFFF;
   }
 
   salla-gifting {
-    --gifting-bg: #1A1A1A;
-    --gifting-border: rgba(201,168,76,0.25);
+    --gifting-bg: #111;
+    --gifting-border: rgba(255,255,255,0.1);
   }
 
   salla-infinite-scroll {
-    --loader-color: #C9A84C;
+    --loader-color: #FFFFFF;
   }
 
   salla-comments {
-    --comment-bg: #1A1A1A;
-    --comment-text: #B0B0B0;
+    --comment-bg: transparent;
+    --comment-text: rgba(255,255,255,0.6);
     --comment-border: rgba(255,255,255,0.06);
   }
 
   salla-add-product-toast {
-    --toast-bg: #1A1A1A;
+    --toast-bg: #111;
     --toast-text: #F5F5F5;
-    --toast-border: rgba(201,168,76,0.25);
+    --toast-border: rgba(255,255,255,0.1);
   }
 
   salla-count-down {
-    --countdown-bg: #222222;
+    --countdown-bg: #111;
     --countdown-text: #F5F5F5;
-    --countdown-label: #707070;
+    --countdown-label: rgba(255,255,255,0.4);
   }
 
   salla-trust-badges {
-    --badge-bg: #222222;
+    --badge-bg: transparent;
     --badge-border: rgba(255,255,255,0.06);
-    --badge-text: #B0B0B0;
+    --badge-text: rgba(255,255,255,0.6);
   }
 
   salla-installment {
-    --installment-bg: #1A1A1A;
+    --installment-bg: transparent;
     --installment-border: rgba(255,255,255,0.06);
   }
 
   salla-offer-modal {
-    --modal-bg: #1A1A1A;
+    --modal-bg: #111;
     --modal-text: #F5F5F5;
   }
 
   salla-scopes {
-    --scopes-bg: #1A1A1A;
+    --scopes-bg: #111;
     --scopes-text: #F5F5F5;
-    --scopes-border: rgba(255,255,255,0.08);
-    --scopes-active: #C9A84C;
+    --scopes-border: rgba(255,255,255,0.1);
+    --scopes-active: #FFFFFF;
   }
 
   salla-loyalty {
-    --loyalty-bg: #1A1A1A;
+    --loyalty-bg: transparent;
     --loyalty-text: #F5F5F5;
-    --loyalty-accent: #C9A84C;
+    --loyalty-accent: #FFFFFF;
   }
 
   salla-datetime-picker {
-    --picker-bg: #141414;
+    --picker-bg: #111;
     --picker-text: #F5F5F5;
-    --picker-border: rgba(255,255,255,0.08);
-    --picker-active: #C9A84C;
+    --picker-border: rgba(255,255,255,0.1);
+    --picker-active: #FFFFFF;
   }
 
   salla-tel-input {
-    --tel-bg: #141414;
+    --tel-bg: #111;
     --tel-text: #F5F5F5;
-    --tel-border: rgba(255,255,255,0.08);
+    --tel-border: rgba(255,255,255,0.1);
   }
 
   salla-file-upload {
-    --upload-bg: #141414;
-    --upload-text: #B0B0B0;
-    --upload-border: rgba(255,255,255,0.08);
-    --upload-accent: #C9A84C;
+    --upload-bg: #111;
+    --upload-text: rgba(255,255,255,0.6);
+    --upload-border: rgba(255,255,255,0.1);
+    --upload-accent: #FFFFFF;
   }
 
   salla-conditional-offer {
-    --offer-bg: #1A1A1A;
+    --offer-bg: #111;
     --offer-text: #F5F5F5;
-    --offer-border: rgba(201,168,76,0.25);
-    --offer-accent: #C9A84C;
+    --offer-border: rgba(255,255,255,0.1);
+    --offer-accent: #FFFFFF;
   }
 
   salla-tiered-offer {
-    --offer-bg: #1A1A1A;
+    --offer-bg: #111;
     --offer-text: #F5F5F5;
-    --offer-border: rgba(201,168,76,0.25);
+    --offer-border: rgba(255,255,255,0.1);
   }
 
   salla-verify {
-    --verify-bg: #1A1A1A;
+    --verify-bg: #111;
     --verify-text: #F5F5F5;
   }
 
   salla-user-settings {
-    --settings-bg: #1A1A1A;
-    --settings-text: #B0B0B0;
+    --settings-bg: transparent;
+    --settings-text: rgba(255,255,255,0.6);
     --settings-border: rgba(255,255,255,0.06);
   }
 
   salla-products-list {
-    --product-card-bg: #1A1A1A;
-    --product-card-border: rgba(255,255,255,0.05);
+    --product-card-bg: transparent;
+    --product-card-border: transparent;
   }
 
   salla-payments {
     --payments-bg: transparent;
-    --payments-text: #707070;
+    --payments-text: rgba(255,255,255,0.4);
   }
 
   salla-apps-icons {
-    --apps-text: #707070;
+    --apps-text: rgba(255,255,255,0.4);
   }
 
   salla-social {
-    --social-color: #707070;
-    --social-hover: #C9A84C;
+    --social-color: rgba(255,255,255,0.4);
+    --social-hover: #FFFFFF;
   }
 
   salla-cart-item-offers {
-    --offer-text: #B0B0B0;
-    --offer-accent: #C9A84C;
+    --offer-text: rgba(255,255,255,0.6);
+    --offer-accent: #FFFFFF;
   }
 
   // ===================== ADDITIONAL OVERRIDES =====================
   .no-content-placeholder {
-    color: #B0B0B0;
-    i.icon { color: #707070 !important; }
-    p { color: #B0B0B0 !important; }
+    color: rgba(255,255,255,0.6);
+    i.icon { color: rgba(255,255,255,0.3) !important; }
+    p { color: rgba(255,255,255,0.5) !important; }
   }
 
   .btn--coupon {
     &.has-not-coupon {
-      background: #C9A84C !important;
-      color: #0A0A0A !important;
+      background: #FFFFFF !important;
+      color: #000000 !important;
     }
   }
 
   .profile-field-item label {
-    color: #B0B0B0 !important;
+    color: rgba(255,255,255,0.5) !important;
   }
 
   .progress-bg {
-    background: #C9A84C !important;
+    background: #FFFFFF !important;
   }
 
   .brands-nav__item {
-    color: #707070 !important;
+    color: rgba(255,255,255,0.4) !important;
     border-color: rgba(255,255,255,0.06) !important;
     &:hover, &.is-active {
-      color: #C9A84C !important;
-      border-color: #C9A84C !important;
+      color: #FFFFFF !important;
+      border-color: #FFFFFF !important;
     }
   }
 
   .cart-options {
-    background: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
+    background: #111 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
   }
 
   hr {
     border-color: rgba(255,255,255,0.06) !important;
   }
 
-  .shadow-md, .shadow-lg, .shadow-sm {
-    box-shadow: 0 4px 24px rgba(0,0,0,0.4) !important;
-  }
-
-  // ===================== LUXURY PRODUCT PAGE ENHANCEMENTS =====================
-  // Gallery image container
+  // ===================== PRODUCT PAGE ENHANCEMENTS =====================
   .details-slider,
   .image-slider {
-    background: #111111 !important;
-    border: 1px solid rgba(255,255,255,0.04) !important;
-    border-radius: 2px !important;
+    background: #111 !important;
+    border: none !important;
+    border-radius: 0 !important;
     overflow: hidden;
-
     .magnify-wrapper img {
       transition: transform 0.6s ease;
     }
@@ -1043,108 +1039,92 @@ body.theme-graphical {
     }
   }
 
-  // Product page action buttons (wishlist, share)
+  // Product page action buttons
   .btn--wishlist {
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 50% !important;
-    border: 1px solid rgba(201,168,76,0.3) !important;
-    background: rgba(10,10,10,0.7) !important;
-    backdrop-filter: blur(10px) !important;
-    color: #C9A84C !important;
-    transition: all 0.35s ease !important;
-
+    border: none !important;
+    background: transparent !important;
+    color: rgba(255,255,255,0.5) !important;
+    border-radius: 0 !important;
     &:hover, &.is-wished {
-      background: #C9A84C !important;
-      color: #0A0A0A !important;
-      border-color: #C9A84C !important;
-      transform: scale(1.1);
+      color: #FFFFFF !important;
+      transform: none;
     }
   }
 
-  // Social share buttons dark
+  // Social share — minimal
   salla-social-share {
     button, a {
-      background: rgba(255,255,255,0.05) !important;
-      border: 1px solid rgba(255,255,255,0.08) !important;
-      color: #B0B0B0 !important;
-      border-radius: 50% !important;
-      transition: all 0.3s ease !important;
+      background: transparent !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      color: rgba(255,255,255,0.4) !important;
+      border-radius: 0 !important;
       &:hover {
-        background: rgba(201,168,76,0.1) !important;
-        border-color: var(--graphical-gold-border) !important;
-        color: #C9A84C !important;
+        border-color: #FFFFFF !important;
+        color: #FFFFFF !important;
+        background: transparent !important;
       }
     }
   }
 
-  // Product description formatting — rich content from merchant
+  // Product description — Jacquemus clean
   .product__description,
-  .graphical-product-description {
+  .graphical-rich-content {
     .article--main {
-      color: #B0B0B0 !important;
-      font-size: 0.9rem;
-      line-height: 2;
-      word-spacing: 0.02em;
-
-      p { margin-bottom: 0.75em; }
-      strong, b { color: #F5F5F5 !important; }
-
-      // Images from merchant content
+      color: rgba(255,255,255,0.8) !important;
+      font-size: 15px;
+      line-height: 1.9;
+      p { margin-bottom: 1.2em; }
+      strong, b { color: #FFFFFF !important; }
       img {
         max-width: 100% !important;
         height: auto !important;
-        border-radius: 2px;
-        border: 1px solid rgba(255,255,255,0.05);
-        margin: 8px 0;
+        border-radius: 0;
+        border: none;
       }
-
-      // Lists
       ul, ol {
         padding-right: 24px;
         margin-bottom: 1em;
-        li { margin-bottom: 0.3em; }
       }
-
       table {
         width: 100% !important;
         border-collapse: collapse;
-        margin: 1rem 0;
-        background: rgba(255,255,255,0.02);
-        border: 1px solid rgba(201,168,76,0.12);
+        margin: 24px 0;
+        background: transparent;
+        border: none;
         td, th {
-          padding: 10px 14px !important;
-          border: 1px solid rgba(201,168,76,0.12) !important;
-          color: #B0B0B0 !important;
-          font-size: 0.85rem;
+          padding: 10px 16px !important;
+          border: none !important;
+          border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+          color: rgba(255,255,255,0.7) !important;
+          font-size: 14px;
+          text-align: right;
           white-space: nowrap;
         }
         th {
-          background: rgba(201,168,76,0.08) !important;
-          color: #C9A84C !important;
-          font-weight: 600;
-        }
-        tr:nth-child(even) td {
-          background: rgba(255,255,255,0.02);
+          background: transparent !important;
+          color: rgba(255,255,255,0.5) !important;
+          font-weight: 400;
+          font-size: 13px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
         }
       }
     }
   }
 
-  // Quantity input styling
+  // Quantity input
   salla-quantity-input {
     .s-quantity-input {
-      background: #141414 !important;
-      border: 1px solid rgba(255,255,255,0.08) !important;
-      border-radius: 2px !important;
+      background: #111 !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      border-radius: 0 !important;
     }
     button {
-      background: #222222 !important;
-      color: #C9A84C !important;
-      border-color: rgba(255,255,255,0.08) !important;
+      background: transparent !important;
+      color: #FFFFFF !important;
+      border-color: rgba(255,255,255,0.12) !important;
       &:hover {
-        background: #C9A84C !important;
-        color: #0A0A0A !important;
+        background: rgba(255,255,255,0.1) !important;
       }
     }
     input {
@@ -1153,26 +1133,28 @@ body.theme-graphical {
     }
   }
 
-  // Add to cart button enhancement
+  // Add to cart button — Jacquemus white
   salla-add-product-button {
     .s-button-element {
-      background: #C9A84C !important;
-      color: #0A0A0A !important;
+      background: #FFFFFF !important;
+      color: #000000 !important;
       border: none !important;
-      border-radius: 2px !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.08em !important;
+      border-radius: 0 !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      font-size: 0.875rem !important;
-      transition: all 0.3s ease !important;
+      font-size: 12px !important;
+      transition: opacity 0.3s ease !important;
+      box-shadow: none !important;
       &:hover {
-        background: #A8863A !important;
-        box-shadow: 0 4px 16px rgba(201,168,76,0.3) !important;
+        opacity: 0.7;
+        background: #FFFFFF !important;
+        box-shadow: none !important;
       }
     }
   }
 
-  // Menu items — ensure clickable
+  // Menu items
   custom-main-menu {
     position: relative;
     z-index: 30;
@@ -1180,142 +1162,108 @@ body.theme-graphical {
     .main-menu > li > a {
       pointer-events: auto !important;
       cursor: pointer !important;
-      color: #B0B0B0 !important;
-      letter-spacing: 0.06em !important;
+      font-family: var(--font-body) !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      color: rgba(255,255,255,0.6) !important;
+      letter-spacing: 0.1em !important;
       text-transform: uppercase !important;
-      font-size: 0.8rem !important;
-      font-weight: 500 !important;
       transition: color 0.3s ease !important;
-      padding: 1.5rem 1rem !important;
-
-      &:hover {
-        color: #C9A84C !important;
-      }
+      &:hover { color: #FFFFFF !important; }
     }
 
     .main-menu > li.is-active > a,
     .main-menu > li:hover > a {
-      color: #C9A84C !important;
+      color: #FFFFFF !important;
     }
 
     .sub-menu {
-      background: #1A1A1A !important;
-      border: 1px solid rgba(201,168,76,0.2) !important;
+      background: #111 !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
       box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
       z-index: 32 !important;
     }
   }
 
-  // Header icons — luxury circular gold accents
+  // Header icons
   .header-btn__icon {
-    color: #C9A84C !important;
-    border: 1px solid rgba(201,168,76,0.3) !important;
-    border-radius: 50% !important;
-    background: rgba(201,168,76,0.08) !important;
-    width: 42px !important;
-    height: 42px !important;
-    font-size: 1.1rem !important;
-    transition: all 0.35s ease !important;
-
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    font-size: 20px !important;
+    padding: 8px;
     &:hover {
-      background: #C9A84C !important;
-      color: #0A0A0A !important;
-      border-color: #C9A84C !important;
-      transform: scale(1.08) !important;
+      opacity: 0.6;
+      color: #FFFFFF !important;
+      background: transparent !important;
+      transform: none !important;
     }
   }
 
-  // Installment & metadata dark styling
+  // Installment & metadata
   salla-installment,
   salla-metadata {
     background: transparent !important;
-    color: #B0B0B0 !important;
-
+    color: rgba(255,255,255,0.6) !important;
     .bg-white, [class*="bg-white"] {
-      background: #1A1A1A !important;
+      background: transparent !important;
     }
   }
 
-  // Product size guide modal
+  // Size guide
   salla-product-size-guide {
-    --modal-bg: #1A1A1A;
+    --modal-bg: #111;
     --modal-text: #F5F5F5;
     table {
       td, th {
         border-color: rgba(255,255,255,0.06) !important;
-        color: #B0B0B0 !important;
+        color: rgba(255,255,255,0.6) !important;
       }
-      th { background: #222222 !important; color: #F5F5F5 !important; }
+      th { background: #1A1A1A !important; color: #FFFFFF !important; }
     }
   }
 
-  // Loading/skeleton states
+  // Loading/skeleton
   .placeholder-content,
   .skeleton {
-    background: #1A1A1A !important;
+    background: #111 !important;
   }
 
   // Similar products slider
   salla-products-slider {
     .s-block__title h2 {
-      color: #F5F5F5 !important;
-      letter-spacing: 0.06em !important;
-      text-transform: uppercase !important;
-      font-weight: 300 !important;
-      &::after {
-        content: '' !important;
-        display: block !important;
-        width: 40px !important;
-        height: 2px !important;
-        background: #C9A84C !important;
-        margin-top: 10px !important;
-      }
+      font-family: var(--font-heading) !important;
+      font-weight: 900 !important;
+      color: #FFFFFF !important;
+      &::after { display: none !important; }
     }
   }
 
-  // ===================== LUXURY HEADING FONT =====================
-  h1, h2, h3, .graphical-heading {
-    font-family: 'Cormorant Garamond', 'Cairo', serif;
-    letter-spacing: 0.03em;
-  }
-
-  // ===================== PRICE COLORS — GOLD THEME =====================
-  // Override red/green sale prices with gold tones
+  // ===================== PRICE COLORS =====================
   .s-product-card-price del,
   [class*="price"] del,
   [class*="price"] s,
-  .before-price,
-  .text-red-800 {
-    color: #666 !important;
+  .before-price {
+    color: rgba(255,255,255,0.25) !important;
   }
 
-  // ===================== DISCOUNT BADGE — GOLD =====================
+  // ===================== KILL DECORATIVE EFFECTS =====================
+  // Remove all discount badge gradients
   .s-product-card-promotion-title,
   [class*="sale-badge"],
   [class*="discount-badge"] {
-    background: linear-gradient(135deg, #C9A84C, #A8863A) !important;
-    color: #0A0A0A !important;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    display: none !important;
   }
 
-  // ===================== PRODUCT IMAGE GRADIENT OVERLAY =====================
+  // Remove image gradient overlay
   .s-product-card-image {
-    position: relative !important;
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 40%;
-      background: linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
+    &::after { display: none !important; }
   }
 
-  // ===================== SEARCH OVERLAY — DARK =====================
+  // Search overlay
   .s-search-container,
   .s-search-wrapper,
   [class*="search-modal"],
@@ -1328,27 +1276,22 @@ body.theme-graphical {
   .s-search-input,
   [class*="search"] input[type="search"],
   [class*="search"] input[type="text"] {
-    background: #141414 !important;
+    background: #111 !important;
     color: #F5F5F5 !important;
-    border: 1px solid rgba(255,255,255,0.08) !important;
-    &:focus {
-      border-color: #C9A84C !important;
-    }
-    &::placeholder {
-      color: #707070 !important;
-    }
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 0 !important;
+    &:focus { border-color: rgba(255,255,255,0.3) !important; }
+    &::placeholder { color: rgba(255,255,255,0.3) !important; }
   }
 
   .s-search-result,
   [class*="search-result"] {
-    background: #1A1A1A !important;
+    background: #111 !important;
     border-color: rgba(255,255,255,0.06) !important;
-    &:hover {
-      background: #222222 !important;
-    }
+    &:hover { background: #1A1A1A !important; }
   }
 
-  // ===================== MODAL OVERRIDES — DARK =====================
+  // Modal overrides
   .s-modal-content,
   .s-login-wrapper,
   .s-login-modal-content,
@@ -1357,44 +1300,41 @@ body.theme-graphical {
   .s-bottom-alert-content,
   [class*="sheet-content"],
   [class*="drawer-content"] {
-    background: #1A1A1A !important;
+    background: #111 !important;
     color: #F5F5F5 !important;
+    border-radius: 0 !important;
   }
 
-  // Modal ::part selectors (for open Shadow DOM)
   salla-login-modal::part(content),
   salla-modal::part(content),
   salla-localization-modal::part(content) {
-    background: #1A1A1A !important;
+    background: #111 !important;
     color: #F5F5F5 !important;
   }
 
   salla-login-modal::part(header),
   salla-modal::part(header) {
-    background: #1A1A1A !important;
+    background: #111 !important;
     color: #F5F5F5 !important;
     border-color: rgba(255,255,255,0.06) !important;
   }
 
-  // Bottom alert / add-to-cart notification
   salla-bottom-alert {
-    --alert-bg: #1A1A1A;
+    --alert-bg: #111;
     --alert-text: #F5F5F5;
-    --alert-border: rgba(201,168,76,0.25);
-    --color-primary: #C9A84C;
+    --alert-border: rgba(255,255,255,0.1);
+    --color-primary: #FFFFFF;
   }
 
-  // ===================== TAILWIND UTILITY NUCLEAR OVERRIDES =====================
-  // Force Tailwind utility classes to dark equivalents
-  // Catches cases where Salla platform CSS overrides tailwind.config
-  .bg-white { background-color: #1A1A1A !important; }
-  .bg-gray-50 { background-color: #0A0A0A !important; }
-  .bg-gray-100 { background-color: #0A0A0A !important; }
-  .bg-gray-200 { background-color: #141414 !important; }
-  .bg-gray-300 { background-color: #1A1A1A !important; }
+  // ===================== TAILWIND UTILITY OVERRIDES =====================
+  .bg-white { background-color: transparent !important; }
+  .bg-gray-50 { background-color: transparent !important; }
+  .bg-gray-100 { background-color: transparent !important; }
+  .bg-gray-200 { background-color: transparent !important; }
+  .bg-gray-300 { background-color: transparent !important; }
   .text-gray-900 { color: #F5F5F5 !important; }
   .text-gray-800 { color: #F5F5F5 !important; }
-  .text-gray-700 { color: #B0B0B0 !important; }
+  .text-gray-700 { color: rgba(255,255,255,0.5) !important; }
   .text-black { color: #F5F5F5 !important; }
   .border-gray-100,
   .border-gray-200,
@@ -1402,25 +1342,27 @@ body.theme-graphical {
     border-color: rgba(255,255,255,0.06) !important;
   }
 
-  // Home page full-bg sections
   .s-block--full-bg {
-    background-color: #0D0D0D !important;
+    background-color: transparent !important;
   }
 
   // ===================== PRODUCT OPTIONS DROPDOWN =====================
   salla-product-options {
-    select,
-    .s-form-control {
-      background-color: #1A1A1A !important;
+    select, .s-form-control {
+      background-color: #111 !important;
       color: #F5F5F5 !important;
-      border: 1px solid rgba(201,168,76,0.15) !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      border-radius: 0 !important;
       option {
-        background: #1A1A1A;
+        background: #111;
         color: #F5F5F5;
       }
     }
     label {
-      color: #C9A84C !important;
+      color: rgba(255,255,255,0.5) !important;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
   }
 
@@ -1429,61 +1371,17 @@ body.theme-graphical {
   .s-product-option {
     background: transparent !important;
     select {
-      background-color: #1A1A1A !important;
+      background-color: #111 !important;
       color: #F5F5F5 !important;
-      border: 1px solid rgba(201,168,76,0.15) !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      border-radius: 0 !important;
     }
-  }
-
-  // ===================== WISHLIST & SHARE ICONS (Product Page) =====================
-  .btn--wishlist,
-  [class*="wishlist-btn"],
-  [class*="share-btn"] {
-    background: rgba(10,10,10,0.7) !important;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(201,168,76,0.2) !important;
-    color: #C9A84C !important;
-    border-radius: 50% !important;
-    transition: all 0.35s ease !important;
-
-    &:hover {
-      background: #C9A84C !important;
-      color: #0A0A0A !important;
-      border-color: #C9A84C !important;
-    }
-  }
-
-  // ===================== SECTION TITLES — LUXURY =====================
-  .s-block__title h2,
-  .s-block-title {
-    font-family: 'Cormorant Garamond', 'Cairo', serif !important;
-    color: #F5F5F5 !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.06em !important;
-    position: relative;
-    padding-bottom: 16px;
-
-    &::after {
-      content: '' !important;
-      display: block !important;
-      width: 40px !important;
-      height: 1px !important;
-      background: #C9A84C !important;
-      margin-top: 12px !important;
-    }
-  }
-
-  // Section spacing
-  .s-block {
-    padding: 48px 0 !important;
-    background: #0A0A0A !important;
-    border-bottom: 1px solid rgba(201,168,76,0.04);
   }
 
   // ===================== MENU ACTIVE STATE =====================
   .main-menu > li.is-active > a,
   .main-menu > li:hover > a {
-    color: #C9A84C !important;
+    color: #FFFFFF !important;
     position: relative;
   }
 
@@ -1493,13 +1391,13 @@ body.theme-graphical {
     bottom: 0;
     right: 0;
     left: 0;
-    height: 2px;
-    background: #C9A84C;
+    height: 1px;
+    background: #FFFFFF;
   }
 
   // ===================== PRODUCT THUMBNAILS =====================
   .slide--one-fourth img {
-    background: #1A1A1A !important;
+    background: #111 !important;
     border: 1px solid rgba(255,255,255,0.06) !important;
     border-radius: 0 !important;
     transition: border-color 0.3s ease;
@@ -1507,17 +1405,28 @@ body.theme-graphical {
 
   .swiper-slide-thumb-active .slide--one-fourth img,
   .swiper-slide-thumb-active img {
-    border-color: #C9A84C !important;
+    border-color: #FFFFFF !important;
   }
 
-  // ===================== FOCUS STATES — ACCESSIBILITY =====================
+  // ===================== FOCUS STATES =====================
   *:focus-visible {
-    outline: 2px solid rgba(201, 168, 76, 0.5) !important;
+    outline: 1px solid rgba(255,255,255,0.3) !important;
     outline-offset: 2px !important;
   }
 
   input:focus, select:focus, textarea:focus {
-    border-color: #C9A84C !important;
-    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1) !important;
+    border-color: rgba(255,255,255,0.3) !important;
+    box-shadow: none !important;
+  }
+
+  // ===================== SECTIONS SPACING =====================
+  .s-block {
+    padding: 80px 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: none !important;
+    @media (max-width: 768px) {
+      padding: 48px 0 !important;
+    }
   }
 }

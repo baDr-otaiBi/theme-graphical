@@ -82,7 +82,7 @@
     {# === 1. Fonts FIRST — preconnect early to prevent FOUT === #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cairo:wght@300;400;600&display=swap" rel="stylesheet">
 
     {# === 2. Salla base stylesheets === #}
     <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
@@ -94,8 +94,12 @@
     {# === 4. Critical CSS — before Salla's end hook === #}
     <style>
         :root {
-            --font-main: 'Cairo', sans-serif;
-            --graphical-gold: #C9A84C;
+            --font-heading: 'Playfair Display', 'Cairo', serif;
+            --font-body: 'Cairo', sans-serif;
+            --font-main: var(--font-body);
+            --graphical-gold: #D4AF37;
+            --graphical-gold-light: #E5C84D;
+            --graphical-gold-dark: #B8941F;
             --graphical-black: #0A0A0A;
             --graphical-dark-surface: #141414;
             --graphical-dark-card: #1A1A1A;
@@ -103,35 +107,46 @@
             --graphical-text-primary: #F5F5F5;
             --graphical-text-secondary: #B0B0B0;
             --graphical-text-muted: #707070;
-            --graphical-gold-border: rgba(201, 168, 76, 0.25);
-            --graphical-radius: 2px;
+            --graphical-gold-border: rgba(212, 175, 55, 0.15);
+            --graphical-gold-muted: rgba(212, 175, 55, 0.10);
+            --graphical-radius: 0px;
         }
-        html, body, #app { background-color: #0A0A0A; color: #F5F5F5; font-family: var(--font-main); }
+        html, body, #app { background-color: #0A0A0A; color: rgba(255,255,255,0.7); font-family: var(--font-body); font-weight: 300; }
     </style>
     {% hook 'head:end' %}
 
-    {# === 5. FINAL override — AFTER all Salla hooks, so nothing can override === #}
+    {# === 5. FINAL override — Jacquemus Dark Luxury — AFTER all Salla hooks === #}
     <style>
         /* ===== COLOR PRIMARY FORCE ===== */
         :root, html, body, body.theme-graphical {
-            --color-primary: #C9A84C !important;
-            --color-primary-dark: #A8863A !important;
-            --color-primary-light: #E2C670 !important;
-            --color-primary-reverse: #0A0A0A !important;
+            --color-primary: #D4AF37 !important;
+            --color-primary-dark: #B8941F !important;
+            --color-primary-light: #E5C84D !important;
+            --color-primary-reverse: #000000 !important;
             --color-text: #F5F5F5 !important;
         }
 
+        /* ===== TYPOGRAPHY — Jacquemus Style ===== */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', 'Cairo', serif !important;
+            font-weight: 900;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+            color: #FFFFFF;
+        }
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+        h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+
         /* ===== TAILWIND UTILITY NUCLEAR OVERRIDES ===== */
-        /* Force ALL bg-white/bg-gray-* Tailwind classes to dark equivalents */
-        /* This catches cases where Salla platform CSS overrides our tailwind.config */
-        .bg-white { background-color: #1A1A1A !important; }
-        .bg-gray-50 { background-color: #0A0A0A !important; }
-        .bg-gray-100 { background-color: #0A0A0A !important; }
-        .bg-gray-200 { background-color: #141414 !important; }
-        .bg-gray-300 { background-color: #1A1A1A !important; }
+        .bg-white { background-color: transparent !important; }
+        .bg-gray-50 { background-color: transparent !important; }
+        .bg-gray-100 { background-color: transparent !important; }
+        .bg-gray-200 { background-color: transparent !important; }
+        .bg-gray-300 { background-color: transparent !important; }
         .text-gray-900, .text-gray-800 { color: #F5F5F5 !important; }
-        .text-gray-700, .text-gray-600 { color: #B0B0B0 !important; }
-        .text-gray-500 { color: #707070 !important; }
+        .text-gray-700, .text-gray-600 { color: rgba(255,255,255,0.5) !important; }
+        .text-gray-500 { color: rgba(255,255,255,0.4) !important; }
         .text-black { color: #F5F5F5 !important; }
         .border-gray-100, .border-gray-200, .border-gray-300 {
             border-color: rgba(255,255,255,0.06) !important;
@@ -140,111 +155,297 @@
         .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
             border-color: rgba(255,255,255,0.06) !important;
         }
-        /* s-block full-bg sections on home page */
-        .s-block--full-bg { background-color: #0D0D0D !important; }
+        .s-block--full-bg { background-color: transparent !important; }
 
-        /* ===== PRODUCT CARDS — FORCE DARK ===== */
+        /* ===== PRODUCT CARDS — Jacquemus Minimal ===== */
         custom-salla-product-card, salla-product-card, .s-product-card-entry {
-            background: #0A0A0A !important;
-            border: 1px solid rgba(201,168,76,0.08) !important;
+            background: transparent !important;
+            border: none !important;
             border-radius: 0 !important;
+            box-shadow: none !important;
             overflow: hidden;
         }
         custom-salla-product-card:hover, .s-product-card-entry:hover {
-            border-color: rgba(201,168,76,0.3) !important;
+            border-color: transparent !important;
+            box-shadow: none !important;
         }
         .s-product-card-image {
             background: #111 !important;
             position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+        }
+        .s-product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .s-product-card-image::after { display: none !important; }
+        .s-product-card-entry:hover .s-product-card-image img,
+        custom-salla-product-card:hover .s-product-card-image img {
+            transform: scale(1.03);
         }
         .s-product-card-content {
-            background: #0A0A0A !important;
-            padding: 1rem !important;
+            background: transparent !important;
+            padding: 16px 4px 24px !important;
         }
         .s-product-card-content-title a {
-            color: #F5F5F5 !important;
+            font-family: 'Playfair Display', 'Cairo', serif !important;
             font-weight: 400 !important;
-            letter-spacing: 0.02em;
+            font-size: 15px !important;
+            color: #FFFFFF !important;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            line-height: 1.3;
         }
-        .s-product-card-entry:hover .s-product-card-content-title a {
-            color: #C9A84C !important;
+        .s-product-card-entry:hover .s-product-card-content-title a,
+        custom-salla-product-card:hover .s-product-card-content-title a {
+            color: rgba(255,255,255,0.6) !important;
         }
         .s-product-card-price, .s-product-card-sale-price h4,
-        .s-product-card-starting-price h4 { color: #C9A84C !important; }
-        .s-product-card-sale-price span { color: #555 !important; }
-        .s-product-card-promotion-title {
-            background: #C9A84C !important;
-            color: #0A0A0A !important;
-            font-weight: 700;
-            letter-spacing: 0.05em;
+        .s-product-card-starting-price h4 {
+            font-family: 'Cairo', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 300 !important;
+            color: rgba(255,255,255,0.5) !important;
         }
-        /* Wishlist button on cards */
+        .s-product-card-sale-price span,
+        .s-product-card-price del { color: rgba(255,255,255,0.25) !important; }
+        .s-product-card-promotion-title { display: none !important; }
+        .s-product-card-rating { display: none !important; }
+        .s-product-card-content-subtitle { display: none !important; }
+        .s-product-card-content-footer,
+        .s-product-card-content-footer salla-add-product-button,
+        custom-salla-product-card salla-add-product-button { display: none !important; }
+
+        /* Wishlist — hidden, appears on hover */
         .s-product-card-wishlist-btn {
-            background: rgba(10,10,10,0.6) !important;
-            border: 1px solid rgba(201,168,76,0.2) !important;
-            color: #F5F5F5 !important;
-            backdrop-filter: blur(4px);
+            background: transparent !important;
+            border: none !important;
+            color: #FFFFFF !important;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        custom-salla-product-card:hover .s-product-card-wishlist-btn,
+        .s-product-card-entry:hover .s-product-card-wishlist-btn {
+            opacity: 0.6;
         }
         .s-product-card-wishlist-btn:hover,
         .s-product-card-wishlist-added {
-            background: #C9A84C !important;
-            color: #0A0A0A !important;
-            border-color: #C9A84C !important;
+            opacity: 1 !important;
+            color: #FFFFFF !important;
+            background: transparent !important;
         }
 
-        /* ===== PRODUCT OPTIONS DROPDOWN — FORCE DARK ===== */
+        /* ===== PRODUCTS GRID — 2 columns ===== */
+        .s-products-grid, .products-grid, [class*="products-grid"] {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 2px !important;
+            padding: 0 !important;
+        }
+        @media (max-width: 768px) {
+            .s-products-grid, .products-grid, [class*="products-grid"] {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1px !important;
+            }
+        }
+
+        /* ===== PRODUCT OPTIONS DROPDOWN — DARK ===== */
         salla-product-options select,
         salla-product-options .s-form-control,
+        .s-form-control, .form-control,
         .s-product-options-wrapper select,
         .s-product-options-container select,
         .s-product-option select {
-            background-color: #1A1A1A !important;
+            background: #111 !important;
             color: #F5F5F5 !important;
-            border: 1px solid rgba(201,168,76,0.15) !important;
+            border: 1px solid rgba(255,255,255,0.12) !important;
+            border-radius: 0 !important;
+            padding: 12px 16px;
+            font-size: 14px;
+            appearance: none;
         }
         salla-product-options select option {
-            background: #1A1A1A;
+            background: #111;
             color: #F5F5F5;
         }
         salla-product-options label,
         .s-product-option-label {
-            color: #C9A84C !important;
+            color: rgba(255,255,255,0.5) !important;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
-        /* ===== PRODUCT DESCRIPTION TABLES ===== */
-        .product__description table,
-        .article--main table {
-            width: 100% !important;
-            border-collapse: collapse !important;
-            color: #B0B0B0 !important;
-            background: rgba(255,255,255,0.02) !important;
-            border: 1px solid rgba(201,168,76,0.12) !important;
-            margin: 16px 0;
+        /* ===== RICH CONTENT (Product Description) ===== */
+        .graphical-rich-content {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.9;
+            font-size: 15px;
         }
-        .product__description table td,
-        .product__description table th,
-        .article--main table td,
-        .article--main table th {
-            padding: 10px 14px !important;
-            border: 1px solid rgba(201,168,76,0.12) !important;
+        .graphical-rich-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+        }
+        .graphical-rich-content table td,
+        .graphical-rich-content table th {
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            text-align: right;
             white-space: nowrap;
         }
-        .product__description table th,
-        .article--main table th {
-            background: rgba(201,168,76,0.08) !important;
-            color: #C9A84C !important;
-            font-weight: 600;
+        .graphical-rich-content table th {
+            color: rgba(255,255,255,0.5);
+            font-weight: 400;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .graphical-rich-content p { margin-bottom: 1.2em; }
+        .graphical-rich-content img { max-width: 100%; height: auto; }
+
+        /* ===== SECTION TITLES — Jacquemus Bold ===== */
+        .s-block__title h2, .s-block-title, [class*="block-title"], .section-title {
+            font-family: 'Playfair Display', 'Cairo', serif !important;
+            font-weight: 900 !important;
+            font-size: clamp(1.8rem, 4vw, 3rem) !important;
+            color: #FFFFFF !important;
+            text-align: right !important;
+            padding: 48px 0 32px !important;
+            letter-spacing: -0.02em;
+        }
+        .s-block__title h2::after { display: none !important; }
+
+        /* ===== NAVIGATION — Jacquemus clean ===== */
+        .main-menu > li > a {
+            font-family: 'Cairo', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            color: rgba(255,255,255,0.6) !important;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .main-menu > li > a:hover,
+        .main-menu > li.is-active > a {
+            color: #FFFFFF !important;
         }
 
-        /* ===== PRODUCT THUMBNAILS ===== */
-        .slide--one-fourth img,
-        .product-thumbnails img,
-        .swiper-slide-thumb-active img {
-            background: #1A1A1A !important;
-            border: 1px solid rgba(255,255,255,0.06) !important;
+        /* ===== HEADER ICONS — bare, no circles ===== */
+        .header-btn__icon {
+            background: transparent !important;
+            border: none !important;
+            color: #FFFFFF !important;
+            font-size: 20px;
+            border-radius: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            padding: 8px;
         }
-        .swiper-slide-thumb-active img {
-            border-color: #C9A84C !important;
+        .header-btn__icon:hover { opacity: 0.6; transform: none !important; }
+
+        /* ===== LOGO — bigger ===== */
+        .navbar-brand img { max-height: 48px !important; }
+
+        /* ===== SPACING — generous ===== */
+        .s-block, [class*="s-block"], section[class*="block"] {
+            padding: 80px 0 !important;
+            background: transparent !important;
+            border: none !important;
+        }
+        @media (max-width: 768px) {
+            .s-block, [class*="s-block"], section[class*="block"] {
+                padding: 48px 0 !important;
+            }
+        }
+        .container, .s-container {
+            max-width: 1240px;
+            padding-inline: 24px;
+        }
+
+        /* ===== BUTTONS — Jacquemus white on black ===== */
+        salla-add-product-button .s-button-element,
+        .s-button-primary, .s-btn-primary, .btn-primary,
+        .btn--primary, .btn--default {
+            background: #FFFFFF !important;
+            color: #000000 !important;
+            border: none !important;
+            border-radius: 0 !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.12em !important;
+            text-transform: uppercase !important;
+            padding: 16px 48px !important;
+            transition: opacity 0.3s ease;
+            box-shadow: none !important;
+        }
+        salla-add-product-button .s-button-element:hover,
+        .s-button-primary:hover, .s-btn-primary:hover, .btn-primary:hover,
+        .btn--primary:hover, .btn--default:hover {
+            opacity: 0.7;
+            background: #FFFFFF !important;
+            color: #000000 !important;
+        }
+        .btn--outline, .btn--outline-primary, .s-btn-outline, .btn-outline {
+            background: transparent !important;
+            color: #FFFFFF !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+            border-radius: 0 !important;
+            font-size: 12px !important;
+            letter-spacing: 0.12em !important;
+            text-transform: uppercase;
+            padding: 16px 48px !important;
+        }
+        .btn--outline:hover, .btn--outline-primary:hover,
+        .s-btn-outline:hover, .btn-outline:hover {
+            border-color: #FFFFFF !important;
+            background: transparent !important;
+            color: #FFFFFF !important;
+        }
+
+        /* ===== SLIDER CONTROLS — minimal ===== */
+        .swiper-button-prev, .swiper-button-next {
+            background: transparent !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+            color: #FFFFFF !important;
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 0 !important;
+        }
+        .swiper-button-prev:hover, .swiper-button-next:hover {
+            border-color: #FFFFFF !important;
+        }
+        .swiper-button-prev::after, .swiper-button-next::after {
+            font-size: 14px !important;
+        }
+
+        /* ===== FOOTER — Jacquemus clean ===== */
+        footer, .s-footer, .store-footer, .store-footer__inner {
+            background: #000 !important;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .store-footer h3, .store-footer h4, .footer-title {
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: rgba(255,255,255,0.4) !important;
+        }
+        .store-footer h3::after { display: none !important; }
+        .store-footer a {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6) !important;
+        }
+        .store-footer a:hover { color: #FFFFFF !important; }
+
+        /* ===== PRODUCT PAGE ===== */
+        .s-product-title, .product-title {
+            font-family: 'Playfair Display', 'Cairo', serif !important;
+            font-weight: 700;
+            font-size: 28px;
+            color: #FFFFFF;
         }
 
         /* ===== SEARCH DARK ===== */
@@ -268,45 +469,18 @@
             color: #F5F5F5 !important;
         }
 
-        /* ===== SLIDER ARROWS — VISIBLE ON DARK ===== */
-        .swiper-button-prev, .swiper-button-next {
-            background: #1A1A1A !important;
-            border: 1px solid rgba(201,168,76,0.25) !important;
-            color: #C9A84C !important;
-            width: 40px !important;
-            height: 40px !important;
-        }
-        .swiper-button-prev:hover, .swiper-button-next:hover {
-            background: #C9A84C !important;
-            color: #0A0A0A !important;
-        }
-        .swiper-button-prev::after, .swiper-button-next::after {
-            font-size: 14px !important;
-        }
-
-        /* ===== SECTION TITLES — LUXURY ===== */
-        .s-block__title h2 {
-            font-family: 'Cormorant Garamond', 'Cairo', serif !important;
-            color: #F5F5F5 !important;
-            font-weight: 400 !important;
-            letter-spacing: 0.06em !important;
-        }
-
-        /* ===== MENU ACTIVE STATE ===== */
-        .main-menu > li.is-active > a {
-            color: #C9A84C !important;
-            position: relative;
-        }
-
-        /* ===== FOCUS STATES — ACCESSIBILITY ===== */
+        /* ===== FOCUS STATES ===== */
         *:focus-visible {
-            outline: 2px solid rgba(201, 168, 76, 0.5) !important;
+            outline: 2px solid rgba(255,255,255,0.3) !important;
             outline-offset: 2px !important;
         }
         input:focus, select:focus, textarea:focus {
-            border-color: #C9A84C !important;
-            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1) !important;
+            border-color: rgba(255,255,255,0.3) !important;
+            box-shadow: none !important;
         }
+
+        /* ===== KILL ALL DECORATIVE EFFECTS ===== */
+        * { box-shadow: none; }
     </style>
 </head>
 <body id="app" class="theme-graphical overflow-x-hidden topnav-is-dark

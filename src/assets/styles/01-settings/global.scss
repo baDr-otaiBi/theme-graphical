@@ -1,6 +1,6 @@
 // ========================================
-// Graphical Theme — Luxury Fashion Design System
-// Black & Gold Color Palette
+// Graphical Theme — Jacquemus Dark Luxury Design System
+// Black + White/Cream. Gold for prices only.
 // ========================================
 
 $main-color: var(--color-primary);
@@ -8,56 +8,58 @@ $infinte-color: var(--infinte-color);
 $main-text-color: var(--main-text-color);
 
 :root {
-  /* Core brand colors */
-  --graphical-gold: #C9A84C;
-  --graphical-gold-light: #E2C670;
-  --graphical-gold-dark: #A8863A;
-  --graphical-gold-muted: rgba(201, 168, 76, 0.15);
-  --graphical-gold-border: rgba(201, 168, 76, 0.25);
+  /* Core brand colors — Jacquemus: minimal gold, mostly B&W */
+  --graphical-gold: #D4AF37;
+  --graphical-gold-light: #E5C84D;
+  --graphical-gold-dark: #B8941F;
+  --graphical-gold-muted: rgba(212, 175, 55, 0.10);
+  --graphical-gold-border: rgba(212, 175, 55, 0.15);
 
   /* Dark backgrounds */
   --graphical-black: #0A0A0A;
   --graphical-dark: #0D0D0D;
-  --graphical-dark-surface: #141414;
-  --graphical-dark-card: #1A1A1A;
-  --graphical-dark-elevated: #222222;
-  --graphical-dark-hover: #2A2A2A;
+  --graphical-dark-surface: #111;
+  --graphical-dark-card: #111;
+  --graphical-dark-elevated: #1A1A1A;
+  --graphical-dark-hover: #222222;
 
-  /* Text colors */
-  --graphical-text-primary: #F5F5F5;
-  --graphical-text-secondary: #B0B0B0;
-  --graphical-text-muted: #707070;
-  --graphical-text-gold: #C9A84C;
+  /* Text colors — Jacquemus uses muted whites */
+  --graphical-text-primary: #FFFFFF;
+  --graphical-text-secondary: rgba(255,255,255,0.7);
+  --graphical-text-muted: rgba(255,255,255,0.4);
+  --graphical-text-gold: #D4AF37;
 
   /* System colors (Salla integration) */
   --infinte-color: #c9c9c9;
   --main-text-color: #F5F5F5;
   --main-text-color-dark: #E0E0E0;
-  --color-primary: #C9A84C;
-  --color-primary-d: #A8863A;
-  --color-primary-l: #E2C670;
-  --color-primary-reverse: #0A0A0A;
-  --color-text: #B0B0B0;
-  --bg-gray: #141414;
-  --color-grey: #1A1A1A;
-  --color-light-grey: #222222;
+  --color-primary: #D4AF37;
+  --color-primary-d: #B8941F;
+  --color-primary-l: #E5C84D;
+  --color-primary-reverse: #000000;
+  --color-text: rgba(255,255,255,0.7);
+  --bg-gray: #111;
+  --color-grey: #111;
+  --color-light-grey: #1A1A1A;
 
-  /* Typography */
+  /* Typography — Jacquemus: Playfair Display for headings, Cairo Light for body */
   --font-sm: 0.8685714286rem;
-  --font-main: 'Cairo', sans-serif;
+  --font-heading: 'Playfair Display', 'Cairo', serif;
+  --font-body: 'Cairo', sans-serif;
+  --font-main: var(--font-body);
 
-  /* Radius */
-  --graphical-radius: 2px;
-  --graphical-radius-lg: 4px;
+  /* Radius — Jacquemus: sharp corners everywhere */
+  --graphical-radius: 0px;
+  --graphical-radius-lg: 0px;
 
-  /* Transitions */
+  /* Transitions — only slow, elegant transforms */
   --graphical-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --graphical-transition-slow: 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --graphical-transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Shadows */
-  --graphical-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-  --graphical-shadow-gold: 0 4px 24px rgba(201, 168, 76, 0.15);
-  --graphical-shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.6);
+  /* Shadows — NONE. Jacquemus doesn't use shadows */
+  --graphical-shadow: none;
+  --graphical-shadow-gold: none;
+  --graphical-shadow-hover: none;
 
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);

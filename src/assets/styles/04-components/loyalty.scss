@@ -4,9 +4,9 @@
 
 .loyalty__banner {
   @apply relative p-8 lg:p-12 overflow-hidden;
-  background: var(--graphical-dark-card);
-  border: 1px solid var(--graphical-gold-border);
-  border-radius: var(--graphical-radius);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 0;
 
   &-inner {
     @apply relative z-10 flex flex-col md:flex-row items-center gap-8;
@@ -19,10 +19,10 @@
       @apply flex-1;
       h1 {
         @apply text-2xl font-bold mb-2;
-        color: var(--graphical-gold);
+        color: #FFFFFF;
       }
       p {
-        color: var(--graphical-text-secondary);
+        color: rgba(255,255,255,0.6);
       }
     }
   }
@@ -30,7 +30,7 @@
 
 .loyalty-points {
   @apply mt-3 text-lg font-bold;
-  color: var(--graphical-gold);
+  color: #FFFFFF;
 }
 
 .loyalty-star {
@@ -77,14 +77,9 @@
 }
 
 .star-anime {
-  animation: pulse 2s infinite;
+  // No animation — Jacquemus minimal
 }
 
 .count-anime {
-  color: var(--graphical-gold);
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  color: #FFFFFF;
 }
