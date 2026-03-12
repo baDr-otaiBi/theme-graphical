@@ -346,8 +346,27 @@
         }
         .header-btn__icon:hover { opacity: 0.6; transform: none !important; }
 
-        /* ===== LOGO — bigger ===== */
-        .navbar-brand img { max-height: 48px !important; }
+        /* ===== LOGO — fashion prominent ===== */
+        .navbar-brand img {
+            max-height: 56px !important;
+            filter: brightness(0) invert(1) !important;
+        }
+        .store-footer img[alt*="logo"],
+        .store-footer .navbar-brand img,
+        footer img:first-child {
+            filter: brightness(0) invert(1) !important;
+        }
+        /* Brand logos — all white */
+        .brand-item img {
+            filter: brightness(0) invert(1) !important;
+            opacity: 0.6;
+        }
+        .brand-item:hover img {
+            opacity: 1;
+        }
+        .brand-logo img {
+            filter: brightness(0) invert(1) !important;
+        }
 
         /* ===== SPACING — generous ===== */
         .s-block, [class*="s-block"], section[class*="block"] {

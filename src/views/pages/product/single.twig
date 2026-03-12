@@ -130,12 +130,13 @@
                 {% hook 'product:single.description.start' %}
 
                 {% if product.brand.name %}
-                    <div class="product-brand mb-5 w-12">
+                    <div class="product-brand mb-5 w-16">
                         <a class="brand-logo" href="{{ product.brand.url }}" title="{{ product.brand.name }}">
                             <img width="100%" height="100%" class="max-h-full object-contain"
                                  src="{{ product.brand.logo }}"
                                  title="{{ product.brand.name }}"
-                                 alt="{{ product.brand.name }}">
+                                 alt="{{ product.brand.name }}"
+                                 style="filter: brightness(0) invert(1); opacity: 0.7;">
                         </a>
                     </div>
                 {% endif %}

@@ -3,8 +3,8 @@
 		<div class="container grid grid-col-1 lg:grid-cols-6 gap-8 lg:gap-6">
 			{# Store Info #}
 			<div class="lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20">
-				<a href="{{ link('/') }}" class="flex items-center m-0 mb-4">
-					<img src="{{ store.logo|cdn(140) }}" alt="{{ store.name }}" class="max-h-12" style="filter: brightness(0) invert(1);">
+				<a href="{{ link('/') }}" class="flex items-center m-0 mb-6">
+					<img src="{{ store.logo|cdn(280) }}" alt="{{ store.name }}" class="max-h-16" style="filter: brightness(0) invert(1);">
 				</a>
 				{% if store.description %}
 					<div class="max-w-sm leading-7 mb-6 text-sm" style="color: var(--graphical-text-muted)">

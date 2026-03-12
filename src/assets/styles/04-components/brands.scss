@@ -1,11 +1,12 @@
 // ========================================
-// Graphical — Luxury Brands Page
+// Graphical — Fashion Brands Page
+// White logos on black, Jacquemus minimal
 // ========================================
 
 .brands-nav-wrap {
   @apply mb-8 sticky top-20 z-10 py-3;
-  background: var(--graphical-dark);
-  border-bottom: 1px solid var(--graphical-gold-border);
+  background: #0A0A0A;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .brands-nav {
@@ -14,59 +15,67 @@
 
 .brands-nav__item {
   @apply w-10 h-10 flex items-center justify-center text-sm font-bold;
-  background: var(--graphical-dark-card);
+  background: transparent;
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--graphical-radius);
-  color: var(--graphical-text-secondary);
+  border-radius: 0;
+  color: rgba(255,255,255,0.4);
   transition: all 0.3s ease;
 
   &:hover,
   &.is-active {
-    border-color: var(--graphical-gold);
-    color: var(--graphical-gold);
-    background: var(--graphical-gold-muted);
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    background: transparent;
   }
 }
 
 .brand-char {
   @apply flex items-center justify-center w-14 h-14 font-bold text-2xl;
-  background: var(--graphical-gold);
-  color: var(--graphical-black);
-  border-radius: var(--graphical-radius);
+  background: #FFFFFF;
+  color: #000000;
+  border-radius: 0;
   margin-inline-end: 1rem;
+  font-family: var(--font-heading);
 }
 
 .brand-item {
-  @apply flex items-center justify-center p-4 h-24 transition-all duration-300;
-  background: var(--graphical-dark-card);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: var(--graphical-radius);
+  @apply flex items-center justify-center p-6 h-28 transition-all duration-500;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 0;
 
   &:hover {
-    border-color: var(--graphical-gold-border);
-    box-shadow: var(--graphical-shadow-gold);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: none;
   }
 
   img {
-    filter: brightness(0) invert(0.8);
-    transition: filter 0.3s ease;
+    filter: brightness(0) invert(1);
+    opacity: 0.6;
+    transition: all 0.5s ease;
+    max-height: 48px;
   }
 
   &:hover img {
-    filter: none;
+    opacity: 1;
+    transform: scale(1.05);
   }
 }
 
 .brand-page__banner {
   img {
     border-radius: 0;
-    border-bottom: 1px solid var(--graphical-gold-border);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
 }
 
 .brand-logo {
-  @apply p-3 inline-block;
-  background: var(--graphical-dark-card);
-  border: 1px solid var(--graphical-gold-border);
-  border-radius: var(--graphical-radius);
+  @apply p-4 inline-block;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 0;
+
+  img {
+    filter: brightness(0) invert(1);
+  }
 }

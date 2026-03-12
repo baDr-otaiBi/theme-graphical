@@ -292,7 +292,7 @@ body.theme-graphical {
 
     .navbar-brand img {
       filter: brightness(0) invert(1);
-      max-height: 48px !important;
+      max-height: 56px !important;
     }
 
     // Header icons — bare, no circles
@@ -507,18 +507,50 @@ body.theme-graphical {
     background-color: #111 !important;
   }
 
-  // ===================== BRANDS =====================
+  // ===================== BRANDS — Fashion White =====================
   .brand-item {
     background-color: transparent !important;
     border: 1px solid rgba(255,255,255,0.06) !important;
     border-radius: 0 !important;
-    img { filter: brightness(0) invert(0.7); }
-    &:hover img { filter: none; }
+    height: 7rem;
+    padding: 1.5rem;
+    img {
+      filter: brightness(0) invert(1) !important;
+      opacity: 0.6;
+      max-height: 48px;
+      transition: all 0.5s ease !important;
+    }
+    &:hover {
+      border-color: rgba(255,255,255,0.2) !important;
+    }
+    &:hover img {
+      opacity: 1 !important;
+      filter: brightness(0) invert(1) !important;
+      transform: scale(1.05);
+    }
   }
 
   .brand-char {
     background-color: #FFFFFF !important;
     color: #000000 !important;
+    border-radius: 0 !important;
+    font-family: var(--font-heading) !important;
+  }
+
+  .brands-nav__item {
+    background: transparent !important;
+    &:hover, &.is-active {
+      border-color: #FFFFFF !important;
+      color: #FFFFFF !important;
+      background: transparent !important;
+    }
+  }
+
+  .brand-logo {
+    background: #111 !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 0 !important;
+    img { filter: brightness(0) invert(1); }
   }
 
   // ===================== CUSTOMER / PROFILE =====================

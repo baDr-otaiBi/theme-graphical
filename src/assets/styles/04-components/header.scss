@@ -160,9 +160,14 @@
   @apply items-center flex my-2 lg:my-0;
 
   img {
-    @apply w-auto max-w-[100px] xs:max-w-[170px];
-    max-height: 48px !important;
+    @apply w-auto max-w-[120px] xs:max-w-[200px];
+    max-height: 56px !important;
     filter: brightness(0) invert(1);
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 
