@@ -16,13 +16,15 @@ class BasePage {
    * @return {*}
    */
   initiate(allowedPages) {
-    if (allowedPages && !allowedPages.includes(salla.config.get('page.slug'))) {
-      return app.log(`The Class For (${allowedPages.join(',')}) Skipped.`);
-    }
+    salla.onReady(() => {
+      if (allowedPages && !allowedPages.includes(salla.config.get('page.slug'))) {
+        return app.log(`The Class For (${allowedPages.join(',')}) Skipped.`);
+      }
 
-    this.onReady();
-    this.registerEvents();
-    app.log(`The Class For (${allowedPages?.join(',') || '*'}) Loaded🎉`);
+      this.onReady();
+      this.registerEvents();
+      app.log(`The Class For (${allowedPages?.join(',') || '*'}) Loaded🎉`);
+    });
   };
 }
 

@@ -227,3 +227,32 @@
 .main-nav-container.header-visible .inner {
   transform: translate3d(0, 0, 0) !important;
 }
+
+// ===================== REDUCED MOTION =====================
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .graphical-loader {
+    display: none;
+  }
+
+  .graphical-marquee__track {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-child {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

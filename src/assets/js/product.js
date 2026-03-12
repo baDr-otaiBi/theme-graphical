@@ -25,7 +25,9 @@ class Product extends BasePage {
 
     initProductOptionValidations() {
       document.querySelector('.product-form')?.addEventListener('change', function(){
-        this.reportValidity() && salla.product.getPrice(new FormData(this));
+        salla.onReady(() => {
+          this.reportValidity() && salla.product.getPrice(new FormData(this));
+        });
       });
     }
 
@@ -56,35 +58,37 @@ class Product extends BasePage {
     }
 
     registerEvents() {
-      salla.event.on('product::price.updated.failed',()=>{
-        app.element('.price-wrapper').classList.add('hidden');
-        const outOfStock = app.element('.out-of-stock');
-        outOfStock.classList.remove('hidden');
-        outOfStock.classList.remove('scale-pulse');
-        void outOfStock.offsetWidth; // trigger reflow
-        outOfStock.classList.add('scale-pulse');
-      })
-      salla.product.event.onPriceUpdated((res) => {
+      salla.onReady(() => {
+        salla.event.on('product::price.updated.failed',()=>{
+          app.element('.price-wrapper').classList.add('hidden');
+          const outOfStock = app.element('.out-of-stock');
+          outOfStock.classList.remove('hidden');
+          outOfStock.classList.remove('scale-pulse');
+          void outOfStock.offsetWidth; // trigger reflow
+          outOfStock.classList.add('scale-pulse');
+        })
+        salla.product.event.onPriceUpdated((res) => {
 
-        app.element('.out-of-stock').classList.add('hidden')
-        app.element('.price-wrapper').classList.remove('hidden')
+          app.element('.out-of-stock').classList.add('hidden')
+          app.element('.price-wrapper').classList.remove('hidden')
 
-        let data = res.data,
-            is_on_sale = data.has_sale_price && data.regular_price > data.price;
+          let data = res.data,
+              is_on_sale = data.has_sale_price && data.regular_price > data.price;
 
-        app.startingPriceTitle?.classList.add('hidden');
+          app.startingPriceTitle?.classList.add('hidden');
 
-        app.productWeight.forEach((el) => {el.innerHTML = data.weight || ''});
-        app.totalPrice.forEach((el) => {el.innerHTML = salla.money(data.price)});
-        app.beforePrice.forEach((el) => {el.innerHTML = salla.money(data.regular_price)});
+          app.productWeight.forEach((el) => {el.innerHTML = data.weight || ''});
+          app.totalPrice.forEach((el) => {el.innerHTML = salla.money(data.price)});
+          app.beforePrice.forEach((el) => {el.innerHTML = salla.money(data.regular_price)});
 
-        app.toggleClassIf('.price_is_on_sale','showed','hidden', ()=> is_on_sale)
-        app.toggleClassIf('.starting-or-normal-price','hidden','showed', ()=> is_on_sale)
+          app.toggleClassIf('.price_is_on_sale','showed','hidden', ()=> is_on_sale)
+          app.toggleClassIf('.starting-or-normal-price','hidden','showed', ()=> is_on_sale)
 
-        document.querySelectorAll('.total-price, .product-weight').forEach(el => {
-          el.classList.remove('scale-pulse');
-          void el.offsetWidth; // trigger reflow
-          el.classList.add('scale-pulse');
+          document.querySelectorAll('.total-price, .product-weight').forEach(el => {
+            el.classList.remove('scale-pulse');
+            void el.offsetWidth; // trigger reflow
+            el.classList.add('scale-pulse');
+          });
         });
       });
 

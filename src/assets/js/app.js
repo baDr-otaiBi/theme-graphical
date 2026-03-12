@@ -127,29 +127,31 @@ isElementLoaded(selector){
   }
 
   initiateNotifier() {
-    salla.notify.setNotifier(function (message, type, data) {
-      if (window.enable_add_product_toast && data?.data?.googleTags?.event === "addToCart") {
-        return;
-      }
-      if (typeof message == 'object') {
-        return Swal.fire(message).then(type);
-      }
-
-      return Swal.mixin({
-        toast: true,
-        position: salla.config.get('theme.is_rtl') ? 'top-start' : 'top-end',
-        showConfirmButton: false,
-        timer: 2000,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
+    salla.onReady(() => {
+      salla.notify.setNotifier(function (message, type, data) {
+        if (window.enable_add_product_toast && data?.data?.googleTags?.event === "addToCart") {
+          return;
         }
-      }).fire({
-        icon: type,
-        title: message,
-        showCloseButton: true,
-        timerProgressBar: true
-      })
+        if (typeof message == 'object') {
+          return Swal.fire(message).then(type);
+        }
+
+        return Swal.mixin({
+          toast: true,
+          position: salla.config.get('theme.is_rtl') ? 'top-start' : 'top-end',
+          showConfirmButton: false,
+          timer: 2000,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        }).fire({
+          icon: type,
+          title: message,
+          showCloseButton: true,
+          timerProgressBar: true
+        })
+      });
     });
   }
 
@@ -157,24 +159,24 @@ isElementLoaded(selector){
   initiateMobileMenu() {
 
   this.isElementLoaded('#mobile-menu').then((menu) => {
+    salla.onReady(() => {
+      const mobileMenu = new MobileMenu(menu, "(max-width: 1024px)", "( slidingSubmenus: false)");
 
- 
-  const mobileMenu = new MobileMenu(menu, "(max-width: 1024px)", "( slidingSubmenus: false)");
+      salla.lang.onLoaded(() => {
+        mobileMenu.navigation({ title: salla.lang.get('blocks.header.main_menu') });
+      });
+      const drawer = mobileMenu.offcanvas({ position: salla.config.get('theme.is_rtl') ? "right" : 'left' });
 
-  salla.lang.onLoaded(() => {
-    mobileMenu.navigation({ title: salla.lang.get('blocks.header.main_menu') });
-  });
-  const drawer = mobileMenu.offcanvas({ position: salla.config.get('theme.is_rtl') ? "right" : 'left' });
+      this.onClick("a[href='#mobile-menu']", event => {
+        document.body.classList.add('menu-opened');
+        event.preventDefault() || drawer.close() || drawer.open()
 
-  this.onClick("a[href='#mobile-menu']", event => {
-    document.body.classList.add('menu-opened');
-    event.preventDefault() || drawer.close() || drawer.open()
-    
-  });
-  this.onClick(".close-mobile-menu", event => {
-    document.body.classList.remove('menu-opened');
-    event.preventDefault() || drawer.close()
-  });
+      });
+      this.onClick(".close-mobile-menu", event => {
+        document.body.classList.remove('menu-opened');
+        event.preventDefault() || drawer.close()
+      });
+    });
   });
 
   }
@@ -222,7 +224,9 @@ isElementLoaded(selector){
       this.removeClass(id, 'hidden');
       setTimeout(() => this.toggleModal(id, true)); //small amont of time to running toggle After adding hidden
     });
-    salla.event.document.onClick("[data-close-modal]", e => this.toggleModal('#' + e.target.dataset.closeModal, false));
+    salla.onReady(() => {
+      salla.event.document.onClick("[data-close-modal]", e => this.toggleModal('#' + e.target.dataset.closeModal, false));
+    });
   }
 
   toggleModal(id, isOpen) {
@@ -337,13 +341,15 @@ isElementLoaded(selector){
    * they can be from any page, especially when mega-menu is enabled
    */
   initAddToCart() {
-    salla.cart.event.onUpdated(summary => {
-      document.querySelectorAll('[data-cart-total]').forEach(el => el.innerHTML = salla.money(summary.total));
-      document.querySelectorAll('[data-cart-count]').forEach(el => el.innerText = salla.helpers.number(summary.count));
-    });
+    salla.onReady(() => {
+      salla.cart.event.onUpdated(summary => {
+        document.querySelectorAll('[data-cart-total]').forEach(el => el.innerHTML = salla.money(summary.total));
+        document.querySelectorAll('[data-cart-count]').forEach(el => el.innerText = salla.helpers.number(summary.count));
+      });
 
-    salla.cart.event.onItemAdded((response, prodId) => {
-      app.element('salla-cart-summary').animateToCart(app.element(`#product-${prodId} img`));
+      salla.cart.event.onItemAdded((response, prodId) => {
+        app.element('salla-cart-summary').animateToCart(app.element(`#product-${prodId} img`));
+      });
     });
   }
 }

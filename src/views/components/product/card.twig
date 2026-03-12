@@ -1,0 +1,5 @@
+{# Product card component — rendered via custom-salla-product-card web component #}
+{# See src/assets/js/partials/product-card.js for the custom element definition #}
+{% if product %}
+    <custom-salla-product-card product='{{ product|json_encode }}'></custom-salla-product-card>
+{% endif %}

@@ -56,6 +56,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% hook 'head:meta' %}
     {{ theme.settings.set('placeholder', 'images/placeholder.png') }}
 
     <script defer data-cfasync="false" crossorigin="anonymous" src="{{ 'product-card.js'|asset }}"></script>
@@ -67,7 +68,7 @@
     {% block head_scripts %}{% endblock %}
 
     <script data-cfasync="false">
-        window.header_is_sticky = "{{theme.settings.get('header_is_sticky', 'Default Value')}}"
+        window.header_is_sticky = "{{theme.settings.get('header_is_sticky', true)}}"
         window.imageZoom = "{{theme.settings.get('imageZoom')}}"
         window.can_access_wallet = {{ user.can_access_wallet | json_encode }}
         window.enable_more_menu = "{{ theme.settings.get('enable_more_menu', true) }}"
@@ -77,6 +78,7 @@
     {# === Salla hooks — let Salla inject its base CSS === #}
     {% hook 'head:start' %}
     {% hook head %}
+    {% hook 'head:styles' %}
     {% block styles %}{% endblock %}
 
     {# === 1. Fonts FIRST — preconnect early to prevent FOUT === #}
