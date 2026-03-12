@@ -289,18 +289,25 @@ salla-localization-modal {
 // ==========================================
 // SCROLLBAR — Slim dark
 // ==========================================
+// Webkit
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #0D0D0D;
 }
 ::-webkit-scrollbar-thumb {
-  background: #222222;
-  border-radius: 3px;
+  background: rgba(201, 168, 76, 0.3);
+  border-radius: 4px;
   &:hover {
-    background: #A8863A;
+    background: rgba(201, 168, 76, 0.5);
   }
+}
+
+// Firefox
+html {
+  scrollbar-color: rgba(201, 168, 76, 0.3) #0D0D0D;
+  scrollbar-width: thin;
 }
 
 // ==========================================

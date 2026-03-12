@@ -180,8 +180,6 @@ class ProductCard extends HTMLElement {
               alt="${this.escapeHTML(this.product?.image?.alt || this.product.name)}"
               loading="lazy"
               decoding="async"
-              width="400"
-              height="533"
             />
             ${!this.fullImage && !this.minimal ? this.getProductBadge() : ''}
           </a>

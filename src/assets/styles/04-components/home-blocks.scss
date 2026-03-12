@@ -475,7 +475,7 @@
       @apply -mt-28 md:-mt-32 z-1;
 
       .s-slider-block__title {
-        color: #fff !important;
+        color: var(--graphical-text-primary) !important;
         @apply text-center sm:text-start sm:mb-4;
       }
     }

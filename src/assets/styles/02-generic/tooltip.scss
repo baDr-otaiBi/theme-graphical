@@ -2,12 +2,14 @@
   &-content {
     position: absolute;
     transform: translate(82px, -120px);
-    background: #fff;
+    background: var(--graphical-dark-card);
     padding: 15px 15px 15px 36px;
     text-align: right;
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s;
+    border: 1px solid var(--graphical-gold-border);
+    color: var(--graphical-text-primary);
 
     &:after {
       content: "";
@@ -15,7 +17,7 @@
       position: absolute;
       z-index: -1;
       left: auto;
-      background: #fff;
+      background: var(--graphical-dark-card);
       width: 20px;
       height: 20px;
       transform: rotate(45deg);
