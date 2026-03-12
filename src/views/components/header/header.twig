@@ -48,13 +48,13 @@
 
   {# Main Nav — Logo + Menu + Actions #}
   <div id="mainnav" class="main-nav-container flex items-center">
-      <div class="inner w-full" style="background: #0D0D0D;">
+      <div class="inner w-full">
           <div class="container">
               <div class="flex items-stretch justify-between relative">
                   {# Logo + Menu #}
                   <div class="flex items-center">
                       <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
-                        <i class="sicon-menu text-2xl" style="color: #FFFFFF"></i>
+                        <i class="sicon-menu text-2xl"></i>
                       </a>
                       <a class="navbar-brand" href="{{ store.url }}">
                           <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(280) }}" alt="{{ store.name }} logo">
@@ -70,21 +70,19 @@
                   {# Actions — Search (mobile) + User + Cart #}
                   <div class="flex items-center justify-end my-2.5 gap-3">
                       {# Mobile search button #}
-                      <button class="header-btn sm:hidden" onclick="salla.event.dispatch('search::open')" aria-label="search"
-                              style="position: relative; z-index: 31;">
+                      <button class="header-btn header-btn--action sm:hidden" onclick="salla.event.dispatch('search::open')" aria-label="search">
                           <i class="header-btn__icon sicon-search"></i>
                       </button>
 
                       {% if user.type=='user' %}
-                        <salla-user-menu avatar-only show-header style="position: relative; z-index: 31;"></salla-user-menu>
+                        <salla-user-menu class="header-btn--action" avatar-only show-header></salla-user-menu>
                       {% else %}
-                          <button class="header-btn" aria-label="user-icon" onclick="salla.event.dispatch('login::open')"
-                                  style="position: relative; z-index: 31;">
+                          <button class="header-btn header-btn--action" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
                             <i class="header-btn__icon sicon-user-circle"></i>
                           </button>
                       {% endif %}
 
-                      <salla-cart-summary class="ml-2 rtl:ml-[unset] rtl:mr-2" style="position: relative; z-index: 31;">
+                      <salla-cart-summary class="ml-2 rtl:ml-[unset] rtl:mr-2 header-btn--action">
                         <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
                       </salla-cart-summary>
                   </div>

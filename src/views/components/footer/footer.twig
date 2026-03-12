@@ -4,10 +4,10 @@
 			{# Store Info #}
 			<div class="lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20">
 				<a href="{{ link('/') }}" class="flex items-center m-0 mb-6">
-					<img src="{{ store.logo|cdn(280) }}" alt="{{ store.name }}" class="max-h-16" style="filter: brightness(0) invert(1);">
+					<img src="{{ store.logo|cdn(280) }}" alt="{{ store.name }}" class="max-h-16 footer-logo">
 				</a>
 				{% if store.description %}
-					<div class="max-w-sm leading-7 mb-6 text-sm" style="color: var(--graphical-text-muted)">
+					<div class="max-w-sm leading-7 mb-6 text-sm footer-description">
 						{{ store.description|raw }}
           </div>
 				{% endif %}
@@ -28,8 +28,8 @@
                 </a>
               {% endif %}
               <div>
-                <p class="text-sm mb-1" style="color: var(--graphical-text-muted)">{{ trans('common.elements.tax_number') }}</p>
-                <b class="text-sm" style="color: var(--graphical-text-primary)">{{ store.settings.tax.number }}</b>
+                <p class="text-sm mb-1 footer-tax-label">{{ trans('common.elements.tax_number') }}</p>
+                <b class="text-sm footer-tax-number">{{ store.settings.tax.number }}</b>
               </div>
             </div>
 
@@ -68,7 +68,7 @@
 	</div>
 
 	{# Copyright + Payments #}
-	<div class="md:flex items-center justify-between py-5 container text-center" style="border-top: 1px solid rgba(255,255,255,0.05);">
+	<div class="md:flex items-center justify-between py-5 container text-center footer-copyright">
 		<span class="text-sm copyright-text">{% hook copyright %}</span>
 		<salla-payments></salla-payments>
 	</div>

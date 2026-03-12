@@ -97,21 +97,10 @@
             --font-heading: 'Playfair Display', 'Cairo', serif;
             --font-body: 'Cairo', sans-serif;
             --font-main: var(--font-body);
-            --graphical-gold: #D4AF37;
-            --graphical-gold-light: #E5C84D;
-            --graphical-gold-dark: #B8941F;
-            --graphical-black: #0A0A0A;
-            --graphical-dark-surface: #141414;
-            --graphical-dark-card: #1A1A1A;
-            --graphical-dark-elevated: #222222;
-            --graphical-text-primary: #F5F5F5;
-            --graphical-text-secondary: #B0B0B0;
-            --graphical-text-muted: #707070;
-            --graphical-gold-border: rgba(212, 175, 55, 0.15);
-            --graphical-gold-muted: rgba(212, 175, 55, 0.10);
-            --graphical-radius: 0px;
+            --g-black: #0A0A0A;
+            --g-text-soft: rgba(255,255,255,0.7);
         }
-        html, body, #app { background-color: #0A0A0A; color: rgba(255,255,255,0.7); font-family: var(--font-body); font-weight: 300; }
+        html, body, #app { background-color: var(--g-black, #0A0A0A); color: var(--g-text-soft, rgba(255,255,255,0.7)); font-family: var(--font-body); font-weight: 300; }
     </style>
     {% hook 'head:end' %}
 

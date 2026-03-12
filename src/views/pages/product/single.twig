@@ -57,9 +57,9 @@
                     </salla-button>
 
                     {% if product.calories %}
-                        <div class="absolute z-[2] top-4 rtl:left-4 ltr:right-4 flex flex-col justify-center items-center rounded-full w-20 h-20 md:w-24 md:h-24" style="background: var(--graphical-dark-card); border: 1px solid var(--graphical-gold-border);">
-                            <span class="text-xl leading-none font-bold" style="color: var(--graphical-gold)">{{ product.calories }}</span>
-                            <span class="text-xs" style="color: var(--graphical-text-muted)">{{ trans('pages.products.calories') }}</span>
+                        <div class="absolute z-[2] top-4 rtl:left-4 ltr:right-4 flex flex-col justify-center items-center rounded-full w-20 h-20 md:w-24 md:h-24 product-calories-badge">
+                            <span class="text-xl leading-none font-bold product-meta-card__gold">{{ product.calories }}</span>
+                            <span class="text-xs product-tax-note">{{ trans('pages.products.calories') }}</span>
                         </div>
                     {% endif %}
 
@@ -106,14 +106,14 @@
                                         <img src="{{ image.url }}"
                                              loading="eager"
                                              class="object-cover w-full h-full overflow-hidden"
-                                             style="background: var(--graphical-dark-surface); border-radius: var(--graphical-radius);"
+                                             class="product-thumb-img"
                                              title="{{ image.alt }}"
                                              alt="{{ image.alt }}"/>
                                     {% else %}
                                         <img src="{{ image.url }}"
                                              loading="lazy"
                                              class="object-cover w-full h-full overflow-hidden"
-                                             style="background: var(--graphical-dark-surface); border-radius: var(--graphical-radius);"
+                                             class="product-thumb-img"
                                              title="{{ image.alt }}"
                                              alt="{{ image.alt }}"/>
                                     {% endif %}
@@ -136,16 +136,16 @@
                                  src="{{ product.brand.logo }}"
                                  title="{{ product.brand.name }}"
                                  alt="{{ product.brand.name }}"
-                                 style="filter: brightness(0) invert(1); opacity: 0.7;">
+                                 class="brand-logo-img">
                         </a>
                     </div>
                 {% endif %}
 
                 {# Product Name — Jacquemus Serif Bold #}
-                <h1 class="text-xl md:text-2xl leading-10 mb-4" style="font-family: var(--font-heading); font-weight: 700; color: #FFFFFF; letter-spacing: -0.01em; line-height: 1.2;">{{ product.name }}</h1>
+                <h1 class="text-xl md:text-2xl leading-10 mb-4 product-title">{{ product.name }}</h1>
 
                 {% if product.subtitle %}
-                    <h2 class="product-entry__sub-title text-sm leading-6 mb-2.5" style="color: var(--graphical-text-muted); letter-spacing: 0.03em;">
+                    <h2 class="product-entry__sub-title text-sm leading-6 mb-2.5 product-subtitle">
                         {{ product.subtitle }}
                     </h2>
                 {% endif %}
@@ -156,20 +156,20 @@
                 {% endif %}
 
                 {% if product.is_taxable %}
-                    <small style="color: var(--graphical-text-muted)">{{ trans('pages.products.tax_included') }}</small>
+                    <small class="product-tax-note">{{ trans('pages.products.tax_included') }}</small>
                 {% endif %}
 
                 {# Price — quiet and minimal #}
-                <div class="flex whitespace-nowrap gap-4 items-center mt-2 mb-8 py-4" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <div class="flex whitespace-nowrap gap-4 items-center mt-2 mb-8 py-4 product-price-row">
                   <div class="{{ product.is_on_sale ? '' : 'hidden' }} space-x-2 rtl:space-x-reverse whitespace-nowrap">
-                      <p class="font-light text-lg inline-block" style="color: rgba(255,255,255,0.6);">{{product.sale_price|money}}</p>
-                      <span class="line-through text-base" style="color: rgba(255,255,255,0.25)">{{product.regular_price|money}}</span>
+                      <p class="font-light text-lg inline-block product-price">{{product.sale_price|money}}</p>
+                      <span class="line-through text-base product-price--old">{{product.regular_price|money}}</span>
                   </div>
                   <div class="gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }} items-baseline">
                       {% if product.starting_price %}
-                          <span class="text-sm" style="color: rgba(255,255,255,0.4)">{{ trans('pages.products.starting_price') }}</span>
+                          <span class="text-sm product-price--label">{{ trans('pages.products.starting_price') }}</span>
                       {% endif %}
-                          <p class="font-light text-lg inline-block" style="color: rgba(255,255,255,0.6);"> {{product.starting_price ? product.starting_price|money : product.price|money }}</p>
+                          <p class="font-light text-lg inline-block product-price"> {{product.starting_price ? product.starting_price|money : product.price|money }}</p>
                   </div>
                 </div>
 
@@ -196,7 +196,7 @@
                     <div class="mb-4 flex flex-wrap gap-2">
                         {% for tag in product.tags %}
                             <a href="{{ tag.url }}"
-                               class="inline-flex text-xs px-3 py-1" style="color: var(--graphical-gold); border: 1px solid var(--graphical-gold-border); border-radius: 2px; letter-spacing: 0.04em; transition: all 0.3s ease;">{{ tag.name }}</a>
+                               class="inline-flex text-xs px-3 py-1 product-tag">{{ tag.name }}</a>
                         {% endfor %}
                     </div>
                 {% endif %}
@@ -217,16 +217,16 @@
                 </div>
 
                 {% if product.sold_quantity or product.can_show_remained_quantity %}
-                    <div class="py-2.5 mb-5 inline-flex text-sm" style="background: var(--graphical-dark-card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--graphical-radius);">
+                    <div class="py-2.5 mb-5 inline-flex text-sm product-meta-card">
                         {% if product.sold_quantity %}
-                            <div class="px-4" style="color: var(--graphical-gold)">
+                            <div class="px-4 product-meta-card__gold">
                                 <i class="sicon-fire rtl:ml-1.5 ltr:mr-1.5"></i> {{ trans('pages.products.sold') }}
                                 <span>{{ pluralize('pages.products.sold_times', product.sold_quantity)|raw }}</span>
                             </div>
                         {% endif %}
                         {% if product.can_show_remained_quantity %}
-                            <div class="px-4 rtl:even:border-r ltr:even:border-l" style="border-color: rgba(255,255,255,0.05)">
-                                <i class="sicon-box-bankers rtl:ml-1.5 ltr:mr-1.5" style="color: var(--graphical-gold)"></i>
+                            <div class="px-4 rtl:even:border-r ltr:even:border-l product-meta-card__divider">
+                                <i class="sicon-box-bankers rtl:ml-1.5 ltr:mr-1.5 product-meta-card__gold"></i>
                                 {{ trans('pages.products.remained') }}
                                 <span>{{ product.quantity }}</span>
                             </div>
@@ -235,12 +235,12 @@
                 {% endif %}
 
                 {% if product.sku %}
-                    <div class="mb-4 flex items-center justify-between px-4 py-3" style="background: var(--graphical-dark-card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--graphical-radius);">
-                        <div class="flex items-center gap-2" style="color: var(--graphical-text-muted); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;">
-                            <i class="sicon-barcode" style="color: var(--graphical-gold);"></i>
+                    <div class="mb-4 flex items-center justify-between px-4 py-3 product-meta-card">
+                        <div class="flex items-center gap-2 product-sku__label">
+                            <i class="sicon-barcode product-meta-card__gold"></i>
                             {{ trans('pages.products.sku') }}
                         </div>
-                        <div class="text-unicode" style="color: var(--graphical-text-secondary); font-size: 0.85rem; font-family: monospace; letter-spacing: 0.1em;">{{ product.sku }}</div>
+                        <div class="text-unicode product-sku__value">{{ product.sku }}</div>
                     </div>
                 {% endif %}
 
@@ -252,7 +252,7 @@
                 {% endif %}
 
                 {% if product.show_availability %}
-                    <section class="p-5 mb-5 last:mb-0" style="background: var(--graphical-dark-card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--graphical-radius);">
+                    <section class="p-5 mb-5 last:mb-0 product-meta-card">
                         <div class="center-between">
                             <label class="flex items-center text-base">
                                 <span class="sicon-location rtl:ml-1 ltr:mr-1"></span>
@@ -261,7 +261,7 @@
                             <div class="mt-1 sm:mt-0 sm:col-span-2 text-end">
                                 <a href="#!"
                                    onclick="salla.event.dispatch('scopes::open', {mode: 'availability', product_id: '{{ product.id }}' })"
-                                   class="group flex items-center justify-center" style="color: var(--graphical-gold)">
+                                   class="group flex items-center justify-center product-meta-card__gold">
                                     <span>{{ trans('pages.products.select_branch') }}</span>
                                     <span class="sicon-keyboard_arrow_left mr-2 transition-all group-hover:-translate-x-1"></span>
                                 </a>
@@ -282,26 +282,26 @@
                     {% include 'pages.partials.product.options' %}
                     {% hook 'product:single.form.end' %}
 
-                    <section class="flex p-5 sm:pb-0" style="background: var(--graphical-dark-card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--graphical-radius) var(--graphical-radius) 0 0;">
+                    <section class="flex p-5 sm:pb-0 product-meta-card product-meta-card--top-radius">
                         <div class="center-between w-full">
                             <label class="form-label">
-                                <b class="block" style="color: var(--graphical-text-primary)">
+                                <b class="block product-form-label">
                                     {{ trans('pages.products.price') }}
                                 </b>
                             </label>
                             <div class="flex whitespace-nowrap price-wrapper gap-4 items-center">
                               <div class="{{ product.is_on_sale ? '' : 'hidden' }} price_is_on_sale space-x-2 rtl:space-x-reverse whitespace-nowrap">
-                                <h2 class="total-price font-bold text-xl inline-block" style="color: var(--graphical-gold)">{{product.sale_price|money}}</h2>
-                                <span class="before-price line-through" style="color: var(--graphical-text-muted)">{{product.regular_price|money}}</span>
+                                <h2 class="total-price font-bold text-xl inline-block product-form-price">{{product.sale_price|money}}</h2>
+                                <span class="before-price line-through product-price--old">{{product.regular_price|money}}</span>
                               </div>
                               <div class="starting-or-normal-price gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }}">
                                 {% if product.starting_price %}
-                                  <span class="starting-price-title" style="color: var(--graphical-text-muted)">{{ trans('pages.products.starting_price') }}</span>
+                                  <span class="starting-price-title product-price--label">{{ trans('pages.products.starting_price') }}</span>
                                 {% endif %}
-                                <h2 class="total-price font-bold text-xl inline-block" style="color: var(--graphical-gold)"> {{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
+                                <h2 class="total-price font-bold text-xl inline-block product-form-price"> {{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
                               </div>
                             </div>
-                            <div class="out-of-stock min-h-7 leading-7 hidden text-base !opacity-50 font-bold" style="color: #ef4444">{{ trans('pages.products.out_of_stock')}}</div>
+                            <div class="out-of-stock min-h-7 leading-7 hidden text-base !opacity-50 font-bold product-out-of-stock">{{ trans('pages.products.out_of_stock')}}</div>
                         </div>
                     </section>
 
@@ -316,11 +316,11 @@
                             <input type="hidden" value="1" name="quantity" aria-label="Quantity"/>
                         {% else %}
                             <div class="sticky-product-bar__quantity center-between mb-5">
-                                <label class="form-label font-bold" style="color: var(--graphical-text-primary)">
+                                <label class="form-label font-bold product-form-label">
                                     {{ trans('pages.products.quantity') }}
                                 </label>
                                 <salla-quantity-input max="{{ product.max_quantity }}" value="1" name="quantity" aria-label="Quantity"
-                                  class="flex justify-end" style="border-color: rgba(255,255,255,0.08);"></salla-quantity-input>
+                                  class="flex justify-end"></salla-quantity-input>
                             </div>
                         {% endif %}
 

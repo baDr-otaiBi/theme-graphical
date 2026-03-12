@@ -8,59 +8,83 @@ $infinte-color: var(--infinte-color);
 $main-text-color: var(--main-text-color);
 
 :root {
-  /* Core brand colors — Jacquemus: minimal gold, mostly B&W */
-  --graphical-gold: #D4AF37;
-  --graphical-gold-light: #E5C84D;
-  --graphical-gold-dark: #B8941F;
-  --graphical-gold-muted: rgba(212, 175, 55, 0.10);
-  --graphical-gold-border: rgba(212, 175, 55, 0.15);
+  // ── Shorthand aliases (--g-*) ──
+  // Use these throughout all SCSS. Single source of truth.
+  --g-gold:          #D4AF37;
+  --g-gold-light:    #E5C84D;
+  --g-gold-dark:     #B8941F;
+  --g-gold-muted:    rgba(212, 175, 55, 0.10);
+  --g-gold-border:   rgba(212, 175, 55, 0.15);
 
-  /* Dark backgrounds */
-  --graphical-black: #0A0A0A;
-  --graphical-dark: #0D0D0D;
-  --graphical-dark-surface: #111;
-  --graphical-dark-card: #111;
-  --graphical-dark-elevated: #1A1A1A;
-  --graphical-dark-hover: #222222;
+  --g-black:         #0A0A0A;
+  --g-dark:          #0D0D0D;
+  --g-surface:       #111111;
+  --g-card:          #111111;
+  --g-elevated:      #1A1A1A;
+  --g-hover:         #222222;
 
-  /* Text colors — Jacquemus uses muted whites */
-  --graphical-text-primary: #FFFFFF;
-  --graphical-text-secondary: rgba(255,255,255,0.7);
-  --graphical-text-muted: rgba(255,255,255,0.4);
-  --graphical-text-gold: #D4AF37;
+  --g-text:          #FFFFFF;
+  --g-text-soft:     rgba(255,255,255,0.7);
+  --g-text-muted:    rgba(255,255,255,0.4);
+  --g-text-faint:    rgba(255,255,255,0.25);
 
-  /* System colors (Salla integration) */
+  --g-border:        rgba(255,255,255,0.06);
+  --g-border-light:  rgba(255,255,255,0.12);
+  --g-border-hover:  rgba(255,255,255,0.2);
+
+  --g-white:         #FFFFFF;
+  --g-white-soft:    rgba(255,255,255,0.6);
+  --g-white-muted:   rgba(255,255,255,0.5);
+
+  // ── Legacy aliases (backward compat) ──
+  --graphical-gold: var(--g-gold);
+  --graphical-gold-light: var(--g-gold-light);
+  --graphical-gold-dark: var(--g-gold-dark);
+  --graphical-gold-muted: var(--g-gold-muted);
+  --graphical-gold-border: var(--g-gold-border);
+  --graphical-black: var(--g-black);
+  --graphical-dark: var(--g-dark);
+  --graphical-dark-surface: var(--g-surface);
+  --graphical-dark-card: var(--g-card);
+  --graphical-dark-elevated: var(--g-elevated);
+  --graphical-dark-hover: var(--g-hover);
+  --graphical-text-primary: var(--g-text);
+  --graphical-text-secondary: var(--g-text-soft);
+  --graphical-text-muted: var(--g-text-muted);
+  --graphical-text-gold: var(--g-gold);
+  --graphical-radius: 0px;
+  --graphical-radius-lg: 0px;
+
+  // ── Salla system colors ──
   --infinte-color: #c9c9c9;
   --main-text-color: #F5F5F5;
   --main-text-color-dark: #E0E0E0;
-  --color-primary: #D4AF37;
-  --color-primary-d: #B8941F;
-  --color-primary-l: #E5C84D;
+  --color-primary: var(--g-gold);
+  --color-primary-d: var(--g-gold-dark);
+  --color-primary-l: var(--g-gold-light);
   --color-primary-reverse: #000000;
-  --color-text: rgba(255,255,255,0.7);
-  --bg-gray: #111;
-  --color-grey: #111;
-  --color-light-grey: #1A1A1A;
+  --color-text: var(--g-text-soft);
+  --bg-gray: var(--g-surface);
+  --color-grey: var(--g-surface);
+  --color-light-grey: var(--g-elevated);
 
-  /* Typography — Jacquemus: Playfair Display for headings, Cairo Light for body */
+  // ── Typography ──
   --font-sm: 0.8685714286rem;
   --font-heading: 'Playfair Display', 'Cairo', serif;
   --font-body: 'Cairo', sans-serif;
   --font-main: var(--font-body);
 
-  /* Radius — Jacquemus: sharp corners everywhere */
-  --graphical-radius: 0px;
-  --graphical-radius-lg: 0px;
+  // ── Transitions ──
+  --g-ease: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --g-ease-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --graphical-transition: var(--g-ease);
+  --graphical-transition-slow: var(--g-ease-slow);
 
-  /* Transitions — only slow, elegant transforms */
-  --graphical-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --graphical-transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  /* Shadows — NONE. Jacquemus doesn't use shadows */
+  // ── Shadows — NONE ──
   --graphical-shadow: none;
   --graphical-shadow-gold: none;
   --graphical-shadow-hover: none;
 
-  /* plugins */
+  // ── Plugins ──
   --mm-ocd-width: calc(100% - 51px);
 }

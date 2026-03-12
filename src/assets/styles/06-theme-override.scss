@@ -4,38 +4,17 @@
 // Only: black, white/cream, gold (prices only). No gradients, no shadows, no glow.
 // ================================================================
 
-// ===================== ROOT VARIABLES =====================
-:root {
-  --graphical-gold: #D4AF37;
-  --graphical-gold-light: #E5C84D;
-  --graphical-gold-dark: #B8941F;
-  --graphical-gold-muted: rgba(212, 175, 55, 0.10);
-  --graphical-gold-border: rgba(212, 175, 55, 0.15);
-  --graphical-black: #0A0A0A;
-  --graphical-dark: #0D0D0D;
-  --graphical-dark-surface: #111;
-  --graphical-dark-card: #111;
-  --graphical-dark-elevated: #1A1A1A;
-  --graphical-text-primary: #FFFFFF;
-  --graphical-text-secondary: rgba(255,255,255,0.7);
-  --graphical-text-muted: rgba(255,255,255,0.4);
-  --graphical-radius: 0px;
-  --font-heading: 'Playfair Display', 'Cairo', serif;
-  --font-body: 'Cairo', sans-serif;
-  --font-main: var(--font-body);
-}
-
 // ===================== GLOBAL BODY =====================
 html, body {
-  background-color: #0A0A0A !important;
-  color: rgba(255,255,255,0.7) !important;
+  background-color: var(--g-black) !important;
+  color: var(--g-text-soft) !important;
   font-family: var(--font-body) !important;
   font-weight: 300;
 }
 
 body.theme-graphical {
-  background-color: #0A0A0A !important;
-  color: rgba(255,255,255,0.7) !important;
+  background-color: var(--g-black) !important;
+  color: var(--g-text-soft) !important;
 
   // ===================== TYPOGRAPHY — Jacquemus =====================
   h1, h2, h3, h4, h5, h6 {
@@ -43,7 +22,7 @@ body.theme-graphical {
     font-weight: 900;
     letter-spacing: -0.01em;
     line-height: 1.1;
-    color: #FFFFFF;
+    color: var(--g-text);
   }
 
   h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
@@ -57,10 +36,10 @@ body.theme-graphical {
 
   // ===================== LINKS =====================
   a {
-    color: rgba(255,255,255,0.6);
+    color: var(--g-white-soft);
     transition: color 0.3s ease;
     &:hover {
-      color: #FFFFFF !important;
+      color: var(--g-text) !important;
     }
   }
 
@@ -76,23 +55,23 @@ body.theme-graphical {
   input[type="date"],
   textarea,
   select {
-    background-color: #111 !important;
-    color: #F5F5F5 !important;
-    border: 1px solid rgba(255,255,255,0.12) !important;
+    background-color: var(--g-surface) !important;
+    color: var(--g-text) !important;
+    border: 1px solid var(--g-border-light) !important;
     border-radius: 0 !important;
     &:focus {
-      border-color: rgba(255,255,255,0.3) !important;
+      border-color: var(--g-text-muted) !important;
       box-shadow: none !important;
     }
     &::placeholder {
-      color: rgba(255,255,255,0.3) !important;
+      color: var(--g-text-muted) !important;
     }
   }
 
   // ===================== BUTTONS — Jacquemus white on black =====================
   .btn--primary,
   .btn--default {
-    background: #FFFFFF !important;
+    background: var(--g-white) !important;
     color: #000000 !important;
     border: none !important;
     border-radius: 0 !important;
@@ -103,7 +82,7 @@ body.theme-graphical {
     box-shadow: none !important;
     &:hover {
       opacity: 0.7;
-      background: #FFFFFF !important;
+      background: var(--g-white) !important;
       color: #000000 !important;
     }
   }
@@ -111,13 +90,13 @@ body.theme-graphical {
   .btn--outline,
   .btn--outline-primary {
     background: transparent !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    color: #FFFFFF !important;
+    border: 1px solid var(--g-border-hover) !important;
+    color: var(--g-text) !important;
     border-radius: 0 !important;
     &:hover {
-      border-color: #FFFFFF !important;
+      border-color: var(--g-text) !important;
       background: transparent !important;
-      color: #FFFFFF !important;
+      color: var(--g-text) !important;
     }
   }
 
@@ -138,12 +117,12 @@ body.theme-graphical {
 
   // ===================== CART PAGE =====================
   .cart-item {
-    background-color: #111 !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    background-color: var(--g-surface) !important;
+    border: 1px solid var(--g-border) !important;
     border-radius: 0 !important;
     img {
-      background-color: #111 !important;
-      border-color: rgba(255,255,255,0.06) !important;
+      background-color: var(--g-surface) !important;
+      border-color: var(--g-border) !important;
     }
   }
 
@@ -164,7 +143,7 @@ body.theme-graphical {
   }
 
   .s-product-card-image {
-    background: #111 !important;
+    background: var(--g-surface) !important;
     overflow: hidden;
     position: relative;
     aspect-ratio: 3 / 4;
@@ -192,7 +171,7 @@ body.theme-graphical {
     font-family: var(--font-heading) !important;
     font-weight: 400 !important;
     font-size: 15px !important;
-    color: #FFFFFF !important;
+    color: var(--g-text) !important;
     text-decoration: none !important;
     letter-spacing: 0.01em;
     line-height: 1.3;
@@ -200,7 +179,7 @@ body.theme-graphical {
   }
   .s-product-card-entry:hover .s-product-card-content-title a,
   custom-salla-product-card:hover .s-product-card-content-title a {
-    color: rgba(255,255,255,0.6) !important;
+    color: var(--g-white-soft) !important;
   }
 
   // Price — small and quiet
@@ -210,14 +189,14 @@ body.theme-graphical {
     font-family: var(--font-body) !important;
     font-size: 13px !important;
     font-weight: 300 !important;
-    color: rgba(255,255,255,0.5) !important;
+    color: var(--g-white-muted) !important;
   }
   .s-product-card-sale-price span,
   .s-product-card-price del {
-    color: rgba(255,255,255,0.25) !important;
+    color: var(--g-text-faint) !important;
     text-decoration: line-through;
   }
-  .s-product-card-starting-price p { color: rgba(255,255,255,0.4) !important; }
+  .s-product-card-starting-price p { color: var(--g-text-muted) !important; }
 
   // Hide decorative card elements
   .s-product-card-promotion-title { display: none !important; }
@@ -235,7 +214,7 @@ body.theme-graphical {
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
-    color: #FFFFFF !important;
+    color: var(--g-text) !important;
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 2;
@@ -248,22 +227,22 @@ body.theme-graphical {
   .s-product-card-wishlist-added {
     opacity: 1 !important;
     background: transparent !important;
-    color: #FFFFFF !important;
+    color: var(--g-text) !important;
   }
 
   .s-product-card-quantity,
   .s-product-card-out-badge {
     background: rgba(0,0,0,0.7) !important;
-    color: #F5F5F5 !important;
+    color: var(--g-text) !important;
   }
 
   .s-product-card-full-image .s-product-card-overlay {
     background: transparent !important;
   }
 
-  .s-product-card-content-pie { color: #F5F5F5 !important; }
-  .s-product-card-content-pie-svg-base { stroke: #222 !important; }
-  .s-product-card-content-pie-svg-bar { stroke: #FFFFFF !important; }
+  .s-product-card-content-pie { color: var(--g-text) !important; }
+  .s-product-card-content-pie-svg-base { stroke: var(--g-hover) !important; }
+  .s-product-card-content-pie-svg-bar { stroke: var(--g-text) !important; }
 
   // Legacy element selectors
   salla-product-card {
@@ -278,15 +257,15 @@ body.theme-graphical {
   // ===================== HEADER — Jacquemus Clean =====================
   .store-header {
     .top-navbar {
-      background-color: #0A0A0A !important;
-      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
-      color: rgba(255,255,255,0.4) !important;
+      background-color: var(--g-black) !important;
+      border-bottom: 1px solid var(--g-border) !important;
+      color: var(--g-text-muted) !important;
     }
 
     .main-nav-container,
     .main-nav-container .inner {
-      background-color: #0A0A0A !important;
-      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+      background-color: var(--g-black) !important;
+      border-bottom: 1px solid var(--g-border) !important;
       box-shadow: none !important;
     }
 
@@ -295,9 +274,20 @@ body.theme-graphical {
       max-height: 56px !important;
     }
 
+    // Header action buttons — z-index for dropdown overlap
+    .header-btn--action {
+      position: relative;
+      z-index: 31;
+    }
+
+    // Menu icon color
+    .mburger i {
+      color: var(--g-text) !important;
+    }
+
     // Header icons — bare, no circles
     .header-btn__icon {
-      color: #FFFFFF !important;
+      color: var(--g-text) !important;
       border: none !important;
       background: transparent !important;
       border-radius: 0 !important;
@@ -315,20 +305,20 @@ body.theme-graphical {
     .btn--circle-gray {
       background: transparent !important;
       border: none !important;
-      color: rgba(255,255,255,0.5) !important;
+      color: var(--g-white-muted) !important;
       border-radius: 0 !important;
       &:hover {
-        color: #FFFFFF !important;
+        color: var(--g-text) !important;
       }
     }
   }
 
   // ===================== FOOTER — Jacquemus Simple =====================
   .store-footer {
-    background: #000 !important;
+    background: var(--g-black) !important;
     &__inner {
-      background: #000 !important;
-      border-top: 1px solid rgba(255,255,255,0.06) !important;
+      background: var(--g-black) !important;
+      border-top: 1px solid var(--g-border) !important;
       border-bottom: none !important;
       padding: 64px 0 32px;
     }
@@ -337,24 +327,41 @@ body.theme-graphical {
       font-weight: 600 !important;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.4) !important;
+      color: var(--g-text-muted) !important;
       padding-bottom: 0;
       &::after { display: none !important; }
     }
     a {
       font-size: 13px;
-      color: rgba(255,255,255,0.6) !important;
-      &:hover { color: #FFFFFF !important; }
+      color: var(--g-white-soft) !important;
+      &:hover { color: var(--g-text) !important; }
     }
     .social-link {
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid var(--g-border-light);
       border-radius: 0 !important;
-      color: rgba(255,255,255,0.4);
+      color: var(--g-text-muted);
       &:hover {
-        border-color: #FFFFFF;
-        color: #FFFFFF !important;
+        border-color: var(--g-text);
+        color: var(--g-text) !important;
         background: transparent;
       }
+    }
+
+    // Footer classes (replacing inline styles)
+    .footer-logo {
+      filter: brightness(0) invert(1);
+    }
+    .footer-description {
+      color: var(--g-text-muted);
+    }
+    .footer-tax-label {
+      color: var(--g-text-muted);
+    }
+    .footer-tax-number {
+      color: var(--g-text);
+    }
+    .footer-copyright {
+      border-top: 1px solid var(--g-border);
     }
   }
 
@@ -363,33 +370,33 @@ body.theme-graphical {
     font-family: var(--font-heading) !important;
     font-weight: 900 !important;
     font-size: clamp(1.8rem, 4vw, 3rem) !important;
-    color: #FFFFFF !important;
+    color: var(--g-text) !important;
     letter-spacing: -0.02em;
     // Remove gold line under title
     &::after { display: none !important; }
   }
 
   .s-block__display-all {
-    color: rgba(255,255,255,0.5) !important;
+    color: var(--g-white-muted) !important;
     font-weight: 400 !important;
-    &:hover { color: #FFFFFF !important; }
+    &:hover { color: var(--g-text) !important; }
   }
 
   .s-block--features__item {
     background-color: transparent !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    border: 1px solid var(--g-border) !important;
     box-shadow: none !important;
     &:hover {
-      border-color: rgba(255,255,255,0.15) !important;
+      border-color: var(--g-border-light) !important;
       box-shadow: none !important;
     }
     .feature-icon {
       background: transparent !important;
-      border: 1px solid rgba(255,255,255,0.1) !important;
-      i { color: #FFFFFF !important; }
+      border: 1px solid var(--g-border-light) !important;
+      i { color: var(--g-text) !important; }
     }
-    h2 { color: #FFFFFF !important; }
-    p { color: rgba(255,255,255,0.4) !important; }
+    h2 { color: var(--g-text) !important; }
+    p { color: var(--g-text-muted) !important; }
   }
 
   // Banner entries — minimal
@@ -412,48 +419,48 @@ body.theme-graphical {
   // Category entries — clean
   .slide--cat-entry {
     background-color: transparent !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    border: 1px solid var(--g-border) !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     &:hover {
-      border-color: rgba(255,255,255,0.15) !important;
+      border-color: var(--g-border-light) !important;
       box-shadow: none !important;
     }
-    i { color: #FFFFFF !important; }
-    h2 { color: #FFFFFF !important; }
+    i { color: var(--g-text) !important; }
+    h2 { color: var(--g-text) !important; }
   }
 
   .slide--offer-entry {
     background-color: transparent !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    border: 1px solid var(--g-border) !important;
     border-radius: 0 !important;
   }
 
   // Tab triggers
   .tab-trigger {
-    color: rgba(255,255,255,0.4) !important;
+    color: var(--g-text-muted) !important;
     &.is-active button {
-      background: #FFFFFF !important;
+      background: var(--g-white) !important;
       color: #000000 !important;
-      border-color: #FFFFFF !important;
+      border-color: var(--g-text) !important;
     }
   }
 
   // ===================== PRODUCT PAGE =====================
   .product-form section {
-    background-color: #111 !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    background-color: var(--g-surface) !important;
+    border: 1px solid var(--g-border) !important;
     border-radius: 0 !important;
   }
 
   .total-price,
   .price {
-    color: rgba(255,255,255,0.6) !important;
+    color: var(--g-white-soft) !important;
     font-weight: 300 !important;
   }
 
   .before-price {
-    color: rgba(255,255,255,0.3) !important;
+    color: var(--g-text-muted) !important;
   }
 
   .promotion-title {
@@ -463,54 +470,54 @@ body.theme-graphical {
   .btn--wishlist {
     border: none !important;
     background: transparent !important;
-    color: rgba(255,255,255,0.5) !important;
+    color: var(--g-white-muted) !important;
     border-radius: 0 !important;
     &:hover, &.is-wished {
-      color: #FFFFFF !important;
+      color: var(--g-text) !important;
     }
   }
 
   .sticky-product-bar {
-    background-color: #111 !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    background-color: var(--g-surface) !important;
+    border: 1px solid var(--g-border) !important;
     border-radius: 0 !important;
   }
 
   .details-slider {
-    background-color: #111 !important;
+    background-color: var(--g-surface) !important;
     border: none !important;
     border-radius: 0 !important;
   }
 
   .slide--one-fourth img {
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    border: 1px solid var(--g-border) !important;
     border-radius: 0 !important;
   }
 
   .swiper-slide-thumb-active img {
-    border-color: #FFFFFF !important;
+    border-color: var(--g-text) !important;
   }
 
   // ===================== BLOG =====================
   .post-entry,
   .list-block {
     background-color: transparent !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    border: 1px solid var(--g-border) !important;
     border-radius: 0 !important;
   }
 
   .post-entry__image {
-    background-color: #111 !important;
+    background-color: var(--g-surface) !important;
   }
 
   .blog-slider__slide {
-    background-color: #111 !important;
+    background-color: var(--g-surface) !important;
   }
 
   // ===================== BRANDS — Fashion White =====================
   .brand-item {
     background-color: transparent !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    border: 1px solid var(--g-border) !important;
     border-radius: 0 !important;
     height: 7rem;
     padding: 1.5rem;
@@ -521,7 +528,7 @@ body.theme-graphical {
       transition: all 0.5s ease !important;
     }
     &:hover {
-      border-color: rgba(255,255,255,0.2) !important;
+      border-color: var(--g-border-hover) !important;
     }
     &:hover img {
       opacity: 1 !important;
@@ -531,7 +538,7 @@ body.theme-graphical {
   }
 
   .brand-char {
-    background-color: #FFFFFF !important;
+    background-color: var(--g-text) !important;
     color: #000000 !important;
     border-radius: 0 !important;
     font-family: var(--font-heading) !important;
@@ -540,15 +547,15 @@ body.theme-graphical {
   .brands-nav__item {
     background: transparent !important;
     &:hover, &.is-active {
-      border-color: #FFFFFF !important;
-      color: #FFFFFF !important;
+      border-color: var(--g-text) !important;
+      color: var(--g-text) !important;
       background: transparent !important;
     }
   }
 
   .brand-logo {
-    background: #111 !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    background: var(--g-surface) !important;
+    border: 1px solid var(--g-border) !important;
     border-radius: 0 !important;
     img { filter: brightness(0) invert(1); }
   }
@@ -556,48 +563,48 @@ body.theme-graphical {
   // ===================== CUSTOMER / PROFILE =====================
   .profile-header,
   .gradient-bg {
-    background: #0A0A0A !important;
-    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+    background: var(--g-black) !important;
+    border-bottom: 1px solid var(--g-border) !important;
   }
 
   .sidebar nav {
     background-color: transparent !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    border: 1px solid var(--g-border) !important;
   }
 
   .avatar-wrap {
-    background-color: #111 !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
+    background-color: var(--g-surface) !important;
+    border: 1px solid var(--g-border-light) !important;
   }
 
   // ===================== ORDERS =====================
   .order-item,
   .order-table {
     background-color: transparent !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    border: 1px solid var(--g-border) !important;
   }
 
   // ===================== LOYALTY =====================
   .loyalty__banner {
     background-color: transparent !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    border: 1px solid var(--g-border) !important;
   }
 
   .way-item {
     background-color: transparent !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    border: 1px solid var(--g-border) !important;
   }
 
   // ===================== MENUS =====================
   .sub-menu,
   .dropdown__menu {
-    background-color: #111 !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
+    background-color: var(--g-surface) !important;
+    border: 1px solid var(--g-border-light) !important;
     box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
     a {
-      color: rgba(255,255,255,0.6) !important;
+      color: var(--g-white-soft) !important;
       &:hover, &.is-active {
-        color: #FFFFFF !important;
+        color: var(--g-text) !important;
         background-color: rgba(255,255,255,0.05) !important;
       }
     }
@@ -607,38 +614,38 @@ body.theme-graphical {
     font-family: var(--font-body) !important;
     font-size: 13px !important;
     font-weight: 400 !important;
-    color: rgba(255,255,255,0.6) !important;
+    color: var(--g-white-soft) !important;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    &:hover { color: #FFFFFF !important; }
+    &:hover { color: var(--g-text) !important; }
   }
 
   .main-menu > li.is-active > a,
   .main-menu > li:hover > a {
-    color: #FFFFFF !important;
+    color: var(--g-text) !important;
   }
 
   .menu-item {
-    color: rgba(255,255,255,0.6) !important;
+    color: var(--g-white-soft) !important;
     &:hover {
-      color: #FFFFFF !important;
+      color: var(--g-text) !important;
       background-color: rgba(255,255,255,0.05) !important;
     }
-    &.is-active { color: #FFFFFF !important; }
+    &.is-active { color: var(--g-text) !important; }
   }
 
   // ===================== MOBILE MENU =====================
   .mm-ocd {
-    background: #0A0A0A !important;
+    background: var(--g-black) !important;
   }
 
   .mm-spn {
-    background: #0A0A0A !important;
-    color: #F5F5F5 !important;
-    li { border-color: rgba(255,255,255,0.06) !important; }
+    background: var(--g-black) !important;
+    color: var(--g-text) !important;
+    li { border-color: var(--g-border) !important; }
     a {
-      color: rgba(255,255,255,0.6) !important;
-      &:hover { color: #FFFFFF !important; }
+      color: var(--g-white-soft) !important;
+      &:hover { color: var(--g-text) !important; }
     }
   }
 
@@ -646,11 +653,11 @@ body.theme-graphical {
   .swiper-button-prev,
   .swiper-button-next {
     background: transparent !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    color: #FFFFFF !important;
+    border: 1px solid var(--g-border-hover) !important;
+    color: var(--g-text) !important;
     border-radius: 0 !important;
     &:hover {
-      border-color: #FFFFFF !important;
+      border-color: var(--g-text) !important;
       background: transparent !important;
     }
     &::after { font-size: 14px !important; }
@@ -661,41 +668,41 @@ body.theme-graphical {
     opacity: 1 !important;
     border-radius: 0 !important;
     &-active {
-      background: #FFFFFF !important;
+      background: var(--g-white) !important;
     }
   }
 
   // ===================== SWEET ALERT =====================
   .swal2-popup {
-    background: #111 !important;
-    color: #F5F5F5 !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
+    background: var(--g-surface) !important;
+    color: var(--g-text) !important;
+    border: 1px solid var(--g-border-light) !important;
     border-radius: 0 !important;
   }
-  .swal2-title { color: #F5F5F5 !important; }
-  .swal2-html-container { color: rgba(255,255,255,0.6) !important; }
+  .swal2-title { color: var(--g-text) !important; }
+  .swal2-html-container { color: var(--g-white-soft) !important; }
   .swal2-confirm {
-    background: #FFFFFF !important;
+    background: var(--g-white) !important;
     color: #000000 !important;
     border-radius: 0 !important;
   }
 
   // ===================== BREADCRUMBS =====================
   salla-breadcrumb {
-    --breadcrumb-color: rgba(255,255,255,0.3);
-    --breadcrumb-active-color: rgba(255,255,255,0.6);
+    --breadcrumb-color: var(--g-text-muted);
+    --breadcrumb-active-color: var(--g-white-soft);
     --breadcrumb-bg: transparent;
     --breadcrumb-separator-color: rgba(255,255,255,0.15);
     --breadcrumb-font-size: 0.8125rem;
-    color: rgba(255,255,255,0.3);
+    color: var(--g-text-muted);
     a {
-      color: rgba(255,255,255,0.3) !important;
-      &:hover { color: rgba(255,255,255,0.6) !important; }
+      color: var(--g-text-muted) !important;
+      &:hover { color: var(--g-white-soft) !important; }
     }
     .breadcrumb-item, li {
       &.is-active, &:last-child {
-        color: rgba(255,255,255,0.6) !important;
-        a { color: rgba(255,255,255,0.6) !important; }
+        color: var(--g-white-soft) !important;
+        a { color: var(--g-white-soft) !important; }
       }
     }
   }
@@ -706,37 +713,37 @@ body.theme-graphical {
 
   // ===================== SCROLLBAR =====================
   &::-webkit-scrollbar { width: 4px; }
-  &::-webkit-scrollbar-track { background: #0A0A0A; }
+  &::-webkit-scrollbar-track { background: var(--g-black); }
   &::-webkit-scrollbar-thumb {
     background: rgba(255,255,255,0.15);
     border-radius: 0;
-    &:hover { background: rgba(255,255,255,0.3); }
+    &:hover { background: var(--g-text-muted); }
   }
 
   // ===================== SELECTION =====================
   ::selection {
-    background: #FFFFFF;
+    background: var(--g-text);
     color: #000000;
   }
 
   // ===================== GENERAL UTILITIES =====================
   .content-entry {
-    color: rgba(255,255,255,0.7);
-    h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
-    a { color: rgba(255,255,255,0.6) !important; &:hover { color: #FFFFFF !important; } }
+    color: var(--g-text-soft);
+    h1, h2, h3, h4, h5, h6 { color: var(--g-text) !important; }
+    a { color: var(--g-white-soft) !important; &:hover { color: var(--g-text) !important; } }
     img { border: none; border-radius: 0; }
   }
 
-  .article--main { color: rgba(255,255,255,0.7); }
+  .article--main { color: var(--g-text-soft); }
 
   .link--primary {
-    color: rgba(255,255,255,0.6) !important;
-    &:hover { color: #FFFFFF !important; }
+    color: var(--g-white-soft) !important;
+    &:hover { color: var(--g-text) !important; }
   }
 
   .rounded-icon {
     background: rgba(255,255,255,0.05) !important;
-    color: #FFFFFF !important;
+    color: var(--g-text) !important;
   }
 
   // ===================== PRODUCT CARDS (Salla Web Components) =====================
@@ -745,82 +752,82 @@ body.theme-graphical {
   }
 
   salla-cart-summary {
-    --cart-summary-icon-color: #FFFFFF;
-    --cart-summary-count-bg: #FFFFFF;
+    --cart-summary-icon-color: var(--g-text);
+    --cart-summary-count-bg: var(--g-text);
     --cart-summary-count-color: #000000;
   }
 
   salla-search {
-    --search-bg: #111;
+    --search-bg: var(--g-surface);
     --search-border: rgba(255,255,255,0.08);
-    --search-text: #F5F5F5;
-    --search-placeholder: rgba(255,255,255,0.3);
-    --search-result-bg: #111;
-    --search-result-hover: #1A1A1A;
+    --search-text: var(--g-text);
+    --search-placeholder: var(--g-text-muted);
+    --search-result-bg: var(--g-surface);
+    --search-result-hover: var(--g-elevated);
   }
 
   salla-slider {
     --slider-bg: transparent;
     --slider-nav-bg: transparent;
-    --slider-nav-color: #FFFFFF;
-    --slider-nav-border: rgba(255,255,255,0.2);
-    --slider-pagination-color: rgba(255,255,255,0.3);
-    --slider-pagination-active: #FFFFFF;
+    --slider-nav-color: var(--g-text);
+    --slider-nav-border: var(--g-border-hover);
+    --slider-pagination-color: var(--g-text-muted);
+    --slider-pagination-active: var(--g-text);
   }
 
   salla-button {
-    --btn-bg: #FFFFFF;
+    --btn-bg: var(--g-text);
     --btn-color: #000000;
-    --btn-border: #FFFFFF;
+    --btn-border: var(--g-text);
     --btn-hover-bg: rgba(255,255,255,0.8);
     --btn-border-radius: 0;
   }
 
   salla-rating-stars {
-    --rating-color: #D4AF37;
-    --rating-empty-color: rgba(255,255,255,0.1);
+    --rating-color: var(--g-gold);
+    --rating-empty-color: var(--g-border-light);
   }
 
   salla-add-product-button {
-    --btn-bg: #FFFFFF;
+    --btn-bg: var(--g-text);
     --btn-color: #000000;
     --btn-hover-bg: rgba(255,255,255,0.8);
   }
 
   salla-quantity-input {
-    --quantity-bg: #111;
-    --quantity-text: #F5F5F5;
-    --quantity-border: rgba(255,255,255,0.12);
+    --quantity-bg: var(--g-surface);
+    --quantity-text: var(--g-text);
+    --quantity-border: var(--g-border-light);
     --quantity-btn-bg: transparent;
-    --quantity-btn-color: #FFFFFF;
+    --quantity-btn-color: var(--g-text);
   }
 
   salla-product-options {
-    --option-bg: #111;
-    --option-text: #F5F5F5;
-    --option-border: rgba(255,255,255,0.12);
-    --option-selected-border: #FFFFFF;
+    --option-bg: var(--g-surface);
+    --option-text: var(--g-text);
+    --option-border: var(--g-border-light);
+    --option-selected-border: var(--g-text);
     --option-selected-bg: rgba(255,255,255,0.05);
-    --color-bg: #111;
-    --color-text: #F5F5F5;
+    --color-bg: var(--g-surface);
+    --color-text: var(--g-text);
     background: transparent !important;
-    color: #F5F5F5 !important;
+    color: var(--g-text) !important;
 
     select,
     .form-input,
     input,
     textarea {
-      background-color: #111 !important;
-      color: #F5F5F5 !important;
-      border: 1px solid rgba(255,255,255,0.12) !important;
+      background-color: var(--g-surface) !important;
+      color: var(--g-text) !important;
+      border: 1px solid var(--g-border-light) !important;
       border-radius: 0 !important;
       &:focus {
-        border-color: rgba(255,255,255,0.3) !important;
+        border-color: var(--g-text-muted) !important;
         box-shadow: none !important;
       }
     }
 
-    label, b, span, p { color: rgba(255,255,255,0.5); }
+    label, b, span, p { color: var(--g-white-muted); }
 
     .bg-white, .bg-gray-50, .bg-gray-100 {
       background-color: transparent !important;
@@ -832,164 +839,164 @@ body.theme-graphical {
   .product-form .form-input,
   form select,
   .s-product-options-option select {
-    background-color: #111 !important;
-    color: #F5F5F5 !important;
-    border: 1px solid rgba(255,255,255,0.12) !important;
+    background-color: var(--g-surface) !important;
+    color: var(--g-text) !important;
+    border: 1px solid var(--g-border-light) !important;
     border-radius: 0 !important;
     option {
-      background: #111;
-      color: #F5F5F5;
+      background: var(--g-surface);
+      color: var(--g-text);
     }
     &:focus {
-      border-color: rgba(255,255,255,0.3) !important;
+      border-color: var(--g-text-muted) !important;
       box-shadow: none !important;
     }
   }
 
   salla-filters {
     --filter-bg: transparent;
-    --filter-text: rgba(255,255,255,0.6);
-    --filter-border: rgba(255,255,255,0.06);
-    --filter-active: #FFFFFF;
+    --filter-text: var(--g-white-soft);
+    --filter-border: var(--g-border);
+    --filter-active: var(--g-text);
   }
 
   salla-login-modal,
   salla-modal,
   salla-localization-modal {
-    --modal-bg: #111;
-    --modal-text: #F5F5F5;
-    --modal-border: rgba(255,255,255,0.1);
+    --modal-bg: var(--g-surface);
+    --modal-text: var(--g-text);
+    --modal-border: var(--g-border-light);
   }
 
   salla-user-menu {
-    --user-menu-bg: #111;
-    --user-menu-text: rgba(255,255,255,0.6);
-    --user-menu-hover: #1A1A1A;
-    --user-menu-active: #FFFFFF;
+    --user-menu-bg: var(--g-surface);
+    --user-menu-text: var(--g-white-soft);
+    --user-menu-hover: var(--g-elevated);
+    --user-menu-active: var(--g-text);
   }
 
   salla-menu {
-    --menu-text: rgba(255,255,255,0.6);
-    --menu-hover: #FFFFFF;
+    --menu-text: var(--g-white-soft);
+    --menu-hover: var(--g-text);
   }
 
   custom-main-menu {
-    --menu-text: rgba(255,255,255,0.6);
-    --menu-hover: #FFFFFF;
-    --menu-active: #FFFFFF;
-    --submenu-bg: #111;
-    --submenu-border: rgba(255,255,255,0.1);
+    --menu-text: var(--g-white-soft);
+    --menu-hover: var(--g-text);
+    --menu-active: var(--g-text);
+    --submenu-bg: var(--g-surface);
+    --submenu-border: var(--g-border-light);
   }
 
   salla-social-share {
     --social-bg: transparent;
-    --social-color: rgba(255,255,255,0.4);
-    --social-hover-color: #FFFFFF;
+    --social-color: var(--g-text-muted);
+    --social-hover-color: var(--g-text);
   }
 
   salla-contacts {
-    --contacts-color: rgba(255,255,255,0.4);
-    --contacts-hover: #FFFFFF;
+    --contacts-color: var(--g-text-muted);
+    --contacts-hover: var(--g-text);
   }
 
   salla-gifting {
-    --gifting-bg: #111;
-    --gifting-border: rgba(255,255,255,0.1);
+    --gifting-bg: var(--g-surface);
+    --gifting-border: var(--g-border-light);
   }
 
   salla-infinite-scroll {
-    --loader-color: #FFFFFF;
+    --loader-color: var(--g-text);
   }
 
   salla-comments {
     --comment-bg: transparent;
-    --comment-text: rgba(255,255,255,0.6);
-    --comment-border: rgba(255,255,255,0.06);
+    --comment-text: var(--g-white-soft);
+    --comment-border: var(--g-border);
   }
 
   salla-add-product-toast {
-    --toast-bg: #111;
-    --toast-text: #F5F5F5;
-    --toast-border: rgba(255,255,255,0.1);
+    --toast-bg: var(--g-surface);
+    --toast-text: var(--g-text);
+    --toast-border: var(--g-border-light);
   }
 
   salla-count-down {
-    --countdown-bg: #111;
-    --countdown-text: #F5F5F5;
-    --countdown-label: rgba(255,255,255,0.4);
+    --countdown-bg: var(--g-surface);
+    --countdown-text: var(--g-text);
+    --countdown-label: var(--g-text-muted);
   }
 
   salla-trust-badges {
     --badge-bg: transparent;
-    --badge-border: rgba(255,255,255,0.06);
-    --badge-text: rgba(255,255,255,0.6);
+    --badge-border: var(--g-border);
+    --badge-text: var(--g-white-soft);
   }
 
   salla-installment {
     --installment-bg: transparent;
-    --installment-border: rgba(255,255,255,0.06);
+    --installment-border: var(--g-border);
   }
 
   salla-offer-modal {
-    --modal-bg: #111;
-    --modal-text: #F5F5F5;
+    --modal-bg: var(--g-surface);
+    --modal-text: var(--g-text);
   }
 
   salla-scopes {
-    --scopes-bg: #111;
-    --scopes-text: #F5F5F5;
-    --scopes-border: rgba(255,255,255,0.1);
-    --scopes-active: #FFFFFF;
+    --scopes-bg: var(--g-surface);
+    --scopes-text: var(--g-text);
+    --scopes-border: var(--g-border-light);
+    --scopes-active: var(--g-text);
   }
 
   salla-loyalty {
     --loyalty-bg: transparent;
-    --loyalty-text: #F5F5F5;
-    --loyalty-accent: #FFFFFF;
+    --loyalty-text: var(--g-text);
+    --loyalty-accent: var(--g-text);
   }
 
   salla-datetime-picker {
-    --picker-bg: #111;
-    --picker-text: #F5F5F5;
-    --picker-border: rgba(255,255,255,0.1);
-    --picker-active: #FFFFFF;
+    --picker-bg: var(--g-surface);
+    --picker-text: var(--g-text);
+    --picker-border: var(--g-border-light);
+    --picker-active: var(--g-text);
   }
 
   salla-tel-input {
-    --tel-bg: #111;
-    --tel-text: #F5F5F5;
-    --tel-border: rgba(255,255,255,0.1);
+    --tel-bg: var(--g-surface);
+    --tel-text: var(--g-text);
+    --tel-border: var(--g-border-light);
   }
 
   salla-file-upload {
-    --upload-bg: #111;
-    --upload-text: rgba(255,255,255,0.6);
-    --upload-border: rgba(255,255,255,0.1);
-    --upload-accent: #FFFFFF;
+    --upload-bg: var(--g-surface);
+    --upload-text: var(--g-white-soft);
+    --upload-border: var(--g-border-light);
+    --upload-accent: var(--g-text);
   }
 
   salla-conditional-offer {
-    --offer-bg: #111;
-    --offer-text: #F5F5F5;
-    --offer-border: rgba(255,255,255,0.1);
-    --offer-accent: #FFFFFF;
+    --offer-bg: var(--g-surface);
+    --offer-text: var(--g-text);
+    --offer-border: var(--g-border-light);
+    --offer-accent: var(--g-text);
   }
 
   salla-tiered-offer {
-    --offer-bg: #111;
-    --offer-text: #F5F5F5;
-    --offer-border: rgba(255,255,255,0.1);
+    --offer-bg: var(--g-surface);
+    --offer-text: var(--g-text);
+    --offer-border: var(--g-border-light);
   }
 
   salla-verify {
-    --verify-bg: #111;
-    --verify-text: #F5F5F5;
+    --verify-bg: var(--g-surface);
+    --verify-text: var(--g-text);
   }
 
   salla-user-settings {
     --settings-bg: transparent;
-    --settings-text: rgba(255,255,255,0.6);
-    --settings-border: rgba(255,255,255,0.06);
+    --settings-text: var(--g-white-soft);
+    --settings-border: var(--g-border);
   }
 
   salla-products-list {
@@ -999,67 +1006,149 @@ body.theme-graphical {
 
   salla-payments {
     --payments-bg: transparent;
-    --payments-text: rgba(255,255,255,0.4);
+    --payments-text: var(--g-text-muted);
   }
 
   salla-apps-icons {
-    --apps-text: rgba(255,255,255,0.4);
+    --apps-text: var(--g-text-muted);
   }
 
   salla-social {
-    --social-color: rgba(255,255,255,0.4);
-    --social-hover: #FFFFFF;
+    --social-color: var(--g-text-muted);
+    --social-hover: var(--g-text);
   }
 
   salla-cart-item-offers {
-    --offer-text: rgba(255,255,255,0.6);
-    --offer-accent: #FFFFFF;
+    --offer-text: var(--g-white-soft);
+    --offer-accent: var(--g-text);
   }
 
   // ===================== ADDITIONAL OVERRIDES =====================
   .no-content-placeholder {
-    color: rgba(255,255,255,0.6);
-    i.icon { color: rgba(255,255,255,0.3) !important; }
-    p { color: rgba(255,255,255,0.5) !important; }
+    color: var(--g-white-soft);
+    i.icon { color: var(--g-text-muted) !important; }
+    p { color: var(--g-white-muted) !important; }
   }
 
   .btn--coupon {
     &.has-not-coupon {
-      background: #FFFFFF !important;
+      background: var(--g-white) !important;
       color: #000000 !important;
     }
   }
 
   .profile-field-item label {
-    color: rgba(255,255,255,0.5) !important;
+    color: var(--g-white-muted) !important;
   }
 
   .progress-bg {
-    background: #FFFFFF !important;
+    background: var(--g-white) !important;
   }
 
   .brands-nav__item {
-    color: rgba(255,255,255,0.4) !important;
-    border-color: rgba(255,255,255,0.06) !important;
+    color: var(--g-text-muted) !important;
+    border-color: var(--g-border) !important;
     &:hover, &.is-active {
-      color: #FFFFFF !important;
-      border-color: #FFFFFF !important;
+      color: var(--g-text) !important;
+      border-color: var(--g-text) !important;
     }
   }
 
   .cart-options {
-    background: #111 !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    background: var(--g-surface) !important;
+    border: 1px solid var(--g-border) !important;
   }
 
   hr {
-    border-color: rgba(255,255,255,0.06) !important;
+    border-color: var(--g-border) !important;
+  }
+
+  // ===================== PRODUCT PAGE — CSS classes (replacing inline styles) =====================
+  .product-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--g-text);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .product-subtitle {
+    color: var(--g-text-muted);
+    letter-spacing: 0.03em;
+  }
+  .product-tax-note {
+    color: var(--g-text-muted);
+  }
+  .product-price-row {
+    border-bottom: 1px solid var(--g-border);
+  }
+  .product-price {
+    color: var(--g-white-soft);
+  }
+  .product-price--old {
+    color: var(--g-text-faint);
+  }
+  .product-price--label {
+    color: var(--g-text-muted);
+  }
+  .product-tag {
+    color: var(--g-gold);
+    border: 1px solid var(--g-gold-border);
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+  }
+  .product-meta-card {
+    background: var(--g-card);
+    border: 1px solid var(--g-border);
+    border-radius: 0;
+  }
+  .product-meta-card--top-radius {
+    border-radius: 0;
+  }
+  .product-meta-card__gold {
+    color: var(--g-gold);
+  }
+  .product-meta-card__divider {
+    border-color: var(--g-border);
+  }
+  .product-sku__label {
+    color: var(--g-text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .product-sku__value {
+    color: var(--g-text-soft);
+    font-size: 0.85rem;
+    font-family: monospace;
+    letter-spacing: 0.1em;
+  }
+  .product-form-label {
+    color: var(--g-text);
+  }
+  .product-form-price {
+    color: var(--g-gold);
+  }
+  .product-out-of-stock {
+    color: #ef4444;
+  }
+  .product-thumb-img {
+    background: var(--g-surface);
+    border-radius: 0;
+  }
+  .brand-logo-img {
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+  }
+  .product-calories-badge {
+    background: var(--g-card);
+    border: 1px solid var(--g-gold-border);
   }
 
   // ===================== PRODUCT PAGE — EDITORIAL =====================
   .details-slider,
   .image-slider {
-    background: #111 !important;
+    background: var(--g-surface) !important;
     border: none !important;
     border-radius: 0 !important;
     overflow: hidden;
@@ -1076,7 +1165,7 @@ body.theme-graphical {
   .product-form section {
     background: transparent !important;
     border: none !important;
-    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+    border-bottom: 1px solid var(--g-border) !important;
     padding: 20px 0 !important;
     border-radius: 0 !important;
   }
@@ -1096,10 +1185,10 @@ body.theme-graphical {
   .btn--wishlist {
     border: none !important;
     background: transparent !important;
-    color: rgba(255,255,255,0.5) !important;
+    color: var(--g-white-muted) !important;
     border-radius: 0 !important;
     &:hover, &.is-wished {
-      color: #FFFFFF !important;
+      color: var(--g-text) !important;
       transform: none;
     }
   }
@@ -1108,12 +1197,12 @@ body.theme-graphical {
   salla-social-share {
     button, a {
       background: transparent !important;
-      border: 1px solid rgba(255,255,255,0.1) !important;
-      color: rgba(255,255,255,0.4) !important;
+      border: 1px solid var(--g-border-light) !important;
+      color: var(--g-text-muted) !important;
       border-radius: 0 !important;
       &:hover {
-        border-color: #FFFFFF !important;
-        color: #FFFFFF !important;
+        border-color: var(--g-text) !important;
+        color: var(--g-text) !important;
         background: transparent !important;
       }
     }
@@ -1127,7 +1216,7 @@ body.theme-graphical {
       font-size: 15px;
       line-height: 1.9;
       p { margin-bottom: 1.2em; }
-      strong, b { color: #FFFFFF !important; }
+      strong, b { color: var(--g-text) !important; }
       img {
         max-width: 100% !important;
         height: auto !important;
@@ -1147,7 +1236,7 @@ body.theme-graphical {
         td, th {
           padding: 10px 16px !important;
           border: none !important;
-          border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+          border-bottom: 1px solid var(--g-border) !important;
           color: rgba(255,255,255,0.7) !important;
           font-size: 14px;
           text-align: right;
@@ -1155,7 +1244,7 @@ body.theme-graphical {
         }
         th {
           background: transparent !important;
-          color: rgba(255,255,255,0.5) !important;
+          color: var(--g-white-muted) !important;
           font-weight: 400;
           font-size: 13px;
           text-transform: uppercase;
@@ -1168,28 +1257,28 @@ body.theme-graphical {
   // Quantity input
   salla-quantity-input {
     .s-quantity-input {
-      background: #111 !important;
-      border: 1px solid rgba(255,255,255,0.12) !important;
+      background: var(--g-surface) !important;
+      border: 1px solid var(--g-border-light) !important;
       border-radius: 0 !important;
     }
     button {
       background: transparent !important;
-      color: #FFFFFF !important;
-      border-color: rgba(255,255,255,0.12) !important;
+      color: var(--g-text) !important;
+      border-color: var(--g-border-light) !important;
       &:hover {
         background: rgba(255,255,255,0.1) !important;
       }
     }
     input {
       background: transparent !important;
-      color: #F5F5F5 !important;
+      color: var(--g-text) !important;
     }
   }
 
   // Add to cart button — Jacquemus white
   salla-add-product-button {
     .s-button-element {
-      background: #FFFFFF !important;
+      background: var(--g-white) !important;
       color: #000000 !important;
       border: none !important;
       border-radius: 0 !important;
@@ -1201,7 +1290,7 @@ body.theme-graphical {
       box-shadow: none !important;
       &:hover {
         opacity: 0.7;
-        background: #FFFFFF !important;
+        background: var(--g-white) !important;
         box-shadow: none !important;
       }
     }
@@ -1218,21 +1307,21 @@ body.theme-graphical {
       font-family: var(--font-body) !important;
       font-size: 13px !important;
       font-weight: 400 !important;
-      color: rgba(255,255,255,0.6) !important;
+      color: var(--g-white-soft) !important;
       letter-spacing: 0.1em !important;
       text-transform: uppercase !important;
       transition: color 0.3s ease !important;
-      &:hover { color: #FFFFFF !important; }
+      &:hover { color: var(--g-text) !important; }
     }
 
     .main-menu > li.is-active > a,
     .main-menu > li:hover > a {
-      color: #FFFFFF !important;
+      color: var(--g-text) !important;
     }
 
     .sub-menu {
-      background: #111 !important;
-      border: 1px solid rgba(255,255,255,0.1) !important;
+      background: var(--g-surface) !important;
+      border: 1px solid var(--g-border-light) !important;
       box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
       z-index: 32 !important;
     }
@@ -1240,7 +1329,7 @@ body.theme-graphical {
 
   // Header icons
   .header-btn__icon {
-    color: #FFFFFF !important;
+    color: var(--g-text) !important;
     border: none !important;
     border-radius: 0 !important;
     background: transparent !important;
@@ -1250,7 +1339,7 @@ body.theme-graphical {
     padding: 8px;
     &:hover {
       opacity: 0.6;
-      color: #FFFFFF !important;
+      color: var(--g-text) !important;
       background: transparent !important;
       transform: none !important;
     }
@@ -1260,7 +1349,7 @@ body.theme-graphical {
   salla-installment,
   salla-metadata {
     background: transparent !important;
-    color: rgba(255,255,255,0.6) !important;
+    color: var(--g-white-soft) !important;
     .bg-white, [class*="bg-white"] {
       background: transparent !important;
     }
@@ -1268,21 +1357,21 @@ body.theme-graphical {
 
   // Size guide
   salla-product-size-guide {
-    --modal-bg: #111;
-    --modal-text: #F5F5F5;
+    --modal-bg: var(--g-surface);
+    --modal-text: var(--g-text);
     table {
       td, th {
-        border-color: rgba(255,255,255,0.06) !important;
-        color: rgba(255,255,255,0.6) !important;
+        border-color: var(--g-border) !important;
+        color: var(--g-white-soft) !important;
       }
-      th { background: #1A1A1A !important; color: #FFFFFF !important; }
+      th { background: var(--g-elevated) !important; color: var(--g-text) !important; }
     }
   }
 
   // Loading/skeleton
   .placeholder-content,
   .skeleton {
-    background: #111 !important;
+    background: var(--g-surface) !important;
   }
 
   // Similar products slider
@@ -1290,7 +1379,7 @@ body.theme-graphical {
     .s-block__title h2 {
       font-family: var(--font-heading) !important;
       font-weight: 900 !important;
-      color: #FFFFFF !important;
+      color: var(--g-text) !important;
       &::after { display: none !important; }
     }
   }
@@ -1300,7 +1389,7 @@ body.theme-graphical {
   [class*="price"] del,
   [class*="price"] s,
   .before-price {
-    color: rgba(255,255,255,0.25) !important;
+    color: var(--g-text-faint) !important;
   }
 
   // ===================== KILL DECORATIVE EFFECTS =====================
@@ -1322,26 +1411,26 @@ body.theme-graphical {
   [class*="search-modal"],
   [class*="search-content"],
   [class*="search-overlay"] {
-    background: #0A0A0A !important;
-    color: #F5F5F5 !important;
+    background: var(--g-black) !important;
+    color: var(--g-text) !important;
   }
 
   .s-search-input,
   [class*="search"] input[type="search"],
   [class*="search"] input[type="text"] {
-    background: #111 !important;
-    color: #F5F5F5 !important;
-    border: 1px solid rgba(255,255,255,0.12) !important;
+    background: var(--g-surface) !important;
+    color: var(--g-text) !important;
+    border: 1px solid var(--g-border-light) !important;
     border-radius: 0 !important;
-    &:focus { border-color: rgba(255,255,255,0.3) !important; }
-    &::placeholder { color: rgba(255,255,255,0.3) !important; }
+    &:focus { border-color: var(--g-text-muted) !important; }
+    &::placeholder { color: var(--g-text-muted) !important; }
   }
 
   .s-search-result,
   [class*="search-result"] {
-    background: #111 !important;
-    border-color: rgba(255,255,255,0.06) !important;
-    &:hover { background: #1A1A1A !important; }
+    background: var(--g-surface) !important;
+    border-color: var(--g-border) !important;
+    &:hover { background: var(--g-elevated) !important; }
   }
 
   // Modal overrides
@@ -1353,30 +1442,30 @@ body.theme-graphical {
   .s-bottom-alert-content,
   [class*="sheet-content"],
   [class*="drawer-content"] {
-    background: #111 !important;
-    color: #F5F5F5 !important;
+    background: var(--g-surface) !important;
+    color: var(--g-text) !important;
     border-radius: 0 !important;
   }
 
   salla-login-modal::part(content),
   salla-modal::part(content),
   salla-localization-modal::part(content) {
-    background: #111 !important;
-    color: #F5F5F5 !important;
+    background: var(--g-surface) !important;
+    color: var(--g-text) !important;
   }
 
   salla-login-modal::part(header),
   salla-modal::part(header) {
-    background: #111 !important;
-    color: #F5F5F5 !important;
-    border-color: rgba(255,255,255,0.06) !important;
+    background: var(--g-surface) !important;
+    color: var(--g-text) !important;
+    border-color: var(--g-border) !important;
   }
 
   salla-bottom-alert {
-    --alert-bg: #111;
-    --alert-text: #F5F5F5;
-    --alert-border: rgba(255,255,255,0.1);
-    --color-primary: #FFFFFF;
+    --alert-bg: var(--g-surface);
+    --alert-text: var(--g-text);
+    --alert-border: var(--g-border-light);
+    --color-primary: var(--g-text);
   }
 
   // ===================== TAILWIND UTILITY OVERRIDES =====================
@@ -1385,14 +1474,14 @@ body.theme-graphical {
   .bg-gray-100 { background-color: transparent !important; }
   .bg-gray-200 { background-color: transparent !important; }
   .bg-gray-300 { background-color: transparent !important; }
-  .text-gray-900 { color: #F5F5F5 !important; }
-  .text-gray-800 { color: #F5F5F5 !important; }
-  .text-gray-700 { color: rgba(255,255,255,0.5) !important; }
-  .text-black { color: #F5F5F5 !important; }
+  .text-gray-900 { color: var(--g-text) !important; }
+  .text-gray-800 { color: var(--g-text) !important; }
+  .text-gray-700 { color: var(--g-white-muted) !important; }
+  .text-black { color: var(--g-text) !important; }
   .border-gray-100,
   .border-gray-200,
   .border-gray-300 {
-    border-color: rgba(255,255,255,0.06) !important;
+    border-color: var(--g-border) !important;
   }
 
   .s-block--full-bg {
@@ -1402,17 +1491,17 @@ body.theme-graphical {
   // ===================== PRODUCT OPTIONS DROPDOWN =====================
   salla-product-options {
     select, .s-form-control {
-      background-color: #111 !important;
-      color: #F5F5F5 !important;
-      border: 1px solid rgba(255,255,255,0.12) !important;
+      background-color: var(--g-surface) !important;
+      color: var(--g-text) !important;
+      border: 1px solid var(--g-border-light) !important;
       border-radius: 0 !important;
       option {
-        background: #111;
-        color: #F5F5F5;
+        background: var(--g-surface);
+        color: var(--g-text);
       }
     }
     label {
-      color: rgba(255,255,255,0.5) !important;
+      color: var(--g-white-muted) !important;
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -1424,9 +1513,9 @@ body.theme-graphical {
   .s-product-option {
     background: transparent !important;
     select {
-      background-color: #111 !important;
-      color: #F5F5F5 !important;
-      border: 1px solid rgba(255,255,255,0.12) !important;
+      background-color: var(--g-surface) !important;
+      color: var(--g-text) !important;
+      border: 1px solid var(--g-border-light) !important;
       border-radius: 0 !important;
     }
   }
@@ -1434,7 +1523,7 @@ body.theme-graphical {
   // ===================== MENU ACTIVE STATE =====================
   .main-menu > li.is-active > a,
   .main-menu > li:hover > a {
-    color: #FFFFFF !important;
+    color: var(--g-text) !important;
     position: relative;
   }
 
@@ -1445,20 +1534,20 @@ body.theme-graphical {
     right: 0;
     left: 0;
     height: 1px;
-    background: #FFFFFF;
+    background: var(--g-text);
   }
 
   // ===================== PRODUCT THUMBNAILS =====================
   .slide--one-fourth img {
-    background: #111 !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
+    background: var(--g-surface) !important;
+    border: 1px solid var(--g-border) !important;
     border-radius: 0 !important;
     transition: border-color 0.3s ease;
   }
 
   .swiper-slide-thumb-active .slide--one-fourth img,
   .swiper-slide-thumb-active img {
-    border-color: #FFFFFF !important;
+    border-color: var(--g-text) !important;
   }
 
   // ===================== FOCUS STATES =====================
@@ -1468,7 +1557,7 @@ body.theme-graphical {
   }
 
   input:focus, select:focus, textarea:focus {
-    border-color: rgba(255,255,255,0.3) !important;
+    border-color: var(--g-text-muted) !important;
     box-shadow: none !important;
   }
 
@@ -1510,7 +1599,7 @@ body.theme-graphical {
     font-family: var(--font-heading) !important;
     font-weight: 900 !important;
     font-size: clamp(1.8rem, 4vw, 3rem) !important;
-    color: #FFFFFF !important;
+    color: var(--g-text) !important;
     letter-spacing: -0.02em;
     padding: 48px 0 32px !important;
     &::after { display: none !important; }
@@ -1521,7 +1610,7 @@ body.theme-graphical {
     font-family: var(--font-heading) !important;
     font-weight: 700;
     font-size: 28px;
-    color: #FFFFFF;
+    color: var(--g-text);
   }
 
   // ===================== LOGO — fashion prominent =====================
@@ -1546,31 +1635,31 @@ body.theme-graphical {
   // ===================== DIVIDE COLORS =====================
   .divide-gray-100 > :not([hidden]) ~ :not([hidden]),
   .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
-    border-color: rgba(255,255,255,0.06) !important;
+    border-color: var(--g-border) !important;
   }
-  .text-gray-700, .text-gray-600 { color: rgba(255,255,255,0.5) !important; }
-  .text-gray-500 { color: rgba(255,255,255,0.4) !important; }
+  .text-gray-700, .text-gray-600 { color: var(--g-white-muted) !important; }
+  .text-gray-500 { color: var(--g-text-muted) !important; }
 
   // ===================== SALLA BUTTON CLASSES (moved from critical CSS) =====================
   .s-button-primary, .s-btn-primary, .btn-primary {
-    background: #FFFFFF !important;
+    background: var(--g-white) !important;
     color: #000000 !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     &:hover {
       opacity: 0.7;
-      background: #FFFFFF !important;
+      background: var(--g-white) !important;
       color: #000000 !important;
     }
   }
   .s-btn-outline, .btn-outline {
     background: transparent !important;
-    color: #FFFFFF !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
+    color: var(--g-text) !important;
+    border: 1px solid var(--g-border-hover) !important;
     border-radius: 0 !important;
     &:hover {
-      border-color: #FFFFFF !important;
+      border-color: var(--g-text) !important;
     }
   }
 
@@ -1608,7 +1697,7 @@ body.theme-graphical {
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     background: rgba(0,0,0,0.7) !important;
-    color: #FFFFFF !important;
+    color: var(--g-text) !important;
     border: none !important;
     border-radius: 0 !important;
     padding: 10px 20px;
@@ -1639,7 +1728,7 @@ body.theme-graphical {
   // ===================== SOLD OUT BADGE =====================
   .s-product-card-out-badge {
     background: rgba(0,0,0,0.8) !important;
-    color: rgba(255,255,255,0.6) !important;
+    color: var(--g-white-soft) !important;
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1664,11 +1753,11 @@ body.theme-graphical {
       font-family: var(--font-heading) !important;
       font-weight: 700;
       font-size: 1.4rem;
-      color: #FFFFFF;
+      color: var(--g-text);
       margin-bottom: 8px;
     }
     p {
-      color: rgba(255,255,255,0.4) !important;
+      color: var(--g-text-muted) !important;
       font-size: 14px;
     }
   }
@@ -1691,7 +1780,7 @@ body.theme-graphical {
       display: none !important;
     }
     body, html {
-      background: #FFFFFF !important;
+      background: var(--g-white) !important;
       color: #000000 !important;
     }
   }
