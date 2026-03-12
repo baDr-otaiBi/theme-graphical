@@ -19,7 +19,7 @@
           {# Language & Currency #}
           <div class="header-buttons">
               {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
-                  <button type="button" onclick="salla.event.dispatch('localization::open')" class="btn--rounded-gray basis-0">
+                  <button type="button" onclick="salla.event.dispatch('localization::open')" class="btn--rounded-gray basis-0" aria-label="{{ trans('common.elements.language_and_currency') }}">
                       <span>{{ user.language.name }}</span>
                       <span class="mx-1.5">|</span> <span>{{ currency.symbol }}</span>
                   </button>
@@ -30,7 +30,8 @@
           {# Scopes / Branches #}
           {% if store.scope %}
               <button class="btn--rounded-gray"
-                      onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
+                      onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})"
+                      aria-label="{{ store.scope.name }}">
                   <i class="sicon-location rtl:ml-1 ltr:mr-1"></i> {{ store.scope.name }}
               </button>
           {% endif %}

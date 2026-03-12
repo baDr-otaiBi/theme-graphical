@@ -16,7 +16,7 @@
         </nav>
         <div class="flex items-start flex-col md:flex-row">
             {% if filters %}
-                <button class="btn--close-sm close-filters sicon-cancel hidden"></button>
+                <button class="btn--close-sm close-filters sicon-cancel hidden" aria-label="{{ trans('common.elements.close') }}"></button>
                 <salla-filters class="md:w-72 lg:sticky lg:top-20 flex-none" id="filters-menu"></salla-filters>
             {% endif %}
 

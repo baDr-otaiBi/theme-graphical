@@ -37,7 +37,7 @@
 
                 {% if store.settings.blog.allow_likes_and_comments %}
                 <div class="flex items-center gap-2.5 text-base mb-2" style="color: var(--graphical-text-muted)">
-                    <button id="blog-like" data-blog-id="{{ article.key }}" class="flex items-center gap-1">
+                    <button id="blog-like" data-blog-id="{{ article.key }}" class="flex items-center gap-1" aria-label="{{ trans('pages.blog.like') }}">
                         <i class="sicon-thumbs-up" style="color: var(--graphical-gold)"></i>
                         <span>{{article.likes_count}}</span>
                     </button>
