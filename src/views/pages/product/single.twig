@@ -174,8 +174,8 @@
                 </div>
 
                 {# Description — with proper formatting #}
-                <div class="product__description py-4 leading-7 mb-4" style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                    {% set product_desc = product.description|replace({"&nbsp;":"\n"}) %}
+                <div class="product__description graphical-product-description py-4 leading-7 mb-4" style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    {% set product_desc = product.description %}
                     {% if product.has_read_more %}
                         <article class="article article--main relative leading-8 overflow-hidden transition-all max-h-0 duration-300"
                             id="more-content" style="max-height:5.25rem; color: var(--graphical-text-secondary); font-size: 0.9rem; line-height: 1.8; word-spacing: 0.05em;">

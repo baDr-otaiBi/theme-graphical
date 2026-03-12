@@ -579,17 +579,20 @@ body.theme-graphical {
     font-family: var(--font-main);
   }
 
-  // ===================== PRODUCT CARDS (Light DOM — .s-product-card-*) =====================
+  // ===================== PRODUCT CARDS (Editorial Fashion Style) =====================
   custom-salla-product-card,
   .s-product-card-entry {
     background: #0A0A0A !important;
-    border: 1px solid rgba(201,168,76,0.12) !important;
-    border-radius: 2px !important;
+    border: 1px solid rgba(201,168,76,0.08) !important;
+    border-radius: 0 !important; // Sharp corners = luxury
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+
+    // Gold border reveal on hover
     &:hover {
-      border-color: rgba(201,168,76,0.45) !important;
-      box-shadow: 0 8px 32px rgba(201,168,76,0.12) !important;
+      border-color: rgba(201,168,76,0.3) !important;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4) !important;
     }
   }
 
@@ -597,10 +600,15 @@ body.theme-graphical {
     background: #111 !important;
     position: relative;
     overflow: hidden;
-    img { transition: transform 0.6s ease; }
+    img {
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter 0.5s ease;
+      filter: saturate(0.85);
+    }
   }
   .s-product-card-entry:hover .s-product-card-image img {
-    transform: scale(1.05);
+    transform: scale(1.04);
+    filter: saturate(1);
   }
 
   .s-product-card-content {
@@ -1070,8 +1078,9 @@ body.theme-graphical {
     }
   }
 
-  // Product description formatting
-  .product__description {
+  // Product description formatting — rich content from merchant
+  .product__description,
+  .graphical-product-description {
     .article--main {
       color: #B0B0B0 !important;
       font-size: 0.9rem;
@@ -1080,19 +1089,39 @@ body.theme-graphical {
 
       p { margin-bottom: 0.75em; }
       strong, b { color: #F5F5F5 !important; }
+
+      // Images from merchant content
+      img {
+        max-width: 100% !important;
+        height: auto !important;
+        border-radius: 2px;
+        border: 1px solid rgba(255,255,255,0.05);
+        margin: 8px 0;
+      }
+
+      // Lists
+      ul, ol {
+        padding-right: 24px;
+        margin-bottom: 1em;
+        li { margin-bottom: 0.3em; }
+      }
+
       table {
         width: 100% !important;
         border-collapse: collapse;
         margin: 1rem 0;
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(201,168,76,0.12);
         td, th {
-          padding: 8px 12px !important;
-          border: 1px solid rgba(255,255,255,0.06) !important;
+          padding: 10px 14px !important;
+          border: 1px solid rgba(201,168,76,0.12) !important;
           color: #B0B0B0 !important;
           font-size: 0.85rem;
+          white-space: nowrap;
         }
         th {
-          background: #1A1A1A !important;
-          color: #F5F5F5 !important;
+          background: rgba(201,168,76,0.08) !important;
+          color: #C9A84C !important;
           font-weight: 600;
         }
         tr:nth-child(even) td {
@@ -1353,6 +1382,132 @@ body.theme-graphical {
     --alert-text: #F5F5F5;
     --alert-border: rgba(201,168,76,0.25);
     --color-primary: #C9A84C;
+  }
+
+  // ===================== TAILWIND UTILITY NUCLEAR OVERRIDES =====================
+  // Force Tailwind utility classes to dark equivalents
+  // Catches cases where Salla platform CSS overrides tailwind.config
+  .bg-white { background-color: #1A1A1A !important; }
+  .bg-gray-50 { background-color: #0A0A0A !important; }
+  .bg-gray-100 { background-color: #0A0A0A !important; }
+  .bg-gray-200 { background-color: #141414 !important; }
+  .bg-gray-300 { background-color: #1A1A1A !important; }
+  .text-gray-900 { color: #F5F5F5 !important; }
+  .text-gray-800 { color: #F5F5F5 !important; }
+  .text-gray-700 { color: #B0B0B0 !important; }
+  .text-black { color: #F5F5F5 !important; }
+  .border-gray-100,
+  .border-gray-200,
+  .border-gray-300 {
+    border-color: rgba(255,255,255,0.06) !important;
+  }
+
+  // Home page full-bg sections
+  .s-block--full-bg {
+    background-color: #0D0D0D !important;
+  }
+
+  // ===================== PRODUCT OPTIONS DROPDOWN =====================
+  salla-product-options {
+    select,
+    .s-form-control {
+      background-color: #1A1A1A !important;
+      color: #F5F5F5 !important;
+      border: 1px solid rgba(201,168,76,0.15) !important;
+      option {
+        background: #1A1A1A;
+        color: #F5F5F5;
+      }
+    }
+    label {
+      color: #C9A84C !important;
+    }
+  }
+
+  .s-product-options-wrapper,
+  .s-product-options-container,
+  .s-product-option {
+    background: transparent !important;
+    select {
+      background-color: #1A1A1A !important;
+      color: #F5F5F5 !important;
+      border: 1px solid rgba(201,168,76,0.15) !important;
+    }
+  }
+
+  // ===================== WISHLIST & SHARE ICONS (Product Page) =====================
+  .btn--wishlist,
+  [class*="wishlist-btn"],
+  [class*="share-btn"] {
+    background: rgba(10,10,10,0.7) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(201,168,76,0.2) !important;
+    color: #C9A84C !important;
+    border-radius: 50% !important;
+    transition: all 0.35s ease !important;
+
+    &:hover {
+      background: #C9A84C !important;
+      color: #0A0A0A !important;
+      border-color: #C9A84C !important;
+    }
+  }
+
+  // ===================== SECTION TITLES — LUXURY =====================
+  .s-block__title h2,
+  .s-block-title {
+    font-family: 'Cormorant Garamond', 'Cairo', serif !important;
+    color: #F5F5F5 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.06em !important;
+    position: relative;
+    padding-bottom: 16px;
+
+    &::after {
+      content: '' !important;
+      display: block !important;
+      width: 40px !important;
+      height: 1px !important;
+      background: #C9A84C !important;
+      margin-top: 12px !important;
+    }
+  }
+
+  // Section spacing
+  .s-block {
+    padding: 48px 0 !important;
+    background: #0A0A0A !important;
+    border-bottom: 1px solid rgba(201,168,76,0.04);
+  }
+
+  // ===================== MENU ACTIVE STATE =====================
+  .main-menu > li.is-active > a,
+  .main-menu > li:hover > a {
+    color: #C9A84C !important;
+    position: relative;
+  }
+
+  .main-menu > li.is-active > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 2px;
+    background: #C9A84C;
+  }
+
+  // ===================== PRODUCT THUMBNAILS =====================
+  .slide--one-fourth img {
+    background: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 0 !important;
+    transition: border-color 0.3s ease;
+  }
+
+  .swiper-slide-thumb-active .slide--one-fourth img,
+  .swiper-slide-thumb-active img {
+    border-color: #C9A84C !important;
   }
 
   // ===================== FOCUS STATES — ACCESSIBILITY =====================

@@ -112,6 +112,7 @@
 
     {# === 5. FINAL override — AFTER all Salla hooks, so nothing can override === #}
     <style>
+        /* ===== COLOR PRIMARY FORCE ===== */
         :root, html, body, body.theme-graphical {
             --color-primary: #C9A84C !important;
             --color-primary-dark: #A8863A !important;
@@ -119,43 +120,134 @@
             --color-primary-reverse: #0A0A0A !important;
             --color-text: #F5F5F5 !important;
         }
-        /* Product cards — force dark */
+
+        /* ===== TAILWIND UTILITY NUCLEAR OVERRIDES ===== */
+        /* Force ALL bg-white/bg-gray-* Tailwind classes to dark equivalents */
+        /* This catches cases where Salla platform CSS overrides our tailwind.config */
+        .bg-white { background-color: #1A1A1A !important; }
+        .bg-gray-50 { background-color: #0A0A0A !important; }
+        .bg-gray-100 { background-color: #0A0A0A !important; }
+        .bg-gray-200 { background-color: #141414 !important; }
+        .bg-gray-300 { background-color: #1A1A1A !important; }
+        .text-gray-900, .text-gray-800 { color: #F5F5F5 !important; }
+        .text-gray-700, .text-gray-600 { color: #B0B0B0 !important; }
+        .text-gray-500 { color: #707070 !important; }
+        .text-black { color: #F5F5F5 !important; }
+        .border-gray-100, .border-gray-200, .border-gray-300 {
+            border-color: rgba(255,255,255,0.06) !important;
+        }
+        .divide-gray-100 > :not([hidden]) ~ :not([hidden]),
+        .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+            border-color: rgba(255,255,255,0.06) !important;
+        }
+        /* s-block full-bg sections on home page */
+        .s-block--full-bg { background-color: #0D0D0D !important; }
+
+        /* ===== PRODUCT CARDS — FORCE DARK ===== */
         custom-salla-product-card, salla-product-card, .s-product-card-entry {
             background: #0A0A0A !important;
-            border: 1px solid rgba(201,168,76,0.12) !important;
-            border-radius: 2px !important;
+            border: 1px solid rgba(201,168,76,0.08) !important;
+            border-radius: 0 !important;
             overflow: hidden;
         }
-        .s-product-card-image { background: #111 !important; }
-        .s-product-card-content { background: #0A0A0A !important; }
-        .s-product-card-content-title a { color: #F5F5F5 !important; }
+        custom-salla-product-card:hover, .s-product-card-entry:hover {
+            border-color: rgba(201,168,76,0.3) !important;
+        }
+        .s-product-card-image {
+            background: #111 !important;
+            position: relative;
+        }
+        .s-product-card-content {
+            background: #0A0A0A !important;
+            padding: 1rem !important;
+        }
+        .s-product-card-content-title a {
+            color: #F5F5F5 !important;
+            font-weight: 400 !important;
+            letter-spacing: 0.02em;
+        }
+        .s-product-card-entry:hover .s-product-card-content-title a {
+            color: #C9A84C !important;
+        }
         .s-product-card-price, .s-product-card-sale-price h4,
         .s-product-card-starting-price h4 { color: #C9A84C !important; }
         .s-product-card-sale-price span { color: #555 !important; }
         .s-product-card-promotion-title {
             background: #C9A84C !important;
             color: #0A0A0A !important;
+            font-weight: 700;
+            letter-spacing: 0.05em;
         }
-        /* Product description tables */
+        /* Wishlist button on cards */
+        .s-product-card-wishlist-btn {
+            background: rgba(10,10,10,0.6) !important;
+            border: 1px solid rgba(201,168,76,0.2) !important;
+            color: #F5F5F5 !important;
+            backdrop-filter: blur(4px);
+        }
+        .s-product-card-wishlist-btn:hover,
+        .s-product-card-wishlist-added {
+            background: #C9A84C !important;
+            color: #0A0A0A !important;
+            border-color: #C9A84C !important;
+        }
+
+        /* ===== PRODUCT OPTIONS DROPDOWN — FORCE DARK ===== */
+        salla-product-options select,
+        salla-product-options .s-form-control,
+        .s-product-options-wrapper select,
+        .s-product-options-container select,
+        .s-product-option select {
+            background-color: #1A1A1A !important;
+            color: #F5F5F5 !important;
+            border: 1px solid rgba(201,168,76,0.15) !important;
+        }
+        salla-product-options select option {
+            background: #1A1A1A;
+            color: #F5F5F5;
+        }
+        salla-product-options label,
+        .s-product-option-label {
+            color: #C9A84C !important;
+        }
+
+        /* ===== PRODUCT DESCRIPTION TABLES ===== */
         .product__description table,
         .article--main table {
             width: 100% !important;
             border-collapse: collapse !important;
             color: #B0B0B0 !important;
+            background: rgba(255,255,255,0.02) !important;
+            border: 1px solid rgba(201,168,76,0.12) !important;
+            margin: 16px 0;
         }
         .product__description table td,
         .product__description table th,
         .article--main table td,
         .article--main table th {
-            padding: 8px 12px !important;
-            border: 1px solid rgba(255,255,255,0.06) !important;
+            padding: 10px 14px !important;
+            border: 1px solid rgba(201,168,76,0.12) !important;
+            white-space: nowrap;
         }
         .product__description table th,
         .article--main table th {
-            background: #1A1A1A !important;
-            color: #F5F5F5 !important;
+            background: rgba(201,168,76,0.08) !important;
+            color: #C9A84C !important;
+            font-weight: 600;
         }
-        /* Search dark */
+
+        /* ===== PRODUCT THUMBNAILS ===== */
+        .slide--one-fourth img,
+        .product-thumbnails img,
+        .swiper-slide-thumb-active img {
+            background: #1A1A1A !important;
+            border: 1px solid rgba(255,255,255,0.06) !important;
+        }
+        .swiper-slide-thumb-active img {
+            border-color: #C9A84C !important;
+        }
+
+        /* ===== SEARCH DARK ===== */
         .s-search-container, .s-search-wrapper,
         [class*="search-modal"], [class*="search-content"] {
             background: #0A0A0A !important;
@@ -167,14 +259,46 @@
             color: #F5F5F5 !important;
             border-color: rgba(255,255,255,0.08) !important;
         }
-        /* Modal dark — catches anything Salla renders in light DOM */
+
+        /* ===== MODAL DARK ===== */
         .s-modal-content, .s-login-wrapper,
         [class*="modal-content"], .s-bottom-alert-content,
         [class*="sheet-content"] {
             background: #1A1A1A !important;
             color: #F5F5F5 !important;
         }
-        /* Focus states for accessibility */
+
+        /* ===== SLIDER ARROWS — VISIBLE ON DARK ===== */
+        .swiper-button-prev, .swiper-button-next {
+            background: #1A1A1A !important;
+            border: 1px solid rgba(201,168,76,0.25) !important;
+            color: #C9A84C !important;
+            width: 40px !important;
+            height: 40px !important;
+        }
+        .swiper-button-prev:hover, .swiper-button-next:hover {
+            background: #C9A84C !important;
+            color: #0A0A0A !important;
+        }
+        .swiper-button-prev::after, .swiper-button-next::after {
+            font-size: 14px !important;
+        }
+
+        /* ===== SECTION TITLES — LUXURY ===== */
+        .s-block__title h2 {
+            font-family: 'Cormorant Garamond', 'Cairo', serif !important;
+            color: #F5F5F5 !important;
+            font-weight: 400 !important;
+            letter-spacing: 0.06em !important;
+        }
+
+        /* ===== MENU ACTIVE STATE ===== */
+        .main-menu > li.is-active > a {
+            color: #C9A84C !important;
+            position: relative;
+        }
+
+        /* ===== FOCUS STATES — ACCESSIBILITY ===== */
         *:focus-visible {
             outline: 2px solid rgba(201, 168, 76, 0.5) !important;
             outline-offset: 2px !important;
