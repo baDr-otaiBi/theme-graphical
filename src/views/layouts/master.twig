@@ -112,6 +112,13 @@
         .text-gray-700, .text-gray-600 { color: #B0B0B0 !important; }
         .text-gray-500, .text-gray-400, .text-gray-300 { color: #707070 !important; }
         .border-gray-200, .border-gray-100 { border-color: rgba(255,255,255,0.06) !important; }
+        /* Force dark on ALL select/form elements including Salla web components */
+        select, .form-select { background-color: #141414 !important; color: #F5F5F5 !important; border-color: rgba(255,255,255,0.08) !important; }
+        select option { background: #1A1A1A; color: #F5F5F5; }
+        salla-product-options { --option-bg: #141414; --option-text: #F5F5F5; --option-border: rgba(255,255,255,0.08); --option-selected-border: {{ theme.color.primary }}; color: #F5F5F5 !important; }
+        /* Header menu z-index fix */
+        custom-main-menu { position: relative; z-index: 30; }
+        custom-main-menu .main-menu > li > a { pointer-events: auto !important; cursor: pointer !important; }
     </style>
     {% hook 'head:end' %}
 </head>

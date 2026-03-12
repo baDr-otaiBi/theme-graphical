@@ -67,21 +67,23 @@
                   </div>
 
                   {# Actions — Search (mobile) + User + Cart #}
-                  <div class="flex items-center justify-end my-2.5 gap-2">
+                  <div class="flex items-center justify-end my-2.5 gap-3">
                       {# Mobile search button #}
-                      <button class="header-btn sm:hidden" onclick="salla.event.dispatch('search::open')" aria-label="search">
+                      <button class="header-btn sm:hidden" onclick="salla.event.dispatch('search::open')" aria-label="search"
+                              style="position: relative; z-index: 31;">
                           <i class="header-btn__icon sicon-search"></i>
                       </button>
 
                       {% if user.type=='user' %}
-                        <salla-user-menu avatar-only show-header></salla-user-menu>
+                        <salla-user-menu avatar-only show-header style="position: relative; z-index: 31;"></salla-user-menu>
                       {% else %}
-                          <button class="header-btn" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
+                          <button class="header-btn" aria-label="user-icon" onclick="salla.event.dispatch('login::open')"
+                                  style="position: relative; z-index: 31;">
                             <i class="header-btn__icon sicon-user-circle"></i>
                           </button>
                       {% endif %}
 
-                      <salla-cart-summary class="ml-2 rtl:ml-[unset] rtl:mr-2">
+                      <salla-cart-summary class="ml-2 rtl:ml-[unset] rtl:mr-2" style="position: relative; z-index: 31;">
                         <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
                       </salla-cart-summary>
                   </div>

@@ -597,6 +597,29 @@ body.theme-graphical {
   salla-breadcrumb {
     --breadcrumb-color: #707070;
     --breadcrumb-active-color: #C9A84C;
+    --breadcrumb-bg: transparent;
+    --breadcrumb-separator-color: #404040;
+    --breadcrumb-font-size: 0.8125rem;
+    color: #707070;
+
+    a {
+      color: #707070 !important;
+      &:hover {
+        color: #C9A84C !important;
+      }
+    }
+
+    .breadcrumb-item, li {
+      &.is-active, &:last-child {
+        color: #C9A84C !important;
+        a { color: #C9A84C !important; }
+      }
+    }
+  }
+
+  .breadcrumbs {
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    margin-bottom: 0.5rem;
   }
 
   // ===================== SCROLLBAR =====================
@@ -711,6 +734,51 @@ body.theme-graphical {
     --option-border: rgba(255,255,255,0.08);
     --option-selected-border: #C9A84C;
     --option-selected-bg: rgba(201,168,76,0.1);
+    --color-bg: #141414;
+    --color-text: #F5F5F5;
+    background: transparent !important;
+    color: #F5F5F5 !important;
+
+    select,
+    .form-input,
+    input,
+    textarea {
+      background-color: #141414 !important;
+      color: #F5F5F5 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 2px !important;
+      &:focus {
+        border-color: #C9A84C !important;
+        box-shadow: 0 0 0 2px rgba(201,168,76,0.15) !important;
+      }
+    }
+
+    label, b, span, p {
+      color: #F5F5F5;
+    }
+
+    .bg-white, .bg-gray-50, .bg-gray-100 {
+      background-color: #141414 !important;
+    }
+  }
+
+  // Force dark on ANY select element in product form
+  .product-form select,
+  .product-form .form-input,
+  form select,
+  .s-product-options-option select {
+    background-color: #141414 !important;
+    color: #F5F5F5 !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 2px !important;
+    option {
+      background: #1A1A1A;
+      color: #F5F5F5;
+    }
+    &:focus {
+      border-color: #C9A84C !important;
+      box-shadow: 0 0 0 2px rgba(201,168,76,0.15) !important;
+    }
   }
 
   salla-filters {
@@ -925,5 +993,231 @@ body.theme-graphical {
 
   .shadow-md, .shadow-lg, .shadow-sm {
     box-shadow: 0 4px 24px rgba(0,0,0,0.4) !important;
+  }
+
+  // ===================== LUXURY PRODUCT PAGE ENHANCEMENTS =====================
+  // Gallery image container
+  .details-slider,
+  .image-slider {
+    background: #111111 !important;
+    border: 1px solid rgba(255,255,255,0.04) !important;
+    border-radius: 2px !important;
+    overflow: hidden;
+
+    .magnify-wrapper img {
+      transition: transform 0.6s ease;
+    }
+    .magnify-wrapper:hover img {
+      transform: scale(1.02);
+    }
+  }
+
+  // Product page action buttons (wishlist, share)
+  .btn--wishlist {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(201,168,76,0.3) !important;
+    background: rgba(10,10,10,0.7) !important;
+    backdrop-filter: blur(10px) !important;
+    color: #C9A84C !important;
+    transition: all 0.35s ease !important;
+
+    &:hover, &.is-wished {
+      background: #C9A84C !important;
+      color: #0A0A0A !important;
+      border-color: #C9A84C !important;
+      transform: scale(1.1);
+    }
+  }
+
+  // Social share buttons dark
+  salla-social-share {
+    button, a {
+      background: rgba(255,255,255,0.05) !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      color: #B0B0B0 !important;
+      border-radius: 50% !important;
+      transition: all 0.3s ease !important;
+      &:hover {
+        background: rgba(201,168,76,0.1) !important;
+        border-color: var(--graphical-gold-border) !important;
+        color: #C9A84C !important;
+      }
+    }
+  }
+
+  // Product description formatting
+  .product__description {
+    .article--main {
+      color: #B0B0B0 !important;
+      font-size: 0.9rem;
+      line-height: 2;
+      word-spacing: 0.02em;
+
+      p { margin-bottom: 0.75em; }
+      strong, b { color: #F5F5F5 !important; }
+      table {
+        width: 100% !important;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        td, th {
+          padding: 8px 12px !important;
+          border: 1px solid rgba(255,255,255,0.06) !important;
+          color: #B0B0B0 !important;
+          font-size: 0.85rem;
+        }
+        th {
+          background: #1A1A1A !important;
+          color: #F5F5F5 !important;
+          font-weight: 600;
+        }
+        tr:nth-child(even) td {
+          background: rgba(255,255,255,0.02);
+        }
+      }
+    }
+  }
+
+  // Quantity input styling
+  salla-quantity-input {
+    .s-quantity-input {
+      background: #141414 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 2px !important;
+    }
+    button {
+      background: #222222 !important;
+      color: #C9A84C !important;
+      border-color: rgba(255,255,255,0.08) !important;
+      &:hover {
+        background: #C9A84C !important;
+        color: #0A0A0A !important;
+      }
+    }
+    input {
+      background: transparent !important;
+      color: #F5F5F5 !important;
+    }
+  }
+
+  // Add to cart button enhancement
+  salla-add-product-button {
+    .s-button-element {
+      background: #C9A84C !important;
+      color: #0A0A0A !important;
+      border: none !important;
+      border-radius: 2px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      font-size: 0.875rem !important;
+      transition: all 0.3s ease !important;
+      &:hover {
+        background: #A8863A !important;
+        box-shadow: 0 4px 16px rgba(201,168,76,0.3) !important;
+      }
+    }
+  }
+
+  // Menu items — ensure clickable
+  custom-main-menu {
+    position: relative;
+    z-index: 30;
+
+    .main-menu > li > a {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      color: #B0B0B0 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      font-size: 0.8rem !important;
+      font-weight: 500 !important;
+      transition: color 0.3s ease !important;
+      padding: 1.5rem 1rem !important;
+
+      &:hover {
+        color: #C9A84C !important;
+      }
+    }
+
+    .main-menu > li.is-active > a,
+    .main-menu > li:hover > a {
+      color: #C9A84C !important;
+    }
+
+    .sub-menu {
+      background: #1A1A1A !important;
+      border: 1px solid rgba(201,168,76,0.2) !important;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+      z-index: 32 !important;
+    }
+  }
+
+  // Header icons — luxury circular gold accents
+  .header-btn__icon {
+    color: #C9A84C !important;
+    border: 1px solid rgba(201,168,76,0.3) !important;
+    border-radius: 50% !important;
+    background: rgba(201,168,76,0.08) !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1.1rem !important;
+    transition: all 0.35s ease !important;
+
+    &:hover {
+      background: #C9A84C !important;
+      color: #0A0A0A !important;
+      border-color: #C9A84C !important;
+      transform: scale(1.08) !important;
+    }
+  }
+
+  // Installment & metadata dark styling
+  salla-installment,
+  salla-metadata {
+    background: transparent !important;
+    color: #B0B0B0 !important;
+
+    .bg-white, [class*="bg-white"] {
+      background: #1A1A1A !important;
+    }
+  }
+
+  // Product size guide modal
+  salla-product-size-guide {
+    --modal-bg: #1A1A1A;
+    --modal-text: #F5F5F5;
+    table {
+      td, th {
+        border-color: rgba(255,255,255,0.06) !important;
+        color: #B0B0B0 !important;
+      }
+      th { background: #222222 !important; color: #F5F5F5 !important; }
+    }
+  }
+
+  // Loading/skeleton states
+  .placeholder-content,
+  .skeleton {
+    background: #1A1A1A !important;
+  }
+
+  // Similar products slider
+  salla-products-slider {
+    .s-block__title h2 {
+      color: #F5F5F5 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      font-weight: 300 !important;
+      &::after {
+        content: '' !important;
+        display: block !important;
+        width: 40px !important;
+        height: 2px !important;
+        background: #C9A84C !important;
+        margin-top: 10px !important;
+      }
+    }
   }
 }

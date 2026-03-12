@@ -140,10 +140,12 @@
                     </div>
                 {% endif %}
 
-                <h1 class="text-xl md:text-2xl leading-10 font-bold mb-3" style="color: var(--graphical-text-primary); letter-spacing: 0.02em;">{{ product.name }}</h1>
+                {# Product Name — elegant uppercase fashion style #}
+                <h1 class="text-xl md:text-2xl leading-10 mb-2" style="color: var(--graphical-text-primary); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 300;">{{ product.name }}</h1>
+                <div style="width: 40px; height: 2px; background: var(--graphical-gold); margin-bottom: 1rem;"></div>
 
                 {% if product.subtitle %}
-                    <h2 class="product-entry__sub-title text-sm leading-6 mb-2.5" style="color: var(--graphical-text-muted)">
+                    <h2 class="product-entry__sub-title text-sm leading-6 mb-2.5" style="color: var(--graphical-text-muted); letter-spacing: 0.03em;">
                         {{ product.subtitle }}
                     </h2>
                 {% endif %}
@@ -157,47 +159,50 @@
                     <small style="color: var(--graphical-text-muted)">{{ trans('pages.products.tax_included') }}</small>
                 {% endif %}
 
-                {# Price #}
-                <div class="flex whitespace-nowrap gap-4 items-center mt-4 mb-4 pb-4" style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                {# Price — prominent gold display #}
+                <div class="flex whitespace-nowrap gap-4 items-center mt-5 mb-5 py-4 px-5" style="background: rgba(201,168,76,0.06); border: 1px solid var(--graphical-gold-border); border-radius: var(--graphical-radius);">
                   <div class="{{ product.is_on_sale ? '' : 'hidden' }} space-x-2 rtl:space-x-reverse whitespace-nowrap">
-                      <p class="font-bold text-2xl inline-block" style="color: var(--graphical-gold)">{{product.sale_price|money}}</p>
-                      <span class="line-through" style="color: var(--graphical-text-muted)">{{product.regular_price|money}}</span>
+                      <p class="font-bold text-3xl inline-block" style="color: var(--graphical-gold); letter-spacing: 0.03em;">{{product.sale_price|money}}</p>
+                      <span class="line-through text-base" style="color: var(--graphical-text-muted)">{{product.regular_price|money}}</span>
                   </div>
-                  <div class="gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }}">
+                  <div class="gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }} items-baseline">
                       {% if product.starting_price %}
-                          <span style="color: var(--graphical-text-muted)">{{ trans('pages.products.starting_price') }}</span>
+                          <span class="text-sm" style="color: var(--graphical-text-muted)">{{ trans('pages.products.starting_price') }}</span>
                       {% endif %}
-                          <p class="font-bold text-2xl inline-block" style="color: var(--graphical-gold)"> {{product.starting_price ? product.starting_price|money : product.price|money }}</p>
+                          <p class="font-bold text-3xl inline-block" style="color: var(--graphical-gold); letter-spacing: 0.03em;"> {{product.starting_price ? product.starting_price|money : product.price|money }}</p>
                   </div>
                 </div>
 
-                <div class="product__description p-2 px-5 sm:p-1 leading-7 mb-3">
+                {# Description — with proper formatting #}
+                <div class="product__description py-4 leading-7 mb-4" style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                     {% set product_desc = product.description|replace({"&nbsp;":"\n"}) %}
                     {% if product.has_read_more %}
-                        <article class="article article--main relative leading-8 overflow-hidden transition-all max-h-0 duration-300 py-4"
-                            id="more-content" style="max-height:5.25rem; color: var(--graphical-text-secondary)">
+                        <article class="article article--main relative leading-8 overflow-hidden transition-all max-h-0 duration-300"
+                            id="more-content" style="max-height:5.25rem; color: var(--graphical-text-secondary); font-size: 0.9rem; line-height: 1.8; word-spacing: 0.05em;">
                             {{ product_desc|raw }}
                         </article>
-                        <a id="btn-show-more" class="link--primary inline-block mt-2 cursor-pointer">
+                        <a id="btn-show-more" class="link--primary inline-block mt-2 cursor-pointer" style="color: var(--graphical-gold); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;">
                             {{ trans('pages.products.read_more') }}
                         </a>
                     {% else %}
-                        <article class="article--main pb-1" style="color: var(--graphical-text-secondary)">
+                        <article class="article--main pb-1" style="color: var(--graphical-text-secondary); font-size: 0.9rem; line-height: 1.8; word-spacing: 0.05em;">
                             {{ product_desc|raw }}
                         </article>
                     {% endif %}
                 </div>
 
+                {# Tags — styled as elegant pills #}
                 {% if product.tags|length and theme.settings.get('show_tags', true) %}
-                    <div class="mb-3">
+                    <div class="mb-4 flex flex-wrap gap-2">
                         {% for tag in product.tags %}
                             <a href="{{ tag.url }}"
-                               class="rtl:ml-2 ltr:mr-2 inline-flex hover:text-primary underline text-sm mb-1" style="color: var(--graphical-text-muted)">{{ tag.name }},</a>
+                               class="inline-flex text-xs px-3 py-1" style="color: var(--graphical-gold); border: 1px solid var(--graphical-gold-border); border-radius: 2px; letter-spacing: 0.04em; transition: all 0.3s ease;">{{ tag.name }}</a>
                         {% endfor %}
                     </div>
                 {% endif %}
 
-                <div class="flex rtl:space-x-reverse space-x-3">
+                {# Actions — wishlist + share with luxury styling #}
+                <div class="flex rtl:space-x-reverse space-x-3 mb-2">
                     <salla-social-share class="inline-flex mb-5" aria-label="social share"></salla-social-share>
                     <salla-button
                             class="btn--wishlist animated hidden sm:inline-flex"
@@ -230,12 +235,12 @@
                 {% endif %}
 
                 {% if product.sku %}
-                    <div class="mb-4 flex justify-between sm:grid sm:grid-cols-3 px-4 py-2" style="background: var(--graphical-dark-card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--graphical-radius);">
-                        <div class="flex items-center">
-                            <i class="sicon-barcode mx-1"></i>
+                    <div class="mb-4 flex items-center justify-between px-4 py-3" style="background: var(--graphical-dark-card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--graphical-radius);">
+                        <div class="flex items-center gap-2" style="color: var(--graphical-text-muted); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;">
+                            <i class="sicon-barcode" style="color: var(--graphical-gold);"></i>
                             {{ trans('pages.products.sku') }}
                         </div>
-                        <div class="text-unicode">{{ product.sku }}</div>
+                        <div class="text-unicode" style="color: var(--graphical-text-secondary); font-size: 0.85rem; font-family: monospace; letter-spacing: 0.1em;">{{ product.sku }}</div>
                     </div>
                 {% endif %}
 

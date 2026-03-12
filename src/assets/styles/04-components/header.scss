@@ -176,16 +176,19 @@
   }
 
   &__icon{
-    @apply text-xl w-10 h-10 flex items-center justify-center;
-    color: var(--graphical-text-secondary);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--graphical-radius);
-    background: transparent;
-    transition: all 0.3s ease;
+    @apply text-lg w-10 h-10 flex items-center justify-center;
+    color: var(--graphical-gold);
+    border: 1px solid var(--graphical-gold-border);
+    border-radius: 50%;
+    background: rgba(201,168,76,0.08);
+    backdrop-filter: blur(4px);
+    transition: all 0.35s ease;
 
     &:hover {
-      color: var(--graphical-gold);
+      color: var(--graphical-black);
+      background: var(--graphical-gold);
       border-color: var(--graphical-gold);
+      transform: scale(1.08);
     }
 
     &.icon{
@@ -208,6 +211,37 @@
 
 custom-main-menu {
   min-height: 84px;
+  position: relative;
+  z-index: 30;
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+
+  nav {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+  }
+
+  .main-menu {
+    position: relative;
+    z-index: 30;
+
+    > li {
+      position: relative;
+
+      > a {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        position: relative;
+        z-index: 31;
+      }
+
+      .sub-menu {
+        z-index: 32;
+      }
+    }
+  }
 }
 
 salla-cart-summary {
