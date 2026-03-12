@@ -167,20 +167,31 @@ class ProductCard extends HTMLElement {
     this.shadowOnHover?  this.classList.add('s-product-card-shadow') : '';
     this.product?.is_out_of_stock?  this.classList.add('s-product-card-out-of-stock') : '';
     this.isInWishlist = !salla.config.isGuest() && salla.storage.get('salla::wishlist', []).includes(Number(this.product.id));
+      // Second image for hover effect
+      const images = this.product?.images || [];
+      const mainImageUrl = this.product?.image?.url || this.product?.thumbnail || this.placeholder || '';
+      const secondImage = images.length > 1 ? images[1]?.url : null;
+
       this.innerHTML = `
-        <div class="${!this.fullImage ? 's-product-card-image' : 's-product-card-image-full'} graphical-card__image-wrapper">
+        <div class="${!this.fullImage ? 's-product-card-image' : 's-product-card-image-full'} graphical-card__image-wrapper${secondImage ? ' has-second-image' : ''}">
           <a href="${this.product?.url}" aria-label="${this.escapeHTML(this.product?.image?.alt || this.product.name)}">
            <img
               class="s-product-card-image-${salla.url.is_placeholder(this.product?.image?.url)
                 ? 'contain'
                 : this.fitImageHeight
                 ? this.fitImageHeight
-                : 'cover'} graphical-card__image"
-              src="${this.product?.image?.url || this.product?.thumbnail || this.placeholder || ''}"
+                : 'cover'} graphical-card__image graphical-card__image--primary"
+              src="${mainImageUrl}"
               alt="${this.escapeHTML(this.product?.image?.alt || this.product.name)}"
               loading="lazy"
               decoding="async"
-            />
+            />${secondImage ? `<img
+              class="graphical-card__image graphical-card__image--hover"
+              src="${secondImage}"
+              alt="${this.escapeHTML(this.product.name)}"
+              loading="lazy"
+              decoding="async"
+            />` : ''}
             ${!this.fullImage && !this.minimal ? this.getProductBadge() : ''}
           </a>
           ${this.fullImage ? `<a href="${this.product?.url}" aria-label="${this.escapeHTML(this.product.name)}" class="s-product-card-overlay"></a>`:''}

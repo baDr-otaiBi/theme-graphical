@@ -35,6 +35,10 @@ class App extends AppHelpers {
 
     salla.comment.event.onAdded(() => window.location.reload());
 
+    this.initScrollReveal();
+    this.initSmartHeader();
+    this.dismissLoader();
+
     this.status = 'ready';
     document.dispatchEvent(new CustomEvent('theme::ready'));
     this.log('Theme Loaded 🎉');
@@ -253,6 +257,66 @@ isElementLoaded(selector){
       });
   }
 
+
+  // ===================== SCROLL REVEAL =====================
+  initScrollReveal() {
+    const revealElements = document.querySelectorAll('.s-block, .banner-entry, .full-banner-entry, .store-footer');
+    if (!revealElements.length) return;
+
+    revealElements.forEach(el => el.classList.add('reveal'));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    revealElements.forEach(el => observer.observe(el));
+  }
+
+  // ===================== SMART HEADER =====================
+  initSmartHeader() {
+    const header = document.querySelector('#mainnav');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > 200) {
+          if (currentScrollY > lastScrollY + 5) {
+            header.classList.add('header-hidden');
+            header.classList.remove('header-visible');
+          } else if (currentScrollY < lastScrollY - 5) {
+            header.classList.remove('header-hidden');
+            header.classList.add('header-visible');
+          }
+        } else {
+          header.classList.remove('header-hidden', 'header-visible');
+        }
+        lastScrollY = currentScrollY;
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+
+  // ===================== LOADING SCREEN =====================
+  dismissLoader() {
+    const loader = document.querySelector('.graphical-loader');
+    if (!loader) return;
+    window.addEventListener('load', () => {
+      setTimeout(() => loader.classList.add('loaded'), 300);
+    });
+    // Failsafe: dismiss after 3s even if load doesn't fire
+    setTimeout(() => loader.classList.add('loaded'), 3000);
+  }
 
   /**
    * Workaround for seeking to simplify & clean, There are three ways to use this method:
