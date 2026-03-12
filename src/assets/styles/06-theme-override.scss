@@ -1243,4 +1243,126 @@ body.theme-graphical {
       }
     }
   }
+
+  // ===================== LUXURY HEADING FONT =====================
+  h1, h2, h3, .graphical-heading {
+    font-family: 'Cormorant Garamond', 'Cairo', serif;
+    letter-spacing: 0.03em;
+  }
+
+  // ===================== PRICE COLORS — GOLD THEME =====================
+  // Override red/green sale prices with gold tones
+  .s-product-card-price del,
+  [class*="price"] del,
+  [class*="price"] s,
+  .before-price,
+  .text-red-800 {
+    color: #666 !important;
+  }
+
+  // ===================== DISCOUNT BADGE — GOLD =====================
+  .s-product-card-promotion-title,
+  [class*="sale-badge"],
+  [class*="discount-badge"] {
+    background: linear-gradient(135deg, #C9A84C, #A8863A) !important;
+    color: #0A0A0A !important;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  // ===================== PRODUCT IMAGE GRADIENT OVERLAY =====================
+  .s-product-card-image {
+    position: relative !important;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+  }
+
+  // ===================== SEARCH OVERLAY — DARK =====================
+  .s-search-container,
+  .s-search-wrapper,
+  [class*="search-modal"],
+  [class*="search-content"],
+  [class*="search-overlay"] {
+    background: #0A0A0A !important;
+    color: #F5F5F5 !important;
+  }
+
+  .s-search-input,
+  [class*="search"] input[type="search"],
+  [class*="search"] input[type="text"] {
+    background: #141414 !important;
+    color: #F5F5F5 !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    &:focus {
+      border-color: #C9A84C !important;
+    }
+    &::placeholder {
+      color: #707070 !important;
+    }
+  }
+
+  .s-search-result,
+  [class*="search-result"] {
+    background: #1A1A1A !important;
+    border-color: rgba(255,255,255,0.06) !important;
+    &:hover {
+      background: #222222 !important;
+    }
+  }
+
+  // ===================== MODAL OVERRIDES — DARK =====================
+  .s-modal-content,
+  .s-login-wrapper,
+  .s-login-modal-content,
+  [class*="modal-content"],
+  [class*="modal-body"],
+  .s-bottom-alert-content,
+  [class*="sheet-content"],
+  [class*="drawer-content"] {
+    background: #1A1A1A !important;
+    color: #F5F5F5 !important;
+  }
+
+  // Modal ::part selectors (for open Shadow DOM)
+  salla-login-modal::part(content),
+  salla-modal::part(content),
+  salla-localization-modal::part(content) {
+    background: #1A1A1A !important;
+    color: #F5F5F5 !important;
+  }
+
+  salla-login-modal::part(header),
+  salla-modal::part(header) {
+    background: #1A1A1A !important;
+    color: #F5F5F5 !important;
+    border-color: rgba(255,255,255,0.06) !important;
+  }
+
+  // Bottom alert / add-to-cart notification
+  salla-bottom-alert {
+    --alert-bg: #1A1A1A;
+    --alert-text: #F5F5F5;
+    --alert-border: rgba(201,168,76,0.25);
+    --color-primary: #C9A84C;
+  }
+
+  // ===================== FOCUS STATES — ACCESSIBILITY =====================
+  *:focus-visible {
+    outline: 2px solid rgba(201, 168, 76, 0.5) !important;
+    outline-offset: 2px !important;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #C9A84C !important;
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1) !important;
+  }
 }

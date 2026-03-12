@@ -82,7 +82,7 @@
     {# === 1. Fonts FIRST — preconnect early to prevent FOUT === #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
 
     {# === 2. Salla base stylesheets === #}
     <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
@@ -91,15 +91,11 @@
     {# === 3. Theme stylesheet — AFTER Salla base so we override === #}
     <link rel="stylesheet" href="{{ 'app.css' | asset }}">
 
-    {# === 4. Critical CSS — LAST, overrides everything === #}
+    {# === 4. Critical CSS — before Salla's end hook === #}
     <style>
         :root {
             --font-main: 'Cairo', sans-serif;
-            --color-primary: {{ theme.color.primary }};
-            --color-primary-dark: {{ theme.color.darker(0.15) }};
-            --color-primary-light: {{ theme.color.lighter(0.15) }};
-            --color-primary-reverse: {{ theme.color.reverse_text }};
-            --graphical-gold: {{ theme.color.primary }};
+            --graphical-gold: #C9A84C;
             --graphical-black: #0A0A0A;
             --graphical-dark-surface: #141414;
             --graphical-dark-card: #1A1A1A;
@@ -111,11 +107,83 @@
             --graphical-radius: 2px;
         }
         html, body, #app { background-color: #0A0A0A; color: #F5F5F5; font-family: var(--font-main); }
-        custom-salla-product-card, .s-product-card-entry { background: #0A0A0A; border: 1px solid rgba(201,168,76,0.12); border-radius: 2px; overflow: hidden; }
-        .s-product-card-image { background: #111; }
-        .s-product-card-content { background: #0A0A0A; }
     </style>
     {% hook 'head:end' %}
+
+    {# === 5. FINAL override — AFTER all Salla hooks, so nothing can override === #}
+    <style>
+        :root, html, body, body.theme-graphical {
+            --color-primary: #C9A84C !important;
+            --color-primary-dark: #A8863A !important;
+            --color-primary-light: #E2C670 !important;
+            --color-primary-reverse: #0A0A0A !important;
+            --color-text: #F5F5F5 !important;
+        }
+        /* Product cards — force dark */
+        custom-salla-product-card, salla-product-card, .s-product-card-entry {
+            background: #0A0A0A !important;
+            border: 1px solid rgba(201,168,76,0.12) !important;
+            border-radius: 2px !important;
+            overflow: hidden;
+        }
+        .s-product-card-image { background: #111 !important; }
+        .s-product-card-content { background: #0A0A0A !important; }
+        .s-product-card-content-title a { color: #F5F5F5 !important; }
+        .s-product-card-price, .s-product-card-sale-price h4,
+        .s-product-card-starting-price h4 { color: #C9A84C !important; }
+        .s-product-card-sale-price span { color: #555 !important; }
+        .s-product-card-promotion-title {
+            background: #C9A84C !important;
+            color: #0A0A0A !important;
+        }
+        /* Product description tables */
+        .product__description table,
+        .article--main table {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            color: #B0B0B0 !important;
+        }
+        .product__description table td,
+        .product__description table th,
+        .article--main table td,
+        .article--main table th {
+            padding: 8px 12px !important;
+            border: 1px solid rgba(255,255,255,0.06) !important;
+        }
+        .product__description table th,
+        .article--main table th {
+            background: #1A1A1A !important;
+            color: #F5F5F5 !important;
+        }
+        /* Search dark */
+        .s-search-container, .s-search-wrapper,
+        [class*="search-modal"], [class*="search-content"] {
+            background: #0A0A0A !important;
+            color: #F5F5F5 !important;
+        }
+        .s-search-input, [class*="search"] input[type="search"],
+        [class*="search"] input[type="text"] {
+            background: #141414 !important;
+            color: #F5F5F5 !important;
+            border-color: rgba(255,255,255,0.08) !important;
+        }
+        /* Modal dark — catches anything Salla renders in light DOM */
+        .s-modal-content, .s-login-wrapper,
+        [class*="modal-content"], .s-bottom-alert-content,
+        [class*="sheet-content"] {
+            background: #1A1A1A !important;
+            color: #F5F5F5 !important;
+        }
+        /* Focus states for accessibility */
+        *:focus-visible {
+            outline: 2px solid rgba(201, 168, 76, 0.5) !important;
+            outline-offset: 2px !important;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #C9A84C !important;
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1) !important;
+        }
+    </style>
 </head>
 <body id="app" class="theme-graphical overflow-x-hidden topnav-is-dark
   {{ theme.settings.get('sticky_add_to_cart') ? ' is-sticky-product-bar' : '' }}
