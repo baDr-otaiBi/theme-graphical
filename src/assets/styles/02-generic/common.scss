@@ -408,39 +408,4 @@ salla-localization-modal {
   unicode-bidi: embed;
 }
 
-// ==========================================
-// GLOBAL OVERRIDES — catch any remaining light elements
-// ==========================================
-// Override any remaining bg-white that Tailwind or Salla injects
-[class*="bg-white"] {
-  background-color: #1A1A1A !important;
-}
-
-// Override light borders from any source
-.border,
-[class*="border-gray"] {
-  border-color: rgba(255,255,255,0.06) !important;
-}
-
-// Shadow overrides
-[class*="shadow-default"],
-[class*="shadow-sm"],
-[class*="shadow-md"] {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
-}
-
-// Make sure all cards/containers are dark
-.rounded-md,
-.rounded-lg {
-  border-radius: 2px !important;
-}
-
-// Override hover:bg-gray utilities
-[class*="hover\\:bg-gray"]:hover {
-  background-color: #2A2A2A !important;
-}
-
-// Override opacity utilities on gray backgrounds
-[class*="bg-gray-200\\/"] {
-  background-color: rgba(34,34,34,0.3) !important;
-}
+// Tailwind utility color overrides are handled in tailwind.config.js

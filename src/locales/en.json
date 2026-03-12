@@ -35,7 +35,8 @@
     "elements": {
       "shop_now": "Shop Now",
       "view_all": "View All",
-      "explore": "Explore"
+      "explore": "Explore",
+      "quick_view": "Quick View"
     },
     "bank_offer_sub_title_multiple": "Pay for your purchases via one of the following bank cards and get the specified discount",
     "bank_offer_sub_title_single": "Pay for your purchases via :bank_name bank card and get discount"

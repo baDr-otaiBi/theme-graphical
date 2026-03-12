@@ -30,10 +30,37 @@ module.exports = {
                 'auto-fill'  : 'repeat(auto-fill, 290px)',
             },
             colors             : {
-                'dark'         : '#1D1F1F',
-                'darker'       : '#0E0F0F',
+                'dark'         : '#0D0D0D',
+                'darker'       : '#0A0A0A',
                 'danger'       : '#AE0A0A',
-                'primary-dark' : 'var(--color-primary-dark)'
+                'primary-dark' : 'var(--color-primary-dark)',
+                'white'        : '#1A1A1A',
+                'gray'         : {
+                  50:  '#141414',
+                  100: '#141414',
+                  200: '#222222',
+                  300: '#2A2A2A',
+                  400: '#707070',
+                  500: '#707070',
+                  600: '#B0B0B0',
+                  700: '#B0B0B0',
+                  800: '#F5F5F5',
+                  900: '#F5F5F5',
+                },
+            },
+            borderColor        : {
+                DEFAULT: 'rgba(255,255,255,0.06)',
+                'gray'  : {
+                  100: 'rgba(255,255,255,0.06)',
+                  200: 'rgba(255,255,255,0.06)',
+                  300: 'rgba(255,255,255,0.08)',
+                },
+            },
+            backgroundColor    : {
+                'white': '#1A1A1A',
+            },
+            textColor          : {
+                'white': '#F5F5F5',
             },
             spacing: {
               '3.75': '15px',

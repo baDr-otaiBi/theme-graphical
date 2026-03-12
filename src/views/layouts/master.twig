@@ -74,34 +74,33 @@
         window.enable_add_product_toast = "{{ theme.settings.get('enable_add_product_toast', true) }}"
     </script>
 
-    {# === Salla hooks FIRST — so Salla injects its CSS before ours === #}
+    {# === Salla hooks — let Salla inject its base CSS === #}
     {% hook 'head:start' %}
     {% hook head %}
     {% block styles %}{% endblock %}
 
-    {# === Salla default stylesheets === #}
-    <link rel="stylesheet" href="{{ 'app.css' | asset }}">
-    <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
-    <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
-
-    {# === Google Fonts — Cairo (luxury Arabic + Latin, weights 400/600/700 only) === #}
+    {# === 1. Fonts FIRST — preconnect early to prevent FOUT === #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-    {# === Critical CSS — AFTER Salla hooks + app.css so we override them === #}
+    {# === 2. Salla base stylesheets === #}
+    <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
+    <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
+
+    {# === 3. Theme stylesheet — AFTER Salla base so we override === #}
+    <link rel="stylesheet" href="{{ 'app.css' | asset }}">
+
+    {# === 4. Critical CSS — LAST, overrides everything === #}
     <style>
         :root {
-            /* Salla official variables — keep names, set values */
             --font-main: 'Cairo', sans-serif;
             --color-primary: {{ theme.color.primary }};
             --color-primary-dark: {{ theme.color.darker(0.15) }};
             --color-primary-light: {{ theme.color.lighter(0.15) }};
             --color-primary-reverse: {{ theme.color.reverse_text }};
-            /* Theme custom variables */
             --graphical-gold: {{ theme.color.primary }};
             --graphical-black: #0A0A0A;
-            --graphical-dark: #0D0D0D;
             --graphical-dark-surface: #141414;
             --graphical-dark-card: #1A1A1A;
             --graphical-dark-elevated: #222222;
@@ -109,29 +108,12 @@
             --graphical-text-secondary: #B0B0B0;
             --graphical-text-muted: #707070;
             --graphical-gold-border: rgba(201, 168, 76, 0.25);
-            --graphical-gold-muted: rgba(201, 168, 76, 0.15);
             --graphical-radius: 2px;
         }
-        /* Anti-FOUC: dark background + font */
         html, body, #app { background-color: #0A0A0A; color: #F5F5F5; font-family: var(--font-main); }
-        /* Product cards dark mode (.s-product-card-* Light DOM classes) */
         custom-salla-product-card, .s-product-card-entry { background: #0A0A0A; border: 1px solid rgba(201,168,76,0.12); border-radius: 2px; overflow: hidden; }
         .s-product-card-image { background: #111; }
         .s-product-card-content { background: #0A0A0A; }
-        .s-product-card-content-title a { color: #F5F5F5; }
-        .s-product-card-content-subtitle { color: #707070; }
-        .s-product-card-price, .s-product-card-sale-price h4, .s-product-card-starting-price h4 { color: var(--color-primary); }
-        .s-product-card-sale-price span { color: #555; }
-        /* Tailwind overrides */
-        .bg-white { background-color: #1A1A1A !important; }
-        .bg-gray-50, .bg-gray-100 { background-color: #141414 !important; }
-        .bg-gray-200, .bg-gray-300 { background-color: #222222 !important; }
-        .text-gray-800, .text-gray-900 { color: #F5F5F5 !important; }
-        .text-gray-700, .text-gray-600 { color: #B0B0B0 !important; }
-        .text-gray-500, .text-gray-400 { color: #707070 !important; }
-        .border-gray-200, .border-gray-100 { border-color: rgba(255,255,255,0.06) !important; }
-        /* Forms */
-        select, .form-input { background-color: #141414; color: #F5F5F5; border-color: rgba(255,255,255,0.08); }
     </style>
     {% hook 'head:end' %}
 </head>
