@@ -1,0 +1,15 @@
+// ========================================
+// Graphical — Filters
+// ========================================
+
+salla-filters {
+  --filter-bg: var(--graphical-dark-card);
+  --filter-border: rgba(255,255,255,0.05);
+  --filter-text: var(--graphical-text-secondary);
+  --filter-active: var(--graphical-gold);
+
+  background: var(--graphical-dark-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--graphical-radius);
+  padding: 1rem;
+}

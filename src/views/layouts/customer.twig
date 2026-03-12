@@ -1,8 +1,7 @@
 {% extends "layouts.master" %}
 {% block content %}
-    <div class="profile-header gradient-bg">
+    <div class="profile-header gradient-bg" style="border-bottom: 1px solid var(--graphical-gold-border);">
         <div class="container relative flex justify-between h-full items-center">
-            {# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
             <nav class="breadcrumbs w-full py-5 self-start">
                 <salla-breadcrumb></salla-breadcrumb>
             </nav>
@@ -12,11 +11,12 @@
         <div class="flex items-start flex-col lg:flex-row justify-center">
             {% if user.type == 'user' %}
                 <nav aria-label="Sidebar"
-                    class="shrink-0 lg:sticky top-24 lg:-mt-28 lg:shadow-default rounded-md lg:bg-white w-full lg:w-72 rtl:lg:ml-8 ltr:lg:mr-8 lg:pt-8 lg:pb-11 sidebar space-y-px">
+                    class="shrink-0 lg:sticky top-24 lg:-mt-28 lg:shadow-default w-full lg:w-72 rtl:lg:ml-8 ltr:lg:mr-8 lg:pt-8 lg:pb-11 sidebar space-y-px"
+                    style="background: var(--graphical-dark-card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--graphical-radius);">
 
                     {% if is_page('customer.profile') %}
                         <div class="text-center md:mb-9">
-                            <div class="h-20 w-20 m-auto avatar-wrap bg-gray-100 rounded-full">
+                            <div class="h-20 w-20 m-auto avatar-wrap rounded-full" style="background: var(--graphical-dark-surface); border: 2px solid var(--graphical-gold-border);">
                                 <salla-file-upload profile-image value="{{ user.avatar }}">
                                     <span class='avatar-placeholder flex justify-center items-center flex-col'>
                                         <span class='sicon-user'></span>
@@ -34,13 +34,8 @@
             {% endif %}
             <div class="main-content w-full flex-1 lg:pt-10 max-w-3xl">
                 {% block inner_title %}
-                    <h1 class="font-bold text-lg text-center sm:rtl:text-right sm:ltr:text-left mb-2">{{ page.title }}</h1>
+                    <h1 class="font-bold text-lg text-center sm:rtl:text-right sm:ltr:text-left mb-2" style="color: var(--graphical-text-primary)">{{ page.title }}</h1>
                 {% endblock %}
-                {#
-                All customer pages have same header, this layout will wrap the different content.
-                Use it like: `{% extends "layouts.customer" %}` instead of `{% extends "layouts.master" %}`
-                Then body: `{% block inner_content %}` instead of `{% block content %}`
-                #}
                 {% block inner_content %}{% endblock %}
             </div>
         </div>

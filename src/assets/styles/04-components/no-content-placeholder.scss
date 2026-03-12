@@ -1,11 +1,26 @@
-.no-content-placeholder{
-    @apply h-full text-gray-400 pt-10 pb-20 flex items-center flex-col justify-center;
+.no-content-placeholder {
+  @apply flex flex-col items-center justify-center py-20 text-center;
 
-    .icon{
-      @apply text-5xl mb-4 w-32 h-32 flex justify-center items-center rounded-full bg-gray-100 text-gray-300;
-    }
+  .icon {
+    @apply text-5xl mb-6;
+    color: var(--graphical-text-muted);
+  }
 
-    p{
-      @apply text-base text-gray-500 mb-4;
+  p {
+    @apply text-sm;
+    color: var(--graphical-text-muted);
+  }
+
+  a {
+    @apply mt-4;
+    color: var(--graphical-gold);
+    border: 1px solid var(--graphical-gold);
+    border-radius: var(--graphical-radius);
+    padding: 0.5rem 1.5rem;
+
+    &:hover {
+      background: var(--graphical-gold);
+      color: var(--graphical-black);
     }
+  }
 }

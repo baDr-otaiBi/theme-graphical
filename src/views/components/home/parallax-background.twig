@@ -1,27 +1,27 @@
 {#
-| Variable    | Type   | Description                                                      |
-|-------------|--------|------------------------------------------------------------------|
-| image       | string | Image url                                                        |
-| url         | string | Link url                                                         |
-| title       | string | Section title                                                    |
-| link_text   | String | Link title                                                       |
-| is_opacity  | Bool   | Should set overlay on the background or not                      |
-| position    | Int    | Sorting number start from zero                                   |
+| Variable                      | Type     | Description |
+|-------------------------------|----------|-------------|
+| component                     | object   |             |
+| component.image               | string   |             |
+| component.title               | ?string  |             |
+| component.description         | ?string  |             |
+| component.link                | ?string  |             |
+| position                      | int      |             |
 #}
-
-<section class="s-block s-block--full-banner s-block--full-bg">
-    <div class="full-banner-entry" style="background-image: url({{ image.url }});">
-        <div class="overlay h-full w-full {{ is_opacity?'bg-black':'' }} opacity-60 absolute top-0 left-0"></div>
-        <div class="flex h-full items-center justify-center p-5 xs:p-11 relative">
-            <div>
-                {% if title %}
-                <h2 class="text-2xl font-bold leading-12">{{title}}</h2>
-                {% endif %}
-
-                {% if url and link_text %}
-                    <a href="{{ url }}" class="inline-block text-white text-sm border rounded-md font-bold px-8 py-4">{{ link_text }}</a>
-                {% endif %}
-            </div>
+<section class="s-block s-block--full-bg">
+    <div class="full-banner-entry has-overlay" style="background-image:url({{ component.image }})">
+        <div class="relative z-1 flex flex-col items-center justify-center h-full">
+            {% if component.title %}
+                <h2 class="text-2xl lg:text-4xl font-light mb-4" style="letter-spacing: 0.06em; text-transform: uppercase; color: var(--graphical-text-primary)">{{ component.title }}</h2>
+            {% endif %}
+            {% if component.description %}
+                <p class="text-sm lg:text-base max-w-xl mx-auto mb-6" style="color: rgba(255,255,255,0.7)">{{ component.description }}</p>
+            {% endif %}
+            {% if component.link %}
+                <a href="{{ component.link }}" class="inline-block px-8 py-3 text-sm font-bold uppercase tracking-widest" style="border: 1px solid var(--graphical-gold); color: var(--graphical-gold); transition: all 0.3s;" onmouseover="this.style.background='var(--graphical-gold)';this.style.color='var(--graphical-black)'" onmouseout="this.style.background='transparent';this.style.color='var(--graphical-gold)'">
+                    {{ trans('common.elements.shop_now') }}
+                </a>
+            {% endif %}
         </div>
     </div>
 </section>

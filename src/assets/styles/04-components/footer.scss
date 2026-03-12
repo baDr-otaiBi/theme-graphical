@@ -1,49 +1,78 @@
+// ========================================
+// Graphical — Luxury Fashion Footer
+// ========================================
 
 .store-footer {
-  @apply relative bg-darker text-white mt-8 sm:mt-16;
+  @apply relative mt-0;
+  background: var(--graphical-black);
+  color: var(--graphical-text-secondary);
 
-  a{
-    @apply transition-opacity hover:opacity-75;
+  a {
+    transition: color 0.3s ease;
+    &:hover {
+      color: var(--graphical-gold) !important;
+      opacity: 1;
+    }
   }
 
-  &__inner{
-    @apply bg-dark py-8 lg:py-16 border-b border-dashed border-b-white/10;
-  }  
+  &__inner {
+    @apply py-12 lg:py-20;
+    background: var(--graphical-dark);
+    border-top: 1px solid var(--graphical-gold-border);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
 
-  h3{
-    @apply text-lg font-bold mb-3 lg:mb-5;
+  h3 {
+    @apply text-base font-bold mb-4 lg:mb-6;
+    color: var(--graphical-text-primary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 12px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--graphical-gold);
+    }
+
+    [dir="ltr"] &::after {
+      right: auto;
+      left: 0;
+    }
   }
 
   .social-link {
-    @apply border rounded-full w-8 h-8 justify-center flex items-center hover:opacity-75 transition duration-300 text-sm
+    @apply w-9 h-9 justify-center flex items-center text-sm;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--graphical-radius);
+    color: var(--graphical-text-muted);
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: var(--graphical-gold);
+      color: var(--graphical-gold) !important;
+      background: rgba(201,168,76,0.08);
+    }
   }
 
-  .contact-social{
-    @apply mt-5 pt-5 border-t border-white/10;
+  .contact-social {
+    @apply mt-5 pt-5;
+    border-top: 1px solid rgba(255,255,255,0.05);
 
     ul {
       @apply mb-0;
     }
   }
-
-  .footer-is-light & {
-    @apply bg-gray-50 text-gray-700;
-
-    .store-footer__inner {
-      @apply bg-gray-100 border-b-gray-200;
-    }
-
-    .social-link {
-      @apply border-gray-300;
-    }
-
-    .contact-social{
-      @apply border-gray-100;
-    }
-  }
 }
 
-
-.copyright-text p{
-  @apply text-gray-700;
+.copyright-text {
+  color: var(--graphical-text-muted);
+  p {
+    color: var(--graphical-text-muted);
+  }
 }

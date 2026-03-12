@@ -1,60 +1,88 @@
-input[type="radio"] {
-  &.sr-only {
-    div.absolute {
-      transition: all 0.3s;
-    }
+// ========================================
+// Graphical — Luxury Form Elements
+// ========================================
 
-    &:checked~div.absolute {
-      border-color: var(--color-main);
-    }
-  }
-}
-
-input[type="text"]:disabled {
-  //background: #f9f9f9;
-  color: #838383;
-}
-
-.form-label {
-  @apply block text-sm font-bold text-gray-700 mb-2.5 md:mb-0 sm:mt-px;
-}
-
-.form-input {
-  @apply w-full h-10 transition-colors duration-300 focus:ring-transparent focus:border-primary dark:focus:border-primary text-sm border-gray-200 dark:bg-gray-600 dark:border-gray-600 rounded-md;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-textarea.form-input {
-  @apply h-24;
-}
-
-.has-error {
-  @apply border-red-400 focus:border-red-500;
-}
-
-.has-success {
-  @apply border-green-500 focus:border-green-600;
-}
-
+.form-input,
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="tel"],
 input[type="number"],
-input[type="search"],
+input[type="tel"],
 input[type="url"],
+input[type="search"],
+input[type="date"],
 textarea,
 select {
-  font-size: 16px !important;
+  @apply w-full px-4 py-3 text-sm;
+  background: var(--graphical-dark-surface);
+  color: var(--graphical-text-primary);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--graphical-radius);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+
+  &::placeholder {
+    color: var(--graphical-text-muted);
+  }
+
+  &:focus {
+    border-color: var(--graphical-gold);
+    box-shadow: 0 0 0 2px var(--graphical-gold-muted);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
-@media screen and (max-width: 768px) {
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23707070' viewBox='0 0 16 16'%3E%3Cpath d='M8 12L2 6h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 12px center;
+  padding-left: 32px;
 
-  input,
-  textarea,
-  select {
-    font-size: 16px !important;
-    transform: scale(1);
+  [dir="ltr"] & {
+    background-position: right 12px center;
+    padding-left: 12px;
+    padding-right: 32px;
   }
+}
+
+.form-label,
+label {
+  color: var(--graphical-text-secondary);
+  font-size: 0.875rem;
+}
+
+// Cart item styles
+.cart-item {
+  background: var(--graphical-dark-card) !important;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--graphical-radius);
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: var(--graphical-gold-border);
+  }
+
+  img {
+    border-color: rgba(255,255,255,0.08) !important;
+    background: var(--graphical-dark-surface) !important;
+    border-radius: var(--graphical-radius) !important;
+  }
+}
+
+// Cart options
+.cart-options {
+  background: var(--graphical-dark-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--graphical-radius);
+  padding: 1rem;
+}
+
+// Free ribbon
+.free-ribbon {
+  @apply bg-red-600 text-white text-xs font-bold text-center py-1;
 }

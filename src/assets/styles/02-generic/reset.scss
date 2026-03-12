@@ -2,8 +2,9 @@ body {
   font-size: 15px;
   font-weight: 400;
   line-height: 26px;
-  color: var(--main-text-color);
+  color: var(--graphical-text-primary);
   position: relative;
+  background-color: var(--graphical-black);
 }
 
 // p {
@@ -36,7 +37,12 @@ h6, .h6 {
 
 a {
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.3s ease;
+  color: var(--graphical-text-secondary);
+
+  &:hover {
+    color: var(--graphical-gold);
+  }
 }
 
 img {
