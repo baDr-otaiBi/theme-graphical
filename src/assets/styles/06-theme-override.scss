@@ -1,0 +1,929 @@
+// ================================================================
+// GRAPHICAL THEME — MASTER DARK LUXURY OVERRIDE
+// This file is loaded LAST and uses body.theme-graphical as parent
+// to guarantee highest CSS specificity over Tailwind & Salla plugins
+// ================================================================
+
+// ===================== ROOT VARIABLES =====================
+:root {
+  --graphical-gold: #C9A84C;
+  --graphical-gold-light: #E2C670;
+  --graphical-gold-dark: #A8863A;
+  --graphical-gold-muted: rgba(201, 168, 76, 0.15);
+  --graphical-gold-border: rgba(201, 168, 76, 0.25);
+  --graphical-black: #0A0A0A;
+  --graphical-dark: #0D0D0D;
+  --graphical-dark-surface: #141414;
+  --graphical-dark-card: #1A1A1A;
+  --graphical-dark-elevated: #222222;
+  --graphical-text-primary: #F5F5F5;
+  --graphical-text-secondary: #B0B0B0;
+  --graphical-text-muted: #707070;
+}
+
+// ===================== GLOBAL BODY =====================
+html, body {
+  background-color: #0A0A0A !important;
+  color: #F5F5F5 !important;
+}
+
+body.theme-graphical {
+  background-color: #0A0A0A !important;
+  color: #F5F5F5 !important;
+
+  // ===================== BACKGROUND OVERRIDES =====================
+  .bg-white,
+  [class*="bg-white"] {
+    background-color: #1A1A1A !important;
+  }
+
+  .bg-gray-50,
+  .bg-gray-100 {
+    background-color: #141414 !important;
+  }
+
+  .bg-gray-200 {
+    background-color: #222222 !important;
+  }
+
+  .bg-gray-300 {
+    background-color: #2A2A2A !important;
+  }
+
+  .bg-dark {
+    background-color: #0D0D0D !important;
+  }
+
+  .bg-primary {
+    background-color: var(--color-primary) !important;
+  }
+
+  .bg-border-color {
+    background-color: #222222 !important;
+  }
+
+  // ===================== TEXT OVERRIDES =====================
+  .text-black,
+  .text-dark,
+  .text-gray-900,
+  .text-gray-800 {
+    color: #F5F5F5 !important;
+  }
+
+  .text-gray-700,
+  .text-gray-600 {
+    color: #B0B0B0 !important;
+  }
+
+  .text-gray-500,
+  .text-gray-400,
+  .text-gray-300 {
+    color: #707070 !important;
+  }
+
+  .text-primary {
+    color: var(--color-primary) !important;
+  }
+
+  .text-white {
+    color: #F5F5F5 !important;
+  }
+
+  // ===================== BORDER OVERRIDES =====================
+  .border-gray-200,
+  .border-gray-100,
+  .border-gray-300 {
+    border-color: rgba(255,255,255,0.06) !important;
+  }
+
+  .border-t,
+  .border-b,
+  .border-r,
+  .border-l,
+  .border {
+    border-color: rgba(255,255,255,0.06) !important;
+  }
+
+  // ===================== HOVER OVERRIDES =====================
+  .hover\:bg-gray-200\/30:hover,
+  .hover\:bg-gray-100:hover,
+  .hover\:bg-gray-200:hover {
+    background-color: #2A2A2A !important;
+  }
+
+  .hover\:text-dark:hover,
+  .hover\:text-primary:hover {
+    color: #C9A84C !important;
+  }
+
+  .hover\:opacity-80:hover {
+    opacity: 1 !important;
+    color: #C9A84C !important;
+  }
+
+  .hover\:underline:hover {
+    color: #C9A84C !important;
+  }
+
+  // ===================== LINKS & TEXT =====================
+  a {
+    color: #B0B0B0;
+    transition: color 0.3s ease;
+    &:hover {
+      color: #C9A84C !important;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #F5F5F5;
+  }
+
+  .text-base,
+  .text-sm,
+  .text-lg,
+  .text-xl,
+  .text-2xl,
+  .text-3xl {
+    // Don't override color - let parent classes handle it
+  }
+
+  // ===================== FORM INPUTS =====================
+  .form-input,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="date"],
+  textarea,
+  select {
+    background-color: #141414 !important;
+    color: #F5F5F5 !important;
+    border-color: rgba(255,255,255,0.08) !important;
+    &:focus {
+      border-color: #C9A84C !important;
+      box-shadow: 0 0 0 2px rgba(201,168,76,0.15) !important;
+    }
+    &::placeholder {
+      color: #707070 !important;
+    }
+  }
+
+  // ===================== BUTTONS =====================
+  .btn--primary,
+  .btn--default {
+    background-color: #C9A84C !important;
+    color: #0A0A0A !important;
+    border-color: #C9A84C !important;
+    &:hover {
+      background-color: #A8863A !important;
+    }
+  }
+
+  .btn--outline,
+  .btn--outline-primary {
+    background-color: transparent !important;
+    border-color: #C9A84C !important;
+    color: #C9A84C !important;
+    &:hover {
+      background-color: #C9A84C !important;
+      color: #0A0A0A !important;
+    }
+  }
+
+  // ===================== CARDS / CONTAINERS =====================
+  .rounded-md,
+  .rounded-lg {
+    border-radius: 2px !important;
+  }
+
+  .shadow-default,
+  [class*="shadow-default"] {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+  }
+
+  // ===================== CART PAGE =====================
+  .cart-item {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+
+    img {
+      background-color: #141414 !important;
+      border-color: rgba(255,255,255,0.08) !important;
+    }
+  }
+
+  // ===================== PRODUCT CARDS =====================
+  .product-entry {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    &:hover {
+      border-color: rgba(201,168,76,0.25) !important;
+    }
+  }
+
+  // ===================== HEADER =====================
+  .store-header {
+    .top-navbar {
+      background-color: #0A0A0A !important;
+      border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+      color: #707070 !important;
+    }
+
+    .main-nav-container,
+    .main-nav-container .inner {
+      background-color: #0D0D0D !important;
+      border-bottom: 1px solid rgba(201,168,76,0.25) !important;
+    }
+
+    .navbar-brand img {
+      filter: brightness(0) invert(1);
+    }
+
+    .header-btn__icon {
+      color: #B0B0B0 !important;
+      border-color: rgba(255,255,255,0.1) !important;
+      background: transparent !important;
+      border-radius: 2px !important;
+      &:hover {
+        color: #C9A84C !important;
+        border-color: #C9A84C !important;
+      }
+    }
+
+    .btn--rounded-gray,
+    .btn--circle-gray {
+      background: transparent !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      color: #707070 !important;
+      border-radius: 2px !important;
+      &:hover {
+        border-color: #C9A84C !important;
+        color: #C9A84C !important;
+      }
+    }
+  }
+
+  // ===================== FOOTER =====================
+  .store-footer {
+    background-color: #0A0A0A !important;
+
+    &__inner {
+      background-color: #0D0D0D !important;
+      border-top: 1px solid rgba(201,168,76,0.25) !important;
+    }
+
+    h3 {
+      color: #F5F5F5 !important;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 12px;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 30px;
+        height: 2px;
+        background: #C9A84C;
+      }
+    }
+  }
+
+  // ===================== HOME BLOCKS =====================
+  .s-block__title h2 {
+    color: #F5F5F5 !important;
+    &::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #C9A84C;
+      margin-top: 10px;
+    }
+  }
+
+  .s-block__display-all {
+    color: #C9A84C !important;
+  }
+
+  .s-block--features__item {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    &:hover {
+      border-color: rgba(201,168,76,0.25) !important;
+    }
+
+    .feature-icon {
+      background: rgba(201,168,76,0.15) !important;
+      border: 1px solid rgba(201,168,76,0.25) !important;
+      i {
+        color: #C9A84C !important;
+      }
+    }
+
+    h2 {
+      color: #F5F5F5 !important;
+    }
+
+    p {
+      color: #707070 !important;
+    }
+  }
+
+  // Banner entries
+  .banner-entry,
+  .full-banner-entry {
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    border-radius: 2px !important;
+    &:hover {
+      border-color: rgba(201,168,76,0.25) !important;
+    }
+  }
+
+  .banner--fixed img {
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    border-radius: 2px !important;
+  }
+
+  // Slide entries
+  .slide--cat-entry {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    border-radius: 2px !important;
+    &:hover {
+      border-color: rgba(201,168,76,0.25) !important;
+    }
+    i {
+      color: #C9A84C !important;
+    }
+    h2 {
+      color: #F5F5F5 !important;
+    }
+  }
+
+  .slide--offer-entry {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    border-radius: 2px !important;
+  }
+
+  // Tab triggers
+  .tab-trigger {
+    color: #707070 !important;
+    &.is-active button {
+      background: #C9A84C !important;
+      color: #0A0A0A !important;
+      border-color: #C9A84C !important;
+    }
+  }
+
+  // ===================== PRODUCT PAGE =====================
+  .product-form section {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+  }
+
+  .total-price,
+  .price {
+    color: #C9A84C !important;
+  }
+
+  .before-price {
+    color: #707070 !important;
+  }
+
+  .promotion-title {
+    background: #C9A84C !important;
+    color: #0A0A0A !important;
+  }
+
+  .btn--wishlist {
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    background: rgba(0,0,0,0.5) !important;
+    color: #B0B0B0 !important;
+    &:hover, &.is-wished {
+      border-color: #C9A84C !important;
+      color: #C9A84C !important;
+    }
+  }
+
+  .sticky-product-bar {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+  }
+
+  .details-slider {
+    background-color: #141414 !important;
+  }
+
+  .slide--one-fourth img {
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    border-radius: 2px !important;
+  }
+
+  .swiper-slide-thumb-active img {
+    border-color: #C9A84C !important;
+  }
+
+  // ===================== BLOG =====================
+  .post-entry,
+  .list-block {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+  }
+
+  .post-entry__image {
+    background-color: #141414 !important;
+  }
+
+  .blog-slider__slide {
+    background-color: #141414 !important;
+  }
+
+  // ===================== BRANDS =====================
+  .brand-item {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    img {
+      filter: brightness(0) invert(0.8);
+    }
+    &:hover img {
+      filter: none;
+    }
+  }
+
+  .brand-char {
+    background-color: #C9A84C !important;
+    color: #0A0A0A !important;
+  }
+
+  // ===================== CUSTOMER / PROFILE =====================
+  .profile-header,
+  .gradient-bg {
+    background: linear-gradient(135deg, #0D0D0D 0%, #141414 100%) !important;
+    border-bottom: 1px solid rgba(201,168,76,0.25) !important;
+  }
+
+  .sidebar nav {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+  }
+
+  .avatar-wrap {
+    background-color: #141414 !important;
+    border: 2px solid rgba(201,168,76,0.25) !important;
+  }
+
+  // ===================== ORDERS =====================
+  .order-item,
+  .order-table {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+  }
+
+  // ===================== LOYALTY =====================
+  .loyalty__banner {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(201,168,76,0.25) !important;
+  }
+
+  .way-item {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+  }
+
+  // ===================== MENUS =====================
+  .sub-menu,
+  .dropdown__menu {
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(201,168,76,0.25) !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4) !important;
+
+    a {
+      color: #B0B0B0 !important;
+      &:hover, &.is-active {
+        color: #C9A84C !important;
+        background-color: rgba(201,168,76,0.05) !important;
+      }
+    }
+  }
+
+  .main-menu > li > a {
+    color: #B0B0B0 !important;
+    letter-spacing: 0.04em;
+    &:hover {
+      color: #C9A84C !important;
+    }
+  }
+
+  .main-menu > li.is-active > a,
+  .main-menu > li:hover > a {
+    color: #C9A84C !important;
+  }
+
+  .menu-item {
+    color: #B0B0B0 !important;
+    &:hover {
+      color: #C9A84C !important;
+      background-color: rgba(201,168,76,0.05) !important;
+    }
+    &.is-active {
+      color: #C9A84C !important;
+    }
+  }
+
+  // ===================== MOBILE MENU =====================
+  .mm-ocd {
+    background: #0D0D0D !important;
+  }
+
+  .mm-spn {
+    background: #0D0D0D !important;
+    color: #F5F5F5 !important;
+    li {
+      border-color: rgba(255,255,255,0.05) !important;
+    }
+    a {
+      color: #B0B0B0 !important;
+      &:hover {
+        color: #C9A84C !important;
+      }
+    }
+  }
+
+  // ===================== SLIDER CONTROLS =====================
+  .swiper-button-prev,
+  .swiper-button-next {
+    background: #1A1A1A !important;
+    border: 1px solid rgba(201,168,76,0.25) !important;
+    color: #C9A84C !important;
+    border-radius: 2px !important;
+    &:hover {
+      background: #C9A84C !important;
+      color: #0A0A0A !important;
+    }
+    &::after {
+      font-size: 14px !important;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    background: #707070 !important;
+    opacity: 0.5 !important;
+    &-active {
+      background: #C9A84C !important;
+      opacity: 1 !important;
+    }
+  }
+
+  // ===================== SWEET ALERT =====================
+  .swal2-popup {
+    background: #1A1A1A !important;
+    color: #F5F5F5 !important;
+    border: 1px solid rgba(201,168,76,0.25) !important;
+  }
+  .swal2-title { color: #F5F5F5 !important; }
+  .swal2-html-container { color: #B0B0B0 !important; }
+  .swal2-confirm {
+    background: #C9A84C !important;
+    color: #0A0A0A !important;
+  }
+
+  // ===================== BREADCRUMBS =====================
+  salla-breadcrumb {
+    --breadcrumb-color: #707070;
+    --breadcrumb-active-color: #C9A84C;
+  }
+
+  // ===================== SCROLLBAR =====================
+  &::-webkit-scrollbar { width: 6px; }
+  &::-webkit-scrollbar-track { background: #0D0D0D; }
+  &::-webkit-scrollbar-thumb {
+    background: #222222;
+    border-radius: 3px;
+    &:hover { background: #A8863A; }
+  }
+
+  // ===================== SELECTION =====================
+  ::selection {
+    background: #C9A84C;
+    color: #0A0A0A;
+  }
+
+  // ===================== GENERAL UTILITIES =====================
+  .content-entry {
+    color: #B0B0B0;
+    h1, h2, h3, h4, h5, h6 { color: #F5F5F5 !important; }
+    a { color: #C9A84C !important; }
+    img { border: 1px solid rgba(255,255,255,0.05); border-radius: 2px; }
+  }
+
+  .article--main { color: #B0B0B0; }
+
+  .link--primary {
+    color: #C9A84C !important;
+    &:hover { color: #E2C670 !important; }
+  }
+
+  .rounded-icon {
+    background: rgba(201,168,76,0.15) !important;
+    color: #C9A84C !important;
+  }
+
+  // ===================== SALLA WEB COMPONENTS =====================
+  salla-product-card,
+  custom-salla-product-card {
+    --product-card-bg: #1A1A1A;
+    --card-bg: #1A1A1A;
+    background: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    border-radius: 2px !important;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    &:hover {
+      border-color: rgba(201,168,76,0.25) !important;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.15) !important;
+    }
+  }
+
+  salla-products-slider {
+    --product-card-bg: #1A1A1A;
+  }
+
+  salla-cart-summary {
+    --cart-summary-icon-color: #B0B0B0;
+    --cart-summary-count-bg: #C9A84C;
+    --cart-summary-count-color: #0A0A0A;
+  }
+
+  salla-search {
+    --search-bg: #1A1A1A;
+    --search-border: rgba(255,255,255,0.08);
+    --search-text: #F5F5F5;
+    --search-placeholder: #707070;
+    --search-result-bg: #1A1A1A;
+    --search-result-hover: #222222;
+  }
+
+  salla-slider {
+    --slider-bg: transparent;
+    --slider-nav-bg: #1A1A1A;
+    --slider-nav-color: #C9A84C;
+    --slider-nav-border: rgba(201,168,76,0.25);
+    --slider-pagination-color: #707070;
+    --slider-pagination-active: #C9A84C;
+  }
+
+  salla-button {
+    --btn-bg: #C9A84C;
+    --btn-color: #0A0A0A;
+    --btn-border: #C9A84C;
+    --btn-hover-bg: #A8863A;
+    --btn-border-radius: 2px;
+  }
+
+  salla-rating-stars {
+    --rating-color: #C9A84C;
+    --rating-empty-color: #2A2A2A;
+  }
+
+  salla-add-product-button {
+    --btn-bg: #C9A84C;
+    --btn-color: #0A0A0A;
+    --btn-hover-bg: #A8863A;
+  }
+
+  salla-quantity-input {
+    --quantity-bg: #141414;
+    --quantity-text: #F5F5F5;
+    --quantity-border: rgba(255,255,255,0.08);
+    --quantity-btn-bg: #222222;
+    --quantity-btn-color: #C9A84C;
+  }
+
+  salla-product-options {
+    --option-bg: #141414;
+    --option-text: #F5F5F5;
+    --option-border: rgba(255,255,255,0.08);
+    --option-selected-border: #C9A84C;
+    --option-selected-bg: rgba(201,168,76,0.1);
+  }
+
+  salla-filters {
+    --filter-bg: #1A1A1A;
+    --filter-text: #B0B0B0;
+    --filter-border: rgba(255,255,255,0.06);
+    --filter-active: #C9A84C;
+  }
+
+  salla-login-modal,
+  salla-modal,
+  salla-localization-modal {
+    --modal-bg: #1A1A1A;
+    --modal-text: #F5F5F5;
+    --modal-border: rgba(255,255,255,0.08);
+  }
+
+  salla-user-menu {
+    --user-menu-bg: #1A1A1A;
+    --user-menu-text: #B0B0B0;
+    --user-menu-hover: #222222;
+    --user-menu-active: #C9A84C;
+  }
+
+  salla-menu {
+    --menu-text: #B0B0B0;
+    --menu-hover: #C9A84C;
+  }
+
+  custom-main-menu {
+    --menu-text: #B0B0B0;
+    --menu-hover: #C9A84C;
+    --menu-active: #C9A84C;
+    --submenu-bg: #1A1A1A;
+    --submenu-border: rgba(201,168,76,0.25);
+  }
+
+  salla-social-share {
+    --social-bg: #222222;
+    --social-color: #B0B0B0;
+    --social-hover-color: #C9A84C;
+  }
+
+  salla-contacts {
+    --contacts-color: #707070;
+    --contacts-hover: #C9A84C;
+  }
+
+  salla-gifting {
+    --gifting-bg: #1A1A1A;
+    --gifting-border: rgba(201,168,76,0.25);
+  }
+
+  salla-infinite-scroll {
+    --loader-color: #C9A84C;
+  }
+
+  salla-comments {
+    --comment-bg: #1A1A1A;
+    --comment-text: #B0B0B0;
+    --comment-border: rgba(255,255,255,0.06);
+  }
+
+  salla-add-product-toast {
+    --toast-bg: #1A1A1A;
+    --toast-text: #F5F5F5;
+    --toast-border: rgba(201,168,76,0.25);
+  }
+
+  salla-count-down {
+    --countdown-bg: #222222;
+    --countdown-text: #F5F5F5;
+    --countdown-label: #707070;
+  }
+
+  salla-trust-badges {
+    --badge-bg: #222222;
+    --badge-border: rgba(255,255,255,0.06);
+    --badge-text: #B0B0B0;
+  }
+
+  salla-installment {
+    --installment-bg: #1A1A1A;
+    --installment-border: rgba(255,255,255,0.06);
+  }
+
+  salla-offer-modal {
+    --modal-bg: #1A1A1A;
+    --modal-text: #F5F5F5;
+  }
+
+  salla-scopes {
+    --scopes-bg: #1A1A1A;
+    --scopes-text: #F5F5F5;
+    --scopes-border: rgba(255,255,255,0.08);
+    --scopes-active: #C9A84C;
+  }
+
+  salla-loyalty {
+    --loyalty-bg: #1A1A1A;
+    --loyalty-text: #F5F5F5;
+    --loyalty-accent: #C9A84C;
+  }
+
+  salla-datetime-picker {
+    --picker-bg: #141414;
+    --picker-text: #F5F5F5;
+    --picker-border: rgba(255,255,255,0.08);
+    --picker-active: #C9A84C;
+  }
+
+  salla-tel-input {
+    --tel-bg: #141414;
+    --tel-text: #F5F5F5;
+    --tel-border: rgba(255,255,255,0.08);
+  }
+
+  salla-file-upload {
+    --upload-bg: #141414;
+    --upload-text: #B0B0B0;
+    --upload-border: rgba(255,255,255,0.08);
+    --upload-accent: #C9A84C;
+  }
+
+  salla-conditional-offer {
+    --offer-bg: #1A1A1A;
+    --offer-text: #F5F5F5;
+    --offer-border: rgba(201,168,76,0.25);
+    --offer-accent: #C9A84C;
+  }
+
+  salla-tiered-offer {
+    --offer-bg: #1A1A1A;
+    --offer-text: #F5F5F5;
+    --offer-border: rgba(201,168,76,0.25);
+  }
+
+  salla-verify {
+    --verify-bg: #1A1A1A;
+    --verify-text: #F5F5F5;
+  }
+
+  salla-user-settings {
+    --settings-bg: #1A1A1A;
+    --settings-text: #B0B0B0;
+    --settings-border: rgba(255,255,255,0.06);
+  }
+
+  salla-products-list {
+    --product-card-bg: #1A1A1A;
+    --product-card-border: rgba(255,255,255,0.05);
+  }
+
+  salla-payments {
+    --payments-bg: transparent;
+    --payments-text: #707070;
+  }
+
+  salla-apps-icons {
+    --apps-text: #707070;
+  }
+
+  salla-social {
+    --social-color: #707070;
+    --social-hover: #C9A84C;
+  }
+
+  salla-cart-item-offers {
+    --offer-text: #B0B0B0;
+    --offer-accent: #C9A84C;
+  }
+
+  // ===================== ADDITIONAL OVERRIDES =====================
+  .no-content-placeholder {
+    color: #B0B0B0;
+    i.icon { color: #707070 !important; }
+    p { color: #B0B0B0 !important; }
+  }
+
+  .btn--coupon {
+    &.has-not-coupon {
+      background: #C9A84C !important;
+      color: #0A0A0A !important;
+    }
+  }
+
+  .profile-field-item label {
+    color: #B0B0B0 !important;
+  }
+
+  .progress-bg {
+    background: #C9A84C !important;
+  }
+
+  .brands-nav__item {
+    color: #707070 !important;
+    border-color: rgba(255,255,255,0.06) !important;
+    &:hover, &.is-active {
+      color: #C9A84C !important;
+      border-color: #C9A84C !important;
+    }
+  }
+
+  .cart-options {
+    background: #1A1A1A !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+  }
+
+  hr {
+    border-color: rgba(255,255,255,0.06) !important;
+  }
+
+  .shadow-md, .shadow-lg, .shadow-sm {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4) !important;
+  }
+}

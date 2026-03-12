@@ -12,12 +12,12 @@
 <section class="s-block s-block--features container">
     <div class="grid grid-cols-2 md:grid-cols-{{ component.features|length > 4 ? 4 : component.features|length }} gap-4 md:gap-6">
         {% for feature in component.features %}
-            <div class="s-block--features__item">
-                <span class="feature-icon">
-                    <i class="{{ feature.icon ?: 'sicon-star' }}"></i>
+            <div class="s-block--features__item" style="background: var(--graphical-dark-card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--graphical-radius); padding: 1.5rem; text-align: center; transition: all 0.4s ease;">
+                <span class="feature-icon" style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: var(--graphical-gold-muted); border: 1px solid var(--graphical-gold-border); border-radius: var(--graphical-radius); margin-bottom: 1rem;">
+                    <i class="{{ feature.icon ?: 'sicon-star' }}" style="color: var(--graphical-gold); font-size: 1.25rem;"></i>
                 </span>
-                <h2>{{ feature.title }}</h2>
-                <p>{{ feature.description }}</p>
+                <h2 style="color: var(--graphical-text-primary); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.03em; margin-bottom: 0.5rem;">{{ feature.title }}</h2>
+                <p style="color: var(--graphical-text-muted); font-size: 0.8rem; line-height: 1.5;">{{ feature.description }}</p>
             </div>
         {% endfor %}
     </div>

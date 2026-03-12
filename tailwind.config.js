@@ -22,99 +22,18 @@ module.exports = {
             ],
             primary: "var(--font-main)"
         },
-        // Override default colors completely for dark luxury theme
-        colors: {
-            transparent: 'transparent',
-            current: 'currentColor',
-            // Map "white" to dark card background
-            white: '#1A1A1A',
-            // Map "black" to light text
-            black: '#F5F5F5',
-            // Dark variants
-            dark: '#0D0D0D',
-            darker: '#0A0A0A',
-            danger: '#AE0A0A',
-            // Primary = Gold
-            primary: {
-                DEFAULT: 'var(--color-primary)',
-                dark: 'var(--color-primary-d)',
-                light: 'var(--color-primary-l)',
-                reverse: 'var(--color-primary-reverse)',
-            },
-            // Gray scale — mapped to dark luxury shades
-            gray: {
-                50:  '#1A1A1A',
-                100: '#1A1A1A',
-                200: '#222222',
-                300: '#2A2A2A',
-                400: '#707070',
-                500: '#707070',
-                600: '#B0B0B0',
-                700: '#B0B0B0',
-                800: '#E0E0E0',
-                900: '#F5F5F5',
-            },
-            // Red (for errors/danger)
-            red: {
-                50:  'rgba(239,68,68,0.05)',
-                100: 'rgba(239,68,68,0.1)',
-                200: 'rgba(239,68,68,0.2)',
-                300: '#fc8181',
-                400: '#f56565',
-                500: '#ef4444',
-                600: '#e53e3e',
-                700: '#c53030',
-                800: '#9b2c2c',
-                900: '#742a2a',
-            },
-            // Green (for success)
-            green: {
-                50:  'rgba(72,187,120,0.05)',
-                100: 'rgba(72,187,120,0.1)',
-                200: 'rgba(72,187,120,0.2)',
-                300: '#68d391',
-                400: '#48bb78',
-                500: '#38a169',
-                600: '#2f855a',
-                700: '#276749',
-                800: '#22543d',
-                900: '#1c4532',
-            },
-            // Yellow/Amber (gold accents)
-            yellow: {
-                50:  'rgba(201,168,76,0.05)',
-                100: 'rgba(201,168,76,0.1)',
-                200: 'rgba(201,168,76,0.2)',
-                300: '#E2C670',
-                400: '#C9A84C',
-                500: '#C9A84C',
-                600: '#A8863A',
-                700: '#8B6E2F',
-                800: '#6E5724',
-                900: '#523F1A',
-            },
-            // Blue
-            blue: {
-                50:  'rgba(66,153,225,0.05)',
-                100: 'rgba(66,153,225,0.1)',
-                200: 'rgba(66,153,225,0.2)',
-                300: '#63b3ed',
-                400: '#4299e1',
-                500: '#3182ce',
-                600: '#2b6cb0',
-                700: '#2c5282',
-                800: '#2a4365',
-                900: '#1a365d',
-            },
-            // Border color override
-            'border-color': 'rgba(255,255,255,0.06)',
-        },
         extend    : {
             transitionTimingFunction: {
               'elastic': 'cubic-bezier(0.55, 0, 0.1, 1)',
             },
             gridTemplateColumns: {
                 'auto-fill'  : 'repeat(auto-fill, 290px)',
+            },
+            colors             : {
+                'dark'         : '#1D1F1F',
+                'darker'       : '#0E0F0F',
+                'danger'       : '#AE0A0A',
+                'primary-dark' : 'var(--color-primary-dark)'
             },
             spacing: {
               '3.75': '15px',
@@ -208,12 +127,6 @@ module.exports = {
             animation: {
                 slideUpFromBottom: 'slideUpFromBottom .6s linear',
                 slideDownFromBottom: 'slideDownFromBottom .6s linear',
-            },
-            // Border color
-            borderColor: {
-                DEFAULT: 'rgba(255,255,255,0.06)',
-                'gray-200': 'rgba(255,255,255,0.06)',
-                'gray-100': 'rgba(255,255,255,0.04)',
             },
         },
     },
