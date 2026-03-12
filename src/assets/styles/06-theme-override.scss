@@ -657,24 +657,130 @@ body.theme-graphical {
     color: #C9A84C !important;
   }
 
-  // ===================== SALLA WEB COMPONENTS =====================
-  salla-product-card,
-  custom-salla-product-card {
-    --product-card-bg: #1A1A1A;
-    --card-bg: #1A1A1A;
-    background: #1A1A1A !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
+  // ===================== FONT OVERRIDE =====================
+  &, * {
+    font-family: 'Tajawal', sans-serif !important;
+  }
+
+  // ===================== PRODUCT CARDS (Light DOM — .s-product-card-*) =====================
+  custom-salla-product-card,
+  .s-product-card-entry {
+    background: #0A0A0A !important;
+    border: 1px solid rgba(201,168,76,0.12) !important;
     border-radius: 2px !important;
     overflow: hidden;
     transition: all 0.4s ease;
     &:hover {
-      border-color: rgba(201,168,76,0.25) !important;
-      box-shadow: 0 4px 24px rgba(201,168,76,0.15) !important;
+      border-color: rgba(201,168,76,0.45) !important;
+      box-shadow: 0 8px 32px rgba(201,168,76,0.12) !important;
     }
   }
 
+  .s-product-card-image {
+    background: #111 !important;
+    position: relative;
+    overflow: hidden;
+    img { transition: transform 0.6s ease; }
+  }
+  .s-product-card-entry:hover .s-product-card-image img {
+    transform: scale(1.05);
+  }
+
+  .s-product-card-content {
+    background: #0A0A0A !important;
+    padding: 1rem !important;
+  }
+
+  .s-product-card-content-title a {
+    color: #F5F5F5 !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.03em;
+    font-size: 0.95rem !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease;
+  }
+  .s-product-card-entry:hover .s-product-card-content-title a {
+    color: #C9A84C !important;
+  }
+
+  .s-product-card-content-subtitle {
+    color: #707070 !important;
+    font-size: 0.8rem !important;
+  }
+
+  .s-product-card-price,
+  .s-product-card-sale-price h4,
+  .s-product-card-starting-price h4 {
+    color: #C9A84C !important;
+    font-weight: 700 !important;
+    font-size: 1.05rem !important;
+  }
+  .s-product-card-sale-price span {
+    color: #555 !important;
+    text-decoration: line-through;
+  }
+  .s-product-card-starting-price p { color: #707070 !important; }
+
+  .s-product-card-rating { color: #B0B0B0 !important; }
+  .s-product-card-rating .sicon-star2 { color: #C9A84C !important; }
+
+  .s-product-card-promotion-title {
+    background: #C9A84C !important;
+    color: #0A0A0A !important;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+
+  .s-product-card-quantity,
+  .s-product-card-out-badge {
+    background: rgba(0,0,0,0.7) !important;
+    color: #F5F5F5 !important;
+    backdrop-filter: blur(8px);
+  }
+
+  .s-product-card-wishlist-btn {
+    background: rgba(10,10,10,0.6) !important;
+    border: 1px solid rgba(201,168,76,0.3) !important;
+    border-radius: 50% !important;
+    backdrop-filter: blur(8px);
+    color: #C9A84C !important;
+    transition: all 0.3s ease !important;
+  }
+  .s-product-card-wishlist-btn:hover,
+  .s-product-card-wishlist-added {
+    background: #C9A84C !important;
+    color: #0A0A0A !important;
+    border-color: #C9A84C !important;
+  }
+
+  .s-product-card-content-footer {
+    border-top: 1px solid rgba(255,255,255,0.04) !important;
+    padding-top: 0.75rem !important;
+    salla-add-product-button {
+      --btn-bg: transparent;
+      --btn-color: #C9A84C;
+      --btn-border: rgba(201,168,76,0.3);
+    }
+  }
+
+  .s-product-card-full-image .s-product-card-overlay {
+    background: linear-gradient(transparent 40%, rgba(10,10,10,0.9) 100%) !important;
+  }
+
+  .s-product-card-content-pie { color: #F5F5F5 !important; }
+  .s-product-card-content-pie-svg-base { stroke: #222 !important; }
+  .s-product-card-content-pie-svg-bar { stroke: #C9A84C !important; }
+
+  // Legacy element selectors (fallback)
+  salla-product-card {
+    --product-card-bg: #0A0A0A;
+    --card-bg: #0A0A0A;
+  }
+
   salla-products-slider {
-    --product-card-bg: #1A1A1A;
+    --product-card-bg: #0A0A0A;
   }
 
   salla-cart-summary {

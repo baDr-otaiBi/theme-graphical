@@ -58,6 +58,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ theme.settings.set('placeholder', 'images/placeholder.png') }}
 
+    {# Luxury Fashion Font — Tajawal (elegant Arabic + Latin) #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+
     <script defer data-cfasync="false" crossorigin="anonymous" src="{{ 'product-card.js'|asset }}"></script>
     <script defer src="{{ 'main-menu.js'|asset }}"></script>
     {% if theme.settings.get('enable_add_product_toast', true) %}
@@ -82,8 +87,9 @@
     <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
     
     <style>
+        /* ===== GRAPHICAL THEME — CRITICAL CSS ===== */
         :root {
-            --font-main: '{{theme.font.name}}';
+            --font-main: 'Tajawal', '{{theme.font.name}}', sans-serif;
             --color-primary: {{ theme.color.primary }};
             --color-primary-dark: {{ theme.color.darker(0.15) }};
             --color-primary-light: {{ theme.color.lighter(0.15) }};
@@ -104,21 +110,187 @@
             --graphical-gold-muted: rgba(201, 168, 76, 0.15);
             --graphical-radius: 2px;
         }
+
+        /* ===== FONT ===== */
+        * { font-family: 'Tajawal', sans-serif !important; }
+
+        /* ===== BASE DARK ===== */
         html, body, #app { background-color: #0A0A0A !important; color: #F5F5F5 !important; }
+
+        /* ===== TAILWIND OVERRIDES ===== */
         .bg-white { background-color: #1A1A1A !important; }
         .bg-gray-50, .bg-gray-100 { background-color: #141414 !important; }
-        .bg-gray-200 { background-color: #222222 !important; }
+        .bg-gray-200, .bg-gray-300 { background-color: #222222 !important; }
         .text-gray-800, .text-gray-900, .text-dark, .text-black { color: #F5F5F5 !important; }
         .text-gray-700, .text-gray-600 { color: #B0B0B0 !important; }
         .text-gray-500, .text-gray-400, .text-gray-300 { color: #707070 !important; }
-        .border-gray-200, .border-gray-100 { border-color: rgba(255,255,255,0.06) !important; }
-        /* Force dark on ALL select/form elements including Salla web components */
-        select, .form-select { background-color: #141414 !important; color: #F5F5F5 !important; border-color: rgba(255,255,255,0.08) !important; }
+        .border-gray-200, .border-gray-100, .border-gray-300 { border-color: rgba(255,255,255,0.06) !important; }
+
+        /* ===== FORMS ===== */
+        select, .form-select, .form-input, input[type="text"], input[type="email"], input[type="password"], textarea {
+          background-color: #141414 !important; color: #F5F5F5 !important; border-color: rgba(255,255,255,0.08) !important;
+        }
         select option { background: #1A1A1A; color: #F5F5F5; }
+
+        /* ===== PRODUCT OPTIONS ===== */
         salla-product-options { --option-bg: #141414; --option-text: #F5F5F5; --option-border: rgba(255,255,255,0.08); --option-selected-border: {{ theme.color.primary }}; color: #F5F5F5 !important; }
-        /* Header menu z-index fix */
+
+        /* ===== HEADER ===== */
         custom-main-menu { position: relative; z-index: 30; }
         custom-main-menu .main-menu > li > a { pointer-events: auto !important; cursor: pointer !important; }
+
+        /* ===== PRODUCT CARDS — DARK MODE (Light DOM classes) ===== */
+        custom-salla-product-card,
+        .s-product-card-entry {
+          background: #0A0A0A !important;
+          border: 1px solid rgba(201,168,76,0.12) !important;
+          border-radius: 2px !important;
+          overflow: hidden;
+          transition: all 0.4s ease;
+        }
+        custom-salla-product-card:hover,
+        .s-product-card-entry:hover {
+          border-color: rgba(201,168,76,0.45) !important;
+          box-shadow: 0 8px 32px rgba(201,168,76,0.12) !important;
+        }
+
+        /* Card image */
+        .s-product-card-image {
+          background: #111 !important;
+          position: relative;
+          overflow: hidden;
+        }
+        .s-product-card-image img {
+          transition: transform 0.6s ease;
+        }
+        .s-product-card-entry:hover .s-product-card-image img {
+          transform: scale(1.05);
+        }
+
+        /* Card content area */
+        .s-product-card-content {
+          background: #0A0A0A !important;
+          padding: 1rem !important;
+        }
+
+        /* Title */
+        .s-product-card-content-title a {
+          color: #F5F5F5 !important;
+          font-weight: 500 !important;
+          letter-spacing: 0.03em !important;
+          font-size: 0.95rem !important;
+          text-decoration: none !important;
+          transition: color 0.3s ease;
+        }
+        .s-product-card-entry:hover .s-product-card-content-title a {
+          color: {{ theme.color.primary }} !important;
+        }
+
+        /* Subtitle */
+        .s-product-card-content-subtitle { color: #707070 !important; font-size: 0.8rem !important; }
+
+        /* Price */
+        .s-product-card-price,
+        .s-product-card-sale-price h4,
+        .s-product-card-starting-price h4 {
+          color: {{ theme.color.primary }} !important;
+          font-weight: 700 !important;
+          font-size: 1.05rem !important;
+          letter-spacing: 0.02em;
+        }
+        .s-product-card-sale-price span {
+          color: #555 !important;
+          text-decoration: line-through;
+          font-size: 0.8rem !important;
+        }
+        .s-product-card-starting-price p { color: #707070 !important; font-size: 0.75rem !important; }
+
+        /* Rating */
+        .s-product-card-rating { color: #B0B0B0 !important; }
+        .s-product-card-rating .sicon-star2 { color: {{ theme.color.primary }} !important; }
+
+        /* Badge/Promotion */
+        .s-product-card-promotion-title {
+          background: {{ theme.color.primary }} !important;
+          color: #0A0A0A !important;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          font-size: 0.7rem;
+          padding: 4px 12px;
+          border-radius: 0;
+        }
+
+        /* Quantity badge */
+        .s-product-card-quantity,
+        .s-product-card-out-badge {
+          background: rgba(0,0,0,0.7) !important;
+          color: #F5F5F5 !important;
+          font-size: 0.75rem;
+          padding: 4px 10px;
+          backdrop-filter: blur(8px);
+        }
+
+        /* Wishlist button */
+        .s-product-card-wishlist-btn {
+          background: rgba(10,10,10,0.6) !important;
+          border: 1px solid rgba(201,168,76,0.3) !important;
+          border-radius: 50% !important;
+          backdrop-filter: blur(8px);
+          color: {{ theme.color.primary }} !important;
+          transition: all 0.3s ease !important;
+        }
+        .s-product-card-wishlist-btn:hover,
+        .s-product-card-wishlist-added {
+          background: {{ theme.color.primary }} !important;
+          color: #0A0A0A !important;
+          border-color: {{ theme.color.primary }} !important;
+        }
+
+        /* Add to cart button */
+        .s-product-card-content-footer {
+          border-top: 1px solid rgba(255,255,255,0.04) !important;
+          padding-top: 0.75rem !important;
+          margin-top: 0.5rem !important;
+        }
+        .s-product-card-content-footer salla-add-product-button {
+          --btn-bg: transparent;
+          --btn-color: {{ theme.color.primary }};
+          --btn-border: rgba(201,168,76,0.3);
+          --btn-hover-bg: {{ theme.color.primary }};
+          --btn-hover-color: #0A0A0A;
+        }
+
+        /* Full image card */
+        .s-product-card-full-image .s-product-card-overlay {
+          background: linear-gradient(transparent 40%, rgba(10,10,10,0.9) 100%) !important;
+        }
+
+        /* Special card pie */
+        .s-product-card-content-pie { color: #F5F5F5 !important; }
+        .s-product-card-content-pie-svg-base { stroke: #222 !important; }
+        .s-product-card-content-pie-svg-bar { stroke: {{ theme.color.primary }} !important; }
+
+        /* Horizontal card */
+        .s-product-card-horizontal { background: #0D0D0D !important; }
+
+        /* ===== HERO BANNER GLASS ===== */
+        .overlay-bg::after {
+          content: '' !important;
+          position: absolute !important;
+          inset: 0 !important;
+          background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.75) 100%) !important;
+          backdrop-filter: blur(2px) !important;
+          pointer-events: none !important;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .s-block__title h2 {
+          color: #F5F5F5 !important;
+          font-weight: 300 !important;
+          letter-spacing: 0.08em !important;
+          text-transform: uppercase !important;
+        }
     </style>
     {% hook 'head:end' %}
 </head>

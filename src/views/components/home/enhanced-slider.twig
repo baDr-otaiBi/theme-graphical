@@ -18,18 +18,26 @@
       type="fullwidth">
         <div slot="items">
             {% for slide in component.slides %}
-                <div class="swiper-slide w-full min-h-[400px] lg:min-h-[600px] relative" style="background: var(--graphical-black)">
-					<div style="background-image: url({{ slide.image }});" class="{{ slide.without_overlay ? '' : 'overlay-bg' }} bg-cover bg-center absolute inset-0"></div>
-                    <div class="flex-center container pb-16 sm:pb-0 home-slider__content relative h-full">
+                <div class="swiper-slide w-full min-h-[450px] lg:min-h-[650px] relative" style="background: #050505;">
+                    {# Background image #}
+                    <div style="background-image: url({{ slide.image }});" class="bg-cover bg-center absolute inset-0" aria-hidden="true"></div>
+
+                    {# Glass dark overlay #}
+                    <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.85) 100%); backdrop-filter: blur(1px);" aria-hidden="true"></div>
+
+                    {# Content #}
+                    <div class="flex-center container pb-16 sm:pb-0 home-slider__content relative h-full" style="z-index: 2;">
                         <div class="w-5/6 text-center md:w-7/12 lg:w-5/12 text-white">
                             {% if slide.title %}
-                            <h2 data-swiper-parallax="-500" class="text-2xl lg:text-4xl xl:text-5xl font-light leading-tight mb-5" style="letter-spacing: 0.06em; text-transform: uppercase;">{{ slide.title }}</h2>
+                            <h2 data-swiper-parallax="-500" class="text-2xl lg:text-4xl xl:text-5xl leading-tight mb-5" style="letter-spacing: 0.12em; text-transform: uppercase; font-weight: 200; text-shadow: 0 2px 20px rgba(0,0,0,0.5);">{{ slide.title }}</h2>
+                            {# Gold accent line #}
+                            <div data-swiper-parallax="-400" style="width: 60px; height: 2px; background: var(--graphical-gold); margin: 0 auto 1.5rem;"></div>
                             {% endif %}
                             {% if slide.description %}
-                            <p data-swiper-parallax="-300" class="line-clamp-2 description text-sm lg:text-base" style="color: rgba(255,255,255,0.7); letter-spacing: 0.04em;">{{ slide.description }}</p>
+                            <p data-swiper-parallax="-300" class="line-clamp-2 description text-sm lg:text-base" style="color: rgba(255,255,255,0.6); letter-spacing: 0.05em; font-weight: 300;">{{ slide.description }}</p>
                             {% endif %}
                             {% if slide.link %}
-                            <a href="{{ slide.link }}" data-swiper-parallax="-200" class="inline-block mt-8 px-8 py-3 text-sm font-bold uppercase tracking-widest" style="border: 1px solid var(--graphical-gold); color: var(--graphical-gold); transition: all 0.3s ease;" onmouseover="this.style.background='var(--graphical-gold)';this.style.color='var(--graphical-black)'" onmouseout="this.style.background='transparent';this.style.color='var(--graphical-gold)'">
+                            <a href="{{ slide.link }}" data-swiper-parallax="-200" class="inline-block mt-8 px-10 py-3.5 text-sm uppercase" style="letter-spacing: 0.15em; font-weight: 500; border: 1px solid var(--graphical-gold); color: var(--graphical-gold); background: rgba(201,168,76,0.08); backdrop-filter: blur(10px); transition: all 0.4s ease;" onmouseover="this.style.background='var(--graphical-gold)';this.style.color='#0A0A0A';this.style.borderColor='var(--graphical-gold)'" onmouseout="this.style.background='rgba(201,168,76,0.08)';this.style.color='var(--graphical-gold)';this.style.borderColor='var(--graphical-gold)'">
                                 {{ trans('common.elements.shop_now') }}
                             </a>
                             {% endif %}

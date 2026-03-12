@@ -80,7 +80,8 @@
     .overlay-bg{
       &:after{
         @apply content-[''] absolute top-0 w-full h-full;
-        background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+        background: linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.85) 100%);
+        backdrop-filter: blur(1px);
       }
     }
   }
