@@ -14,20 +14,21 @@ input[type="date"],
 textarea,
 select {
   @apply w-full px-4 py-3 text-sm;
-  background: var(--graphical-dark-surface);
-  color: var(--graphical-text-primary);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--graphical-radius);
+  background: #141414 !important;
+  background-color: #141414 !important;
+  color: #F5F5F5 !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 2px !important;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   outline: none;
 
   &::placeholder {
-    color: var(--graphical-text-muted);
+    color: #707070;
   }
 
   &:focus {
-    border-color: var(--graphical-gold);
-    box-shadow: 0 0 0 2px var(--graphical-gold-muted);
+    border-color: #C9A84C !important;
+    box-shadow: 0 0 0 2px rgba(201,168,76,0.15) !important;
   }
 
   &:disabled {

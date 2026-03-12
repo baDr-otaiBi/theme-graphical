@@ -2,200 +2,393 @@
 // Graphical — Common Styles (Dark Luxury)
 // ========================================
 
+// ==========================================
+// GLOBAL BODY OVERRIDE
+// ==========================================
+html {
+  background-color: #0A0A0A !important;
+}
+
 body {
-  background-color: var(--graphical-black);
-  color: var(--graphical-text-primary);
+  background-color: #0A0A0A !important;
+  color: #F5F5F5 !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-// Override light backgrounds globally
-.bg-white {
-  background-color: var(--graphical-dark-card) !important;
+#app {
+  background-color: #0A0A0A !important;
 }
 
-.bg-gray-50,
-.bg-gray-100 {
-  background-color: var(--graphical-dark-surface) !important;
-}
+// ==========================================
+// SALLA WEB COMPONENTS — CSS Variables Override
+// These override Shadow DOM styles via CSS custom properties
+// ==========================================
 
-.bg-gray-200 {
-  background-color: var(--graphical-dark-elevated) !important;
-}
+// Product Card (salla-product-card)
+salla-product-card,
+custom-salla-product-card {
+  --product-card-bg: #1A1A1A !important;
+  --product-card-shadow: none !important;
+  --product-card-border-radius: 2px !important;
+  --card-bg: #1A1A1A !important;
+  --card-shadow: none !important;
+  --card-border-radius: 2px !important;
+  background: #1A1A1A !important;
+  border: 1px solid rgba(255,255,255,0.05) !important;
+  border-radius: 2px !important;
+  overflow: hidden;
+  transition: all 0.4s ease;
 
-// Dark surface utility
-.bg-dark,
-.bg-darker {
-  background-color: var(--graphical-dark) !important;
-}
-
-// Text color overrides
-.text-gray-800,
-.text-gray-900,
-.text-dark,
-.text-black {
-  color: var(--graphical-text-primary) !important;
-}
-
-.text-gray-700,
-.text-gray-600 {
-  color: var(--graphical-text-secondary) !important;
-}
-
-.text-gray-500,
-.text-gray-400 {
-  color: var(--graphical-text-muted) !important;
-}
-
-.text-primary {
-  color: var(--graphical-gold) !important;
-}
-
-// Border overrides
-.border-gray-200,
-.border-gray-100 {
-  border-color: rgba(255,255,255,0.06) !important;
-}
-
-.border-gray-300 {
-  border-color: rgba(255,255,255,0.1) !important;
-}
-
-// Shadow overrides
-.shadow-default,
-.shadow-sm,
-.shadow-md {
-  box-shadow: var(--graphical-shadow) !important;
-}
-
-// Gradient background
-.gradient-bg {
-  background: linear-gradient(135deg, var(--graphical-dark) 0%, var(--graphical-dark-surface) 100%);
-  min-height: 180px;
-}
-
-// Breadcrumbs
-.breadcrumbs {
-  salla-breadcrumb {
-    --breadcrumb-color: var(--graphical-text-muted);
-    --breadcrumb-active-color: var(--graphical-gold);
+  &:hover {
+    border-color: rgba(201,168,76,0.25) !important;
+    box-shadow: 0 4px 24px rgba(201, 168, 76, 0.15) !important;
   }
 }
 
-// Selection
-::selection {
-  background: var(--graphical-gold);
-  color: var(--graphical-black);
+// Product list
+salla-products-list {
+  --product-card-bg: #1A1A1A;
+  --product-card-shadow: none;
 }
 
-// Scrollbar
+// Cart Summary
+salla-cart-summary {
+  --cart-summary-icon-color: #B0B0B0;
+  --cart-summary-total-color: #F5F5F5;
+  --cart-summary-count-bg: #C9A84C;
+  --cart-summary-count-color: #0A0A0A;
+}
+
+// Search
+salla-search {
+  --search-bg: #1A1A1A;
+  --search-border: rgba(255,255,255,0.08);
+  --search-text: #F5F5F5;
+  --search-placeholder: #707070;
+  --search-result-bg: #1A1A1A;
+  --search-result-hover: #222222;
+}
+
+// Login Modal
+salla-login-modal {
+  --modal-bg: #1A1A1A;
+  --modal-text: #F5F5F5;
+  --modal-border: rgba(255,255,255,0.08);
+}
+
+// Slider
+salla-slider {
+  --slider-bg: transparent;
+  --slider-nav-bg: #1A1A1A;
+  --slider-nav-color: #C9A84C;
+  --slider-nav-border: rgba(201,168,76,0.25);
+  --slider-pagination-color: #707070;
+  --slider-pagination-active: #C9A84C;
+}
+
+// Products Slider
+salla-products-slider {
+  --product-card-bg: #1A1A1A;
+  --product-card-shadow: none;
+  --slider-nav-bg: #1A1A1A;
+  --slider-nav-color: #C9A84C;
+}
+
+// Breadcrumb
+salla-breadcrumb {
+  --breadcrumb-color: #707070;
+  --breadcrumb-active-color: #C9A84C;
+  --breadcrumb-separator-color: #707070;
+}
+
+// User Menu
+salla-user-menu {
+  --user-menu-bg: #1A1A1A;
+  --user-menu-text: #B0B0B0;
+  --user-menu-hover: #222222;
+  --user-menu-active: #C9A84C;
+  --user-menu-border: rgba(255,255,255,0.06);
+}
+
+// Rating Stars
+salla-rating-stars {
+  --rating-color: #C9A84C;
+  --rating-empty-color: #2A2A2A;
+}
+
+// Add Product Button
+salla-add-product-button {
+  --btn-bg: #C9A84C;
+  --btn-color: #0A0A0A;
+  --btn-hover-bg: #A8863A;
+  --btn-border-radius: 2px;
+}
+
+// Quantity Input
+salla-quantity-input {
+  --quantity-bg: #141414;
+  --quantity-text: #F5F5F5;
+  --quantity-border: rgba(255,255,255,0.08);
+  --quantity-btn-bg: #222222;
+  --quantity-btn-color: #C9A84C;
+}
+
+// Product Options
+salla-product-options {
+  --option-bg: #141414;
+  --option-text: #F5F5F5;
+  --option-border: rgba(255,255,255,0.08);
+  --option-selected-border: #C9A84C;
+  --option-selected-bg: rgba(201,168,76,0.1);
+}
+
+// Filters
+salla-filters {
+  --filter-bg: #1A1A1A;
+  --filter-text: #B0B0B0;
+  --filter-border: rgba(255,255,255,0.06);
+  --filter-active: #C9A84C;
+  --filter-checkbox-border: rgba(255,255,255,0.1);
+  --filter-checkbox-checked: #C9A84C;
+}
+
+// Modal (generic)
+salla-modal {
+  --modal-bg: #1A1A1A;
+  --modal-text: #F5F5F5;
+  --modal-header-border: rgba(255,255,255,0.06);
+}
+
+// Social share
+salla-social-share {
+  --social-bg: #222222;
+  --social-color: #B0B0B0;
+  --social-hover-color: #C9A84C;
+}
+
+// Infinite scroll
+salla-infinite-scroll {
+  --loader-color: #C9A84C;
+}
+
+// Menu
+salla-menu {
+  --menu-text: #B0B0B0;
+  --menu-hover: #C9A84C;
+  --menu-border: rgba(255,255,255,0.06);
+}
+
+custom-main-menu {
+  --menu-text: #B0B0B0;
+  --menu-hover: #C9A84C;
+  --menu-active: #C9A84C;
+  --menu-border: rgba(255,255,255,0.06);
+  --submenu-bg: #1A1A1A;
+  --submenu-border: rgba(201,168,76,0.25);
+  --submenu-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+// Button (salla-button)
+salla-button {
+  --btn-bg: #C9A84C;
+  --btn-color: #0A0A0A;
+  --btn-border: #C9A84C;
+  --btn-hover-bg: #A8863A;
+  --btn-border-radius: 2px;
+}
+
+// Offer Modal
+salla-offer-modal {
+  --modal-bg: #1A1A1A;
+}
+
+// Comments
+salla-comments {
+  --comment-bg: #1A1A1A;
+  --comment-text: #B0B0B0;
+  --comment-border: rgba(255,255,255,0.06);
+}
+
+// Trust Badges
+salla-trust-badges {
+  --badge-bg: #222222;
+  --badge-border: rgba(255,255,255,0.06);
+  --badge-text: #B0B0B0;
+}
+
+// Contacts
+salla-contacts {
+  --contacts-color: #707070;
+  --contacts-hover: #C9A84C;
+}
+
+// Gifting
+salla-gifting {
+  --gifting-bg: #1A1A1A;
+  --gifting-border: rgba(201,168,76,0.25);
+  --gifting-text: #B0B0B0;
+}
+
+// Quick Order
+salla-quick-order {
+  --quick-order-bg: #1A1A1A;
+  --quick-order-border: rgba(255,255,255,0.06);
+  --quick-order-text: #B0B0B0;
+}
+
+// Installment
+salla-installment {
+  --installment-bg: #1A1A1A;
+  --installment-border: rgba(255,255,255,0.06);
+  --installment-text: #B0B0B0;
+}
+
+// Scopes
+salla-scopes {
+  --scope-bg: #1A1A1A;
+  --scope-text: #B0B0B0;
+  --scope-border: rgba(255,255,255,0.06);
+}
+
+// Count Down
+salla-count-down {
+  --countdown-bg: #222222;
+  --countdown-text: #F5F5F5;
+  --countdown-label: #707070;
+  --countdown-border: rgba(201,168,76,0.25);
+}
+
+// Add product toast
+salla-add-product-toast {
+  --toast-bg: #1A1A1A;
+  --toast-text: #F5F5F5;
+  --toast-border: rgba(201,168,76,0.25);
+}
+
+// Payments
+salla-payments {
+  --payment-icon-filter: brightness(0.8) invert(0.2);
+}
+
+// Localization modal
+salla-localization-modal {
+  --modal-bg: #1A1A1A;
+  --modal-text: #F5F5F5;
+}
+
+// ==========================================
+// SELECTION
+// ==========================================
+::selection {
+  background: #C9A84C;
+  color: #0A0A0A;
+}
+
+// ==========================================
+// SCROLLBAR — Slim dark
+// ==========================================
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--graphical-dark);
+  background: #0D0D0D;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--graphical-dark-elevated);
+  background: #222222;
   border-radius: 3px;
   &:hover {
-    background: var(--graphical-gold-dark);
+    background: #A8863A;
   }
 }
 
-// Center between utility
+// ==========================================
+// UTILITY CLASSES
+// ==========================================
 .center-between {
   @apply flex justify-between items-center;
 }
 
-// Rounded icon utility
 .rounded-icon {
   @apply flex items-center justify-center rounded-full w-10 h-10;
-  background: var(--graphical-gold-muted);
-  color: var(--graphical-gold);
+  background: rgba(201,168,76,0.15);
+  color: #C9A84C;
 }
 
-// Profile header
+.gradient-bg {
+  background: linear-gradient(135deg, #0D0D0D 0%, #141414 100%) !important;
+  min-height: 180px;
+}
+
 .profile-header {
   min-height: 180px;
-  background: linear-gradient(135deg, var(--graphical-dark) 0%, var(--graphical-dark-surface) 100%);
-  border-bottom: 1px solid var(--graphical-gold-border);
+  background: linear-gradient(135deg, #0D0D0D 0%, #141414 100%) !important;
+  border-bottom: 1px solid rgba(201,168,76,0.25);
 }
 
-// Content entry
 .content-entry {
-  color: var(--graphical-text-secondary);
+  color: #B0B0B0;
   line-height: 1.8;
-  
+
   h1, h2, h3, h4, h5, h6 {
-    color: var(--graphical-text-primary);
+    color: #F5F5F5 !important;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
   }
 
   a {
-    color: var(--graphical-gold);
+    color: #C9A84C !important;
     &:hover {
-      color: var(--graphical-gold-light);
+      color: #E2C670 !important;
     }
   }
 
   img {
-    border-radius: var(--graphical-radius);
+    border-radius: 2px;
     border: 1px solid rgba(255,255,255,0.05);
   }
 }
 
-// Article
 .article--main {
-  color: var(--graphical-text-secondary);
+  color: #B0B0B0;
   line-height: 1.8;
 }
 
-// No content placeholder
 .no-content-placeholder {
   @apply flex flex-col items-center justify-center py-16;
-  color: var(--graphical-text-muted);
+  color: #707070;
 
   .icon {
     @apply text-5xl mb-4;
-    color: var(--graphical-text-muted);
-  }
-
-  p {
-    color: var(--graphical-text-muted);
+    color: #707070;
   }
 }
 
-// Link styles
 .link--primary {
-  color: var(--graphical-gold);
+  color: #C9A84C !important;
   transition: color 0.3s ease;
   &:hover {
-    color: var(--graphical-gold-light);
+    color: #E2C670 !important;
   }
 }
 
-// Thankyou block
 .thankyou-block {
-  @apply duration-500 flex-1 p-8 rounded-md mb-6 md:mb-10 flex flex-col items-center justify-center;
-  background: var(--graphical-dark-card);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: var(--graphical-radius);
+  @apply duration-500 flex-1 p-8 mb-6 md:mb-10 flex flex-col items-center justify-center;
+  background: #1A1A1A !important;
+  border: 1px solid rgba(255,255,255,0.05) !important;
+  border-radius: 2px !important;
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: var(--graphical-gold-border);
-    box-shadow: var(--graphical-shadow-gold);
+    border-color: rgba(201,168,76,0.25) !important;
+    box-shadow: 0 4px 24px rgba(201, 168, 76, 0.15) !important;
   }
 }
 
-// Fix align utility
 .fix-align {
   vertical-align: middle;
 }
 
-// Hide scroll
 .hide-scroll {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -204,14 +397,49 @@ body {
   }
 }
 
-// Flip-x utility
 .flip-x {
   transform: scaleX(-1);
 }
 
-// Unicode text
 .text-unicode,
 .unicode {
   direction: ltr;
   unicode-bidi: embed;
+}
+
+// ==========================================
+// GLOBAL OVERRIDES — catch any remaining light elements
+// ==========================================
+// Override any remaining bg-white that Tailwind or Salla injects
+[class*="bg-white"] {
+  background-color: #1A1A1A !important;
+}
+
+// Override light borders from any source
+.border,
+[class*="border-gray"] {
+  border-color: rgba(255,255,255,0.06) !important;
+}
+
+// Shadow overrides
+[class*="shadow-default"],
+[class*="shadow-sm"],
+[class*="shadow-md"] {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+// Make sure all cards/containers are dark
+.rounded-md,
+.rounded-lg {
+  border-radius: 2px !important;
+}
+
+// Override hover:bg-gray utilities
+[class*="hover\\:bg-gray"]:hover {
+  background-color: #2A2A2A !important;
+}
+
+// Override opacity utilities on gray backgrounds
+[class*="bg-gray-200\\/"] {
+  background-color: rgba(34,34,34,0.3) !important;
 }

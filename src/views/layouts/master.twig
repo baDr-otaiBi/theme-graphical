@@ -91,11 +91,31 @@
             --graphical-gold: {{ theme.color.primary }};
             --graphical-gold-dark: {{ theme.color.darker(0.15) }};
             --graphical-gold-light: {{ theme.color.lighter(0.15) }};
+            --graphical-black: #0A0A0A;
+            --graphical-dark: #0D0D0D;
+            --graphical-dark-surface: #141414;
+            --graphical-dark-card: #1A1A1A;
+            --graphical-dark-elevated: #222222;
+            --graphical-dark-hover: #2A2A2A;
+            --graphical-text-primary: #F5F5F5;
+            --graphical-text-secondary: #B0B0B0;
+            --graphical-text-muted: #707070;
+            --graphical-gold-border: rgba(201, 168, 76, 0.25);
+            --graphical-gold-muted: rgba(201, 168, 76, 0.15);
+            --graphical-radius: 2px;
         }
+        html, body, #app { background-color: #0A0A0A !important; color: #F5F5F5 !important; }
+        .bg-white { background-color: #1A1A1A !important; }
+        .bg-gray-50, .bg-gray-100 { background-color: #141414 !important; }
+        .bg-gray-200 { background-color: #222222 !important; }
+        .text-gray-800, .text-gray-900, .text-dark, .text-black { color: #F5F5F5 !important; }
+        .text-gray-700, .text-gray-600 { color: #B0B0B0 !important; }
+        .text-gray-500, .text-gray-400, .text-gray-300 { color: #707070 !important; }
+        .border-gray-200, .border-gray-100 { border-color: rgba(255,255,255,0.06) !important; }
     </style>
     {% hook 'head:end' %}
 </head>
-<body id="app" class="theme-graphical overflow-x-hidden topnav-is-dark
+<body id="app" style="background-color: #0A0A0A !important; color: #F5F5F5 !important;" class="theme-graphical overflow-x-hidden topnav-is-dark
   {{ theme.settings.get('sticky_add_to_cart') ? ' is-sticky-product-bar' : '' }}
   ">
 <noscript>

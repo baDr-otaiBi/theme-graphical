@@ -4,22 +4,24 @@
 
 .store-footer {
   @apply relative mt-0;
-  background: var(--graphical-black);
-  color: var(--graphical-text-secondary);
+  background: #0A0A0A !important;
+  background-color: #0A0A0A !important;
+  color: #B0B0B0;
 
   a {
     transition: color 0.3s ease;
     &:hover {
-      color: var(--graphical-gold) !important;
+      color: #C9A84C !important;
       opacity: 1;
     }
   }
 
   &__inner {
     @apply py-12 lg:py-20;
-    background: var(--graphical-dark);
-    border-top: 1px solid var(--graphical-gold-border);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: #0D0D0D !important;
+    background-color: #0D0D0D !important;
+    border-top: 1px solid rgba(201,168,76,0.25) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
   }
 
   h3 {
