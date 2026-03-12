@@ -81,7 +81,10 @@
       &:after{
         @apply content-[''] absolute top-0 w-full h-full;
         background: linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.85) 100%);
-        backdrop-filter: blur(1px);
+
+        @supports (backdrop-filter: blur(1px)) {
+          backdrop-filter: blur(1px);
+        }
       }
     }
   }

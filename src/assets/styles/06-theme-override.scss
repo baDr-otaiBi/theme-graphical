@@ -659,7 +659,7 @@ body.theme-graphical {
 
   // ===================== FONT OVERRIDE =====================
   &, * {
-    font-family: 'Tajawal', sans-serif !important;
+    font-family: var(--font-main);
   }
 
   // ===================== PRODUCT CARDS (Light DOM — .s-product-card-*) =====================
